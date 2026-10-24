@@ -15,8 +15,19 @@
    "provider": "Claude Platform on AWS"
   },
   "rating": 2,
-  "ratedAt": "2026-10-24T20:43:54.966Z",
-  "score": 85
+  "ratedAt": "2026-10-24T21:29:47.473Z",
+  "score": 87,
+  "criteria": {
+   "originality": 4,
+   "weaving": 4,
+   "characters": 5,
+   "laughs": 4,
+   "voices": 5,
+   "craft": 4
+  },
+  "synopsisScore": 86,
+  "sceneScore": 86,
+  "suggestedScore": 86
  },
  {
   "id": "x-ai-grok-4-5-20261024-210045",
