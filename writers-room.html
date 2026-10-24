@@ -158,12 +158,29 @@
     }
 
     // ---------- Unlock ----------
-    async function checkToken() {
+    // The repo's own "permissions" field describes the account, not the token, so on unlock
+    // probe both write permissions with requests GitHub is guaranteed to reject harmlessly:
+    // a file save with an impossible sha, and a run request with an input that doesn't exist.
+    async function checkToken(probe = false) {
       const res = await gh('');
       if (res.status === 401) throw new Error("GitHub didn't accept that token. Check that you copied all of it.");
       if (!res.ok) throw new Error(`That token can't see the seinbench repo (GitHub said ${res.status}).`);
-      const repo = await res.json();
-      if (!repo.permissions?.push) throw new Error('That token is read-only. Set Contents and Actions to "Read and write".');
+      if (!probe) return;
+
+      const missing = [];
+      const save = await gh('/contents/data/episodes.json', {
+        method: 'PUT',
+        body: JSON.stringify({ message: 'permission probe', branch: 'main', sha: '0'.repeat(40), content: b64enc('probe') }),
+      });
+      if (save.status === 403 || save.status === 404) missing.push('Contents');
+      const run = await gh('/actions/workflows/make-episode.yml/dispatches', {
+        method: 'POST',
+        body: JSON.stringify({ ref: 'main', inputs: { model_id: 'x', permission_probe: '1' } }),
+      });
+      if (run.status === 403 || run.status === 404) missing.push('Actions');
+      if (missing.length) {
+        throw new Error(`That token can't change seinbench yet. On GitHub, edit the token: choose "Only select repositories" → seinbench, then set ${missing.join(' and ')} to "Read and write".`);
+      }
     }
 
     $('#unlock-form').addEventListener('submit', async (ev) => {
@@ -172,7 +189,7 @@
       err.textContent = '';
       token = $('#token').value.trim();
       try {
-        await checkToken();
+        await checkToken(true);
         store.set(TOKEN_KEY, token);
         $('#token').value = '';
         await openRoom();
