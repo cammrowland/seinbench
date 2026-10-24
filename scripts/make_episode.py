@@ -55,7 +55,7 @@ def generate(model_id):
 
     if "error" in data:
         sys.exit(f"OpenRouter error: {json.dumps(data['error'])[:500]}")
-    text = (data["choices"][0]["message"].get("content") or "").strip()
+    text, repeated = collapse_repeat((data["choices"][0]["message"].get("content") or "").strip())
     if not text:
         sys.exit("The model returned an empty episode. Even 'The Pilot' had words.")
 
@@ -73,12 +73,25 @@ def generate(model_id):
             "outputTokens": usage.get("completion_tokens"),
             "cost": usage.get("cost"),
             "provider": data.get("provider"),
+            "repeatCollapsed": repeated,
         },
         "rating": None,
         "ratedAt": None,
     }
     NEW_FILE.write_text(json.dumps(episode, indent=1) + "\n")
     print(f"Wrote '{episode['title']}' with {model_id} in {seconds}s.")
+
+
+def collapse_repeat(text):
+    """Providers occasionally deliver the whole reply twice, back to back. Keep one copy.
+
+    Only an exact duplicate counts; a model that genuinely writes two versions is left alone.
+    """
+    half = len(text) // 2
+    first, second = text[:half].strip(), text[half:].strip()
+    if len(text) % 2 == 0 and first and first == second:
+        return first, True
+    return text, False
 
 
 def parse(text):
@@ -88,7 +101,7 @@ def parse(text):
                    lambda m: m.group(1).upper() + ": ", text, flags=re.M | re.I)
     title = re.search(r"TITLE\s*:\s*(.+)", clean)
     synopsis = re.search(r"SYNOPSIS\s*:\s*(.+?)(?=\n\s*SCENE\s*:|\Z)", clean, re.S)
-    scene = re.search(r"SCENE\s*:\s*\n?(.*)", clean, re.S)
+    scene = re.search(r"SCENE\s*:\s*\n?(.*?)(?=TITLE\s*:|\Z)", clean, re.S)  # stop at a second episode
     return {
         "title": title.group(1).strip().strip("*\"") if title else "Untitled (The Show About Nothing)",
         "synopsis": synopsis.group(1).strip() if synopsis else "",
