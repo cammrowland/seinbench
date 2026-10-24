@@ -1,0 +1,50 @@
+name: Make episode
+run-name: Episode for ${{ inputs.model_id }}
+
+# Started from the Writers' Room page (or the Actions tab). One paid OpenRouter call.
+on:
+  workflow_dispatch:
+    inputs:
+      model_id:
+        description: "OpenRouter model id, e.g. openai/gpt-5"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  write:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      MODEL_ID: ${{ inputs.model_id }}
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Write the episode
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: python3 scripts/make_episode.py generate "$MODEL_ID"
+
+      - name: Save it as unrated
+        run: |
+          git config user.name "SeinBench Bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for i in 1 2 3 4 5; do
+            git fetch origin main && git reset --hard origin/main
+            python3 scripts/make_episode.py add
+            git add data/episodes.json
+            git commit -m "New unrated episode: $MODEL_ID"
+            git push && exit 0
+            sleep $((i * 3))
+          done
+          exit 1
+
+  deploy:
+    needs: write
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    uses: ./.github/workflows/deploy.yml

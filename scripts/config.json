@@ -1,0 +1,31 @@
+{
+  "site_url": "https://cammrowland.github.io/seinbench/",
+  "email_to": "cammrowland@gmail.com",
+
+  "_major_labs": "A new model counts as a 'major release' only if its OpenRouter id starts with one of these labs.",
+  "major_labs": {
+    "openai": "OpenAI",
+    "anthropic": "Anthropic",
+    "google": "Google",
+    "meta-llama": "Meta",
+    "meta": "Meta",
+    "x-ai": "xAI",
+    "mistralai": "Mistral",
+    "deepseek": "DeepSeek",
+    "qwen": "Qwen",
+    "moonshotai": "Moonshot",
+    "z-ai": "Z.ai"
+  },
+
+  "_minor_tokens": "Ids containing any of these words are treated as side models, not major releases.",
+  "minor_tokens": ["flash", "flashx", "lite", "nano", "mini", "banana", "omni", "exp", "batch", "contributor", "distill", "guard", "embed", "embedding", "moderation", "tts", "audio", "search", "image", "vl", "ocr", "realtime", "transcribe"],
+
+  "_min_params_b": "Ids that name a parameter count below this (e.g. '-8b') are treated as small side models.",
+  "min_params_b": 30,
+
+  "_new_window_days": "Only models OpenRouter says were created within this many days can trigger an email.",
+  "new_window_days": 30,
+
+  "_suggest_window_days": "How far back the private page's 'suggested' list goes.",
+  "suggest_window_days": 120
+}

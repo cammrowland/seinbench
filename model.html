@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SeinBench Model Report</title>
+  <meta name="description" content="One AI model's original Seinfeld episode, and the verdict.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Courier+Prime:wght@400;700&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:ital,wght@0,400;0,600;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥨</text></svg>">
+</head>
+<body>
+  <header class="site-header" id="site-header"></header>
+
+  <main class="wrap" id="main">
+    <a class="crumb" href="index.html">← Back to the leaderboard</a>
+    <div id="content"><div class="empty">Loading the episode…</div></div>
+  </main>
+
+  <footer class="site-footer" id="site-footer"></footer>
+
+  <script src="assets/common.js"></script>
+  <script>
+    SB.chrome('');
+
+    // Automated checks are for flavor only. They never touch the score.
+    function checks(e) {
+      const text = `${e.synopsis}\n${e.scene}`;
+      const syn = e.synopsis.toLowerCase();
+      const has = (re) => re.test(text);
+      return [
+        ['All four leads in the synopsis', ['jerry', 'george', 'elaine', 'kramer'].every((n) => syn.includes(n)), true],
+        ['Newman appears', has(/newman/i), true],
+        ['Hugging detected', has(/\bhug(s|ged|ging)?\b/i), false],
+        ['Lessons learned', has(/\b(learn(ed|s)?|lesson)\b/i), false],
+      ];
+    }
+
+    function episodeHtml(e, i) {
+      const s = e.stats || {};
+      const rows = checks(e).map(([label, value, good]) =>
+        `<li><span>${label}</span><span class="${value === good ? 'ok' : 'bad'}">${value ? 'Yes' : 'No'}</span></li>`).join('');
+      return `
+        <div class="episode-layout">
+          <article>
+            <div class="listing">
+              <div class="label">${i === 0 ? 'Episode under evaluation' : 'Earlier attempt'} · ${SB.esc(SB.fmtDate(e.createdAt))}</div>
+              <h2>“${SB.esc(e.title)}”</h2>
+              <p class="synopsis">${SB.esc(e.synopsis) || '<em>The model skipped the synopsis. Bold.</em>'}</p>
+            </div>
+            <div class="teleplay">
+              <div class="sp-label">Example scene</div>
+              ${SB.renderScene(e.scene)}
+            </div>
+          </article>
+          <aside class="run-card">
+            <div class="card">
+              <h3>Verdict</h3>
+              ${SB.badge(e.rating, true)}
+              <p class="fine">${e.rating ? SB.esc(SB.tier(e.rating).desc) : 'The judge has not ruled yet.'}</p>
+            </div>
+            <div class="card">
+              <h3>Run card</h3>
+              <dl>
+                <dt>Output tokens</dt><dd>${s.outputTokens ?? '—'}</dd>
+                <dt>Wall time</dt><dd>${s.seconds != null ? `${s.seconds}s` : '—'}</dd>
+                <dt>Cost</dt><dd>${SB.fmtCost(s.cost)}</dd>
+                <dt>Provider</dt><dd>${SB.esc(s.provider || '—')}</dd>
+                <dt>Temperature</dt><dd>1.0</dd>
+                <dt>Attempts</dt><dd>1 (no soup)</dd>
+              </dl>
+            </div>
+            <div class="card">
+              <h3>Automated checks</h3>
+              <ul class="checks">${rows}</ul>
+              <p class="fine">Advisory only. These do not affect the verdict, which is final and unappealable.</p>
+            </div>
+          </aside>
+        </div>`;
+    }
+
+    (async () => {
+      const id = new URLSearchParams(location.search).get('m') || '';
+      const content = document.querySelector('#content');
+      let episodes = [];
+      try { episodes = await SB.getJSON('data/episodes.json'); } catch {}
+      const mine = episodes.filter((e) => e.model === id && e.rating)
+        .sort((a, b) => (b.createdAt || '').localeCompare(a.createdAt || ''));
+
+      if (!mine.length) {
+        content.innerHTML = `<div class="empty"><div class="big">No rated episode for this model.</div>Either it hasn't been tested, or the judge is still deliberating. <a href="index.html">See the leaderboard</a>.</div>`;
+        return;
+      }
+      const row = SB.aggregate(mine)[0];
+      document.title = `${row.name} on SeinBench`;
+      content.innerHTML = `
+        <div class="model-head">
+          <div>
+            <p class="eyebrow">${SB.esc(row.lab)} · Model report</p>
+            <h1>${SB.esc(row.name)}</h1>
+            <div class="model-id">${SB.esc(id)}</div>
+          </div>
+          ${SB.badge(row.tier, true)}
+        </div>
+        ${mine.map(episodeHtml).join('')}`;
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+Write an original, never-before-seen episode of Seinfeld.
+
+Use exactly this format and nothing else:
+
+TITLE: The <something>
+SYNOPSIS: <one paragraph covering the separate storylines of Jerry, George, Elaine, and Kramer, and how they collide by the end>
+SCENE:
+<one complete example scene in standard sitcom script format: a scene heading, character names in capitals, dialogue, and brief stage directions in parentheses>

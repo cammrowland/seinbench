@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SeinBench Leaderboard</title>
+  <meta name="description" content="SeinBench: the industry-standard benchmark for writing a show about nothing. AI models ranked on one original Seinfeld episode each.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Courier+Prime:wght@400;700&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:ital,wght@0,400;0,600;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥨</text></svg>">
+</head>
+<body>
+  <header class="site-header" id="site-header"></header>
+
+  <main class="wrap">
+    <div class="hero">
+      <p class="eyebrow">Benchmark · Comedy · Nothing</p>
+      <h1>Can a language model write a show about nothing?</h1>
+      <p class="lede">SeinBench gives every frontier model the same task: pitch an original Seinfeld episode and write one scene. A panel of one expert judge then scores it on a rigorous five-point scale, from "It Stinks!" to "Gold, Jerry! Gold!"</p>
+      <div class="stats" id="stats" aria-live="polite"></div>
+    </div>
+
+    <section id="board" aria-labelledby="board-title">
+      <h2 id="board-title">Leaderboard</h2>
+      <p class="section-sub">Ranked by verdict. Ties share a rank because the judge refuses to split hairs. Tap a model to read its episode.</p>
+      <div class="board-wrap" id="board-wrap"><div class="empty">Loading the leaderboard…</div></div>
+    </section>
+
+    <section id="scale" aria-labelledby="scale-title">
+      <h2 id="scale-title">The Scale</h2>
+      <p class="section-sub">Five tiers, validated against zero external benchmarks.</p>
+      <div class="scale" id="scale-list"></div>
+    </section>
+
+    <section id="methodology" aria-labelledby="method-title">
+      <h2 id="method-title">Methodology</h2>
+      <p class="section-sub">Our evaluation protocol, written up with the gravity it deserves.</p>
+      <div class="method">
+        <div class="card"><h3>Task</h3><p>One fixed prompt asks for an original episode: a title, a one-paragraph synopsis covering all four leads' storylines, and one scene in script format.</p></div>
+        <div class="card"><h3>Sampling</h3><p>One attempt per model, temperature 1.0, through OpenRouter. No retries and no best-of-n. You get one shot. No soup for you.</p></div>
+        <div class="card"><h3>Model selection</h3><p>Only major releases are tested, picked by hand when something new comes out. Minor variants, distillations, and models with tiny names don't get in.</p></div>
+        <div class="card"><h3>Evaluation</h3><p>A single human expert who has seen every episode several times. Inter-rater agreement is 100%, which our statisticians call "suspicious."</p></div>
+        <div class="card"><h3>Contamination</h3><p>Models may have memorized real episodes. Recycling a real plot is treated the way Jerry treats a re-gifted label maker.</p></div>
+        <div class="card"><h3>Known limitations</h3><p>A sample size of one. The judge is biased and has strong opinions about the finale. The results are not reproducible, and frankly not even producible.</p></div>
+      </div>
+      <details class="prompt">
+        <summary>Read the exact prompt every model gets</summary>
+        <pre id="prompt-text">Loading…</pre>
+      </details>
+      <pre class="bib">@misc{seinbench2026,
+  title  = {SeinBench: Are Large Language Models Master of Their Domain?},
+  author = {One Guy and His Couch},
+  year   = {2026},
+  note   = {Not peer reviewed. Newman has been notified.}
+}</pre>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="site-footer"></footer>
+
+  <script src="assets/common.js"></script>
+  <script>
+    SB.chrome('board');
+
+    document.querySelector('#scale-list').innerHTML = SB.TIERS.map((t) => `
+      <div class="scale-row" style="--tc:var(--tier-${t.n})">
+        <div class="n">${t.n}</div>
+        <div><h3>${SB.badge(t.n)}</h3><p>${SB.esc(t.desc)}</p></div>
+      </div>`).join('');
+
+    SB.getText('data/prompt.txt').then((t) => { document.querySelector('#prompt-text').textContent = t.trim(); });
+
+    (async () => {
+      const wrap = document.querySelector('#board-wrap');
+      let episodes = [];
+      try { episodes = await SB.getJSON('data/episodes.json'); }
+      catch { wrap.innerHTML = '<div class="empty"><div class="big">The leaderboard is in the shop.</div>Try again in a minute.</div>'; return; }
+
+      const rows = SB.aggregate(episodes);
+      const pending = episodes.filter((e) => !e.rating).length;
+      const spent = episodes.reduce((s, e) => s + (e.stats?.cost || 0), 0);
+      const stats = [
+        [rows.length, 'Models evaluated'],
+        [pending, 'Episodes awaiting judgment'],
+        [1, 'Human judges'],
+        ['100%', 'Inter-rater agreement'],
+        [SB.fmtCost(spent), 'Total compute budget'],
+      ];
+      document.querySelector('#stats').innerHTML = stats.map(([v, l]) => `<div class="stat"><b>${SB.esc(v)}</b><span>${SB.esc(l)}</span></div>`).join('');
+
+      if (!rows.length) {
+        wrap.innerHTML = `<div class="empty"><div class="big">No models have been rated yet.</div>It's a leaderboard about nothing.${pending ? ` ${pending} episode${pending > 1 ? 's are' : ' is'} waiting for a verdict.` : ''}</div>`;
+        return;
+      }
+      wrap.innerHTML = `
+        <table class="board">
+          <thead><tr>
+            <th scope="col">Rank</th><th scope="col">Model</th><th scope="col">Verdict</th>
+            <th scope="col" class="hide-sm">Episode</th><th scope="col" class="hide-sm">Cost</th><th scope="col" class="hide-sm">Judged</th>
+          </tr></thead>
+          <tbody>${rows.map((r) => `
+            <tr>
+              <td class="rank">${r.rank}</td>
+              <td><a class="model-name" href="${SB.modelUrl(r.model)}">${SB.esc(r.name)}</a><span class="model-id">${SB.esc(r.lab)} · ${SB.esc(r.model)}</span></td>
+              <td>${SB.badge(r.tier)}</td>
+              <td class="hide-sm ep-title">${SB.esc(r.latest.title)}${r.count > 1 ? ` <span class="num">+${r.count - 1} more</span>` : ''}</td>
+              <td class="hide-sm num">${SB.fmtCost(r.latest.stats?.cost)}</td>
+              <td class="hide-sm num">${SB.fmtDate(r.latest.ratedAt)}</td>
+            </tr>`).join('')}
+          </tbody>
+        </table>`;
+    })();
+  </script>
+</body>
+</html>
