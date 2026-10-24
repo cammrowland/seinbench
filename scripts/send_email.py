@@ -15,14 +15,19 @@ CONFIG = json.loads((ROOT / "scripts" / "config.json").read_text())
 
 
 def main():
-    user = os.environ.get("GMAIL_ADDRESS")
-    password = os.environ.get("GMAIL_APP_PASSWORD")
+    user = (os.environ.get("GMAIL_ADDRESS") or "").strip()
+    # Google shows app passwords as "abcd efgh ijkl mnop"; copying can add odd spaces.
+    password = "".join((os.environ.get("GMAIL_APP_PASSWORD") or "").split())
     test = "--test" in sys.argv
     if not user or not password:
         if test:
             sys.exit("GMAIL_ADDRESS / GMAIL_APP_PASSWORD secrets are not set.")
         print("::warning::GMAIL_ADDRESS / GMAIL_APP_PASSWORD secrets not set; skipping email.")
         return
+
+    if not (len(password) == 16 and password.isascii() and password.isalpha()):
+        sys.exit(f"GMAIL_APP_PASSWORD doesn't look like a Gmail app password "
+                 f"(expected 16 letters, got {len(password)} characters).")
 
     if test:
         subject_line = "Subject: SeinBench: test email"
@@ -40,9 +45,16 @@ def main():
     msg["To"] = CONFIG["email_to"]
     msg.set_content(body.lstrip("\n"))
 
-    with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=30) as smtp:
-        smtp.login(user, password.replace(" ", ""))
-        smtp.send_message(msg)
+    try:
+        with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=30) as smtp:
+            smtp.login(user, password)
+            smtp.send_message(msg)
+    except smtplib.SMTPServerDisconnected:
+        print("Port 465 dropped the connection; retrying on 587 with STARTTLS.")
+        with smtplib.SMTP("smtp.gmail.com", 587, timeout=30) as smtp:
+            smtp.starttls()
+            smtp.login(user, password)
+            smtp.send_message(msg)
     print("Sent to", CONFIG["email_to"])
 
 
