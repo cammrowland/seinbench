@@ -76,6 +76,8 @@ const SB = (() => {
     return res.ok ? res.text() : '';
   }
 
+  // OpenRouter names look like "Anthropic: Claude Sonnet 5"; the lab is shown separately.
+  const shortName = (name) => String(name).replace(/^[^:]{1,30}:\s*/, '');
   const modelUrl = (id) => `model.html?m=${encodeURIComponent(id)}`;
   const fmtDate = (iso) => (iso ? new Date(iso).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '—');
   const fmtCost = (c) => (c == null ? '—' : c < 0.01 ? `$${c.toFixed(4)}` : `$${c.toFixed(2)}`);
@@ -92,9 +94,13 @@ const SB = (() => {
       eps.sort((a, b) => (b.ratedAt || '').localeCompare(a.ratedAt || ''));
       const avg = (vals) => (vals.length ? Math.round((vals.reduce((s, v) => s + v, 0) / vals.length) * 10) / 10 : null);
       const score = avg(eps.map(scoreOf));
-      const synopsis = avg(eps.map((e) => e.synopsisScore).filter((v) => v != null));
-      const scene = avg(eps.map((e) => e.sceneScore).filter((v) => v != null));
-      return { model, name: eps[0].modelName || model, lab: lab(model), score, synopsis, scene, tier: tierFor(score), latest: eps[0], count: eps.length };
+      const section = (key) => avg(eps.map((e) => sectionScore(e.criteria, key)).filter((v) => v != null));
+      // Each criterion as a 0–100 measurement: its taps, averaged across this model's episodes.
+      const criteria = {};
+      for (const sec of Object.values(RUBRIC)) {
+        for (const c of sec.criteria) criteria[c.key] = avg(eps.map((e) => e.criteria?.[c.key]).filter((v) => v >= 1 && v <= 5).map(tapScore));
+      }
+      return { model, name: eps.find((e) => e.modelName)?.modelName || model, lab: lab(model), score, synopsis: section('synopsis'), scene: section('scene'), criteria, tier: tierFor(score), latest: eps[0], count: eps.length };
     });
     rows.sort((a, b) => b.score - a.score || (b.latest.ratedAt || '').localeCompare(a.latest.ratedAt || ''));
     rows.forEach((r, i) => { r.rank = i > 0 && rows[i - 1].score === r.score ? rows[i - 1].rank : i + 1; });
@@ -148,5 +154,5 @@ const SB = (() => {
       </div>`;
   }
 
-  return { OWNER, REPO, TIERS, esc, tier, tierFor, scoreOf, fmtScore, trackGradient, RUBRIC, sectionScore, suggestScore, badge, getJSON, getText, modelUrl, fmtDate, fmtCost, lab, aggregate, renderScene, chrome };
+  return { OWNER, REPO, TIERS, esc, tier, tierFor, scoreOf, fmtScore, trackGradient, shortName, RUBRIC, sectionScore, suggestScore, badge, getJSON, getText, modelUrl, fmtDate, fmtCost, lab, aggregate, renderScene, chrome };
 })();

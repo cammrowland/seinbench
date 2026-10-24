@@ -335,3 +335,48 @@ input:focus-visible, button:focus-visible, a:focus-visible { outline: 3px solid 
 .dots i { width: 10px; height: 10px; border-radius: 50%; background: var(--line); }
 .dots i.on { background: var(--tc); }
 .sc-row small { grid-column: 1 / -1; color: var(--muted); font-size: 12px; margin-top: -2px; }
+
+/* ---------- Leaderboard cards ---------- */
+.board-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; margin-bottom: 14px; }
+.board-head .section-sub { margin: 0; }
+.view-toggle { display: inline-flex; border: 1.5px solid var(--ink); border-radius: 8px; overflow: hidden; }
+.view-toggle button { font: 600 13px/1 var(--font-ui); padding: 8px 14px; border: 0; background: transparent; color: var(--ink); cursor: pointer; }
+.view-toggle button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); gap: 16px; }
+.model-card { display: flex; flex-direction: column; background: var(--card); border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow); overflow: hidden; }
+.mc-head { display: grid; grid-template-columns: 48px minmax(0, 1fr) auto; gap: 12px; align-items: start; padding: 18px 18px 14px; }
+.mc-mono {
+  width: 48px; height: 48px; border-radius: 10px; display: grid; place-items: center;
+  font: 400 24px/1 var(--font-logo); color: var(--paper); background: var(--ink); box-shadow: 3px 3px 0 var(--brick);
+}
+.mc-id { min-width: 0; display: grid; gap: 6px; justify-items: start; }
+.mc-name { font: 700 18px/1.2 var(--font-ui); color: var(--ink); text-decoration: none; overflow-wrap: anywhere; }
+.mc-name:hover { color: var(--brick); text-decoration: underline; }
+.mc-id .tier { font-size: 11px; padding: 4px 8px 4px 6px; }
+.mc-id .tier i { font-size: 12px; }
+.mc-sub { font-size: 13px; color: var(--muted); }
+.mc-score { text-align: right; display: grid; gap: 2px; }
+.mc-score span { font-size: 12px; color: var(--muted); }
+.mc-score b { font: 600 36px/1 var(--font-mono); font-variant-numeric: tabular-nums; letter-spacing: -.02em; }
+.mc-score b em { font-style: normal; opacity: .45; }
+.mc-score small { font: 11px/1.3 var(--font-mono); color: var(--muted); white-space: nowrap; }
+.mc-section { padding: 4px 18px 10px; }
+.mc-section h4 { display: flex; justify-content: space-between; margin: 8px 0 4px; padding-bottom: 6px; border-bottom: 1px solid var(--line); font: 600 11px/1 var(--font-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--brick); }
+.mc-section h4 b { color: var(--ink); font-size: 13px; letter-spacing: 0; }
+.mc-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(90px, 140px) 64px; gap: 12px; align-items: center; padding: 6px 0; font-size: 14px; }
+.mc-bar { height: 6px; border-radius: 999px; background: var(--line); overflow: hidden; }
+.mc-bar i { display: block; height: 100%; border-radius: inherit; }
+.mc-dots { height: 2px; background-image: radial-gradient(circle, var(--line-strong) 1px, transparent 1.4px); background-size: 7px 2px; background-repeat: repeat-x; }
+.mc-val { text-align: right; font: 600 14px/1 var(--font-mono); font-variant-numeric: tabular-nums; }
+.mc-val.muted { font: 12px/1.2 var(--font-ui); color: var(--muted); }
+.mc-foot { margin-top: auto; display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 12px 18px; border-top: 1px solid var(--line); background: #fbf4e4; font-size: 13px; color: var(--muted); }
+.mc-foot .dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 8px; vertical-align: 1px; }
+.mc-foot a { font-weight: 600; text-decoration: none; white-space: nowrap; }
+@media (max-width: 420px) {
+  .mc-head { grid-template-columns: 40px minmax(0, 1fr); }
+  .mc-mono { width: 40px; height: 40px; font-size: 20px; }
+  .mc-score { grid-column: 1 / -1; text-align: left; grid-template-columns: auto 1fr; align-items: baseline; column-gap: 10px; }
+  .mc-score span { grid-column: 1 / -1; }
+  .mc-row { grid-template-columns: minmax(0, 1fr) 90px 56px; gap: 8px; }
+}

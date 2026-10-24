@@ -24,8 +24,14 @@
 
     <section id="board" aria-labelledby="board-title">
       <h2 id="board-title">Leaderboard</h2>
-      <p class="section-sub">Ranked by SeinScore. Exact ties share a rank. Tap a model to read its episode.</p>
-      <div class="board-wrap" id="board-wrap"><div class="empty">Loading the leaderboard…</div></div>
+      <div class="board-head">
+        <p class="section-sub">Ranked by SeinScore. Exact ties share a rank. Open a model's details to read its episode.</p>
+        <div class="view-toggle" role="group" aria-label="Leaderboard view">
+          <button type="button" data-view="cards" aria-pressed="true">Cards</button>
+          <button type="button" data-view="table" aria-pressed="false">Table</button>
+        </div>
+      </div>
+      <div id="board-wrap"><div class="empty">Loading the leaderboard…</div></div>
     </section>
 
     <section id="scale" aria-labelledby="scale-title">
@@ -95,7 +101,64 @@
         wrap.innerHTML = `<div class="empty"><div class="big">No models have been rated yet.</div>It's a leaderboard about nothing.${pending ? ` ${pending} episode${pending > 1 ? 's are' : ' is'} waiting for a verdict.` : ''}</div>`;
         return;
       }
-      wrap.innerHTML = `
+      const VIEW_KEY = 'seinbench-board-view';
+      let view = 'cards';
+      try { view = localStorage.getItem(VIEW_KEY) === 'table' ? 'table' : 'cards'; } catch {}
+      const draw = () => {
+        wrap.innerHTML = view === 'cards' ? cardsHtml(rows) : tableHtml(rows);
+        document.querySelectorAll('.view-toggle button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.view === view)));
+      };
+      document.querySelector('.view-toggle').addEventListener('click', (ev) => {
+        const b = ev.target.closest('button[data-view]');
+        if (!b) return;
+        view = b.dataset.view;
+        try { localStorage.setItem(VIEW_KEY, view); } catch {}
+        draw();
+      });
+      draw();
+    })();
+
+    function measure(label, value) {
+      if (value == null) {
+        return `<div class="mc-row"><span>${SB.esc(label)}</span><span class="mc-dots" aria-hidden="true"></span><span class="mc-val muted">Not measured</span></div>`;
+      }
+      return `<div class="mc-row"><span>${SB.esc(label)}</span><span class="mc-bar"><i style="width:${value}%;background:var(--tier-${SB.tierFor(value)})"></i></span><span class="mc-val">${SB.fmtScore(Math.round(value))}</span></div>`;
+    }
+
+    function cardsHtml(rows) {
+      return `<div class="cards">${rows.map((r) => {
+        const [whole, frac] = r.score.toFixed(1).split('.');
+        const sections = Object.entries(SB.RUBRIC).map(([key, sec]) => `
+          <div class="mc-section">
+            <h4><span>${SB.esc(sec.label)}</span><b>${SB.fmtScore(r[key])}</b></h4>
+            ${sec.criteria.map((c) => measure(c.name, r.criteria[c.key])).join('')}
+          </div>`).join('');
+        return `
+          <article class="model-card">
+            <header class="mc-head">
+              <div class="mc-mono" aria-hidden="true">${SB.esc(r.lab[0].toUpperCase())}</div>
+              <div class="mc-id">
+                <a class="mc-name" href="${SB.modelUrl(r.model)}">${SB.esc(SB.shortName(r.name))}</a>
+                <div>${SB.badge(r.tier)}</div>
+                <div class="mc-sub">${SB.esc(r.lab)} · ${String(r.rank).padStart(2, '0')}</div>
+              </div>
+              <div class="mc-score">
+                <span>SeinScore</span>
+                <b style="color:var(--tier-${r.tier})">${whole}<em>.${frac}</em></b>
+                <small>90% interval 0–100 · n&nbsp;=&nbsp;${r.count}</small>
+              </div>
+            </header>
+            ${sections}
+            <footer class="mc-foot">
+              <span><i class="dot" style="background:var(--tier-${r.tier})"></i>Judged · one human, no appeals</span>
+              <a href="${SB.modelUrl(r.model)}">Details →</a>
+            </footer>
+          </article>`;
+      }).join('')}</div>`;
+    }
+
+    function tableHtml(rows) {
+      return `<div class="board-wrap">
         <table class="board">
           <thead><tr>
             <th scope="col">Rank</th><th scope="col">Model</th><th scope="col">SeinScore</th><th scope="col" class="hide-sm">Verdict</th><th scope="col" class="hide-sm" title="Synopsis scorecard">Synopsis</th><th scope="col" class="hide-sm" title="Scene scorecard">Scene</th>
@@ -114,8 +177,8 @@
               <td class="hide-sm num">${SB.fmtDate(r.latest.ratedAt)}</td>
             </tr>`).join('')}
           </tbody>
-        </table>`;
-    })();
+        </table></div>`;
+    }
   </script>
 </body>
 </html>
