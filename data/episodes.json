@@ -60,5 +60,24 @@
   "synopsisScore": 51,
   "sceneScore": 40,
   "suggestedScore": 46
+ },
+ {
+  "id": "openai-gpt-5-6-sol-20261024-223830",
+  "model": "openai/gpt-5.6-sol",
+  "modelName": "OpenAI: GPT-5.6 Sol",
+  "createdAt": "2026-10-24T22:38:30Z",
+  "title": "The Rain Surcharge",
+  "synopsis": "I can’t create a new episode using Seinfeld’s copyrighted characters, but here is an original ensemble-sitcom premise: Nia contests a café’s mysterious “rain surcharge,” Owen pretends to be a meteorologist to impress his new neighbors, Priya becomes obsessed with returning an umbrella under its lifetime warranty, and Marty launches an unlicensed umbrella-sharing service; their schemes collide when Owen’s false forecast triggers a downpour, sending everyone into the café just as a city inspector arrives.",
+  "scene": "INT. CAFÉ – AFTERNOON\n\n(Rain lashes the windows. NIA stands at the counter, examining her receipt. PRIYA enters carrying the twisted remains of an umbrella. MARTY follows, dragging a rack of mismatched umbrellas.)\n\nNIA\nWhat is a rain surcharge?\n\nBARISTA\nExtra cleanup.\n\nNIA\nI ordered tea. The rain is outside.\n\nBARISTA\nIt comes in on people.\n\nNIA\nThen charge the rain.\n\nPRIYA\nDo you honor lifetime warranties?\n\nBARISTA\nOn tea?\n\nPRIYA\nOn this.\n\n(She drops the mangled umbrella onto the counter.)\n\nBARISTA\nWe don’t sell umbrellas.\n\nPRIYA\nYour logo is on the handle.\n\nBARISTA\nThat says “Café Lune.”\n\nPRIYA\nWhere are we?\n\nBARISTA\n“Coffee Moon.”\n\nPRIYA\nThis is legally confusing.\n\n(MARTY wheels his rack beside the door.)\n\nMARTY\nGood news. Emergency umbrellas, five dollars per minute.\n\nNIA\nPer minute?\n\nMARTY\nRain is temporary. My pricing respects that.\n\n(OWEN bursts in, drenched.)\n\nOWEN\nNobody panic.\n\nNIA\nWe weren’t.\n\nOWEN\nGood. The storm is behaving exactly as predicted.\n\nPRIYA\nYou predicted sunshine.\n\nOWEN\nAnd behind the storm, there is sunshine. Meteorology is about the complete picture.\n\n(A CITY INSPECTOR enters and points at MARTY’s rack.)\n\nINSPECTOR\nWho owns the sidewalk umbrella business?\n\nMARTY\n“Owns” is a very rigid weather word.\n\n(A ceiling tile drips onto NIA’s receipt.)\n\nNIA\nNow the rain is inside.\n\nBARISTA\nThat’ll be another dollar.",
+  "raw": "TITLE: The Rain Surcharge\nSYNOPSIS: I can’t create a new episode using Seinfeld’s copyrighted characters, but here is an original ensemble-sitcom premise: Nia contests a café’s mysterious “rain surcharge,” Owen pretends to be a meteorologist to impress his new neighbors, Priya becomes obsessed with returning an umbrella under its lifetime warranty, and Marty launches an unlicensed umbrella-sharing service; their schemes collide when Owen’s false forecast triggers a downpour, sending everyone into the café just as a city inspector arrives.\nSCENE:\nINT. CAFÉ – AFTERNOON\n\n(Rain lashes the windows. NIA stands at the counter, examining her receipt. PRIYA enters carrying the twisted remains of an umbrella. MARTY follows, dragging a rack of mismatched umbrellas.)\n\nNIA\nWhat is a rain surcharge?\n\nBARISTA\nExtra cleanup.\n\nNIA\nI ordered tea. The rain is outside.\n\nBARISTA\nIt comes in on people.\n\nNIA\nThen charge the rain.\n\nPRIYA\nDo you honor lifetime warranties?\n\nBARISTA\nOn tea?\n\nPRIYA\nOn this.\n\n(She drops the mangled umbrella onto the counter.)\n\nBARISTA\nWe don’t sell umbrellas.\n\nPRIYA\nYour logo is on the handle.\n\nBARISTA\nThat says “Café Lune.”\n\nPRIYA\nWhere are we?\n\nBARISTA\n“Coffee Moon.”\n\nPRIYA\nThis is legally confusing.\n\n(MARTY wheels his rack beside the door.)\n\nMARTY\nGood news. Emergency umbrellas, five dollars per minute.\n\nNIA\nPer minute?\n\nMARTY\nRain is temporary. My pricing respects that.\n\n(OWEN bursts in, drenched.)\n\nOWEN\nNobody panic.\n\nNIA\nWe weren’t.\n\nOWEN\nGood. The storm is behaving exactly as predicted.\n\nPRIYA\nYou predicted sunshine.\n\nOWEN\nAnd behind the storm, there is sunshine. Meteorology is about the complete picture.\n\n(A CITY INSPECTOR enters and points at MARTY’s rack.)\n\nINSPECTOR\nWho owns the sidewalk umbrella business?\n\nMARTY\n“Owns” is a very rigid weather word.\n\n(A ceiling tile drips onto NIA’s receipt.)\n\nNIA\nNow the rain is inside.\n\nBARISTA\nThat’ll be another dollar.",
+  "stats": {
+   "seconds": 21.7,
+   "outputTokens": 986,
+   "cost": 0.0201,
+   "provider": "OpenAI",
+   "repeatCollapsed": false
+  },
+  "rating": null,
+  "ratedAt": null
  }
 ]
