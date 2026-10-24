@@ -51,7 +51,7 @@
 
       <section id="queue-sec">
         <h2 class="section-title">Awaiting your verdict</h2>
-        <p class="section-sub">Read it, then tap one button. The leaderboard updates in about a minute.</p>
+        <p class="section-sub">Read it, slide to a SeinScore from 0 to 100, then submit. The leaderboard updates in about a minute.</p>
         <div class="queue" id="queue"></div>
       </section>
 
@@ -109,7 +109,7 @@
     };
 
     let token = store.get(TOKEN_KEY, '');
-    const state = { episodes: [], models: [], modelsUpdated: '', jobs: store.get(JOBS_KEY, []), reopened: new Set() };
+    const state = { episodes: [], models: [], modelsUpdated: '', jobs: store.get(JOBS_KEY, []), reopened: new Set(), drafts: new Map() };
 
     // ---------- GitHub API ----------
     function gh(path, opts = {}) {
@@ -232,10 +232,50 @@
             <p>${SB.esc(e.synopsis) || '<em>No synopsis came back.</em>'}</p>
             <details open><summary>The scene</summary><div class="teleplay">${SB.renderScene(e.scene)}</div></details>
           </div>
-          <div class="verdict-buttons" role="group" aria-label="Verdict for ${SB.esc(e.title)}">
-            ${SB.TIERS.map((t) => `<button type="button" class="verdict-btn" style="--tc:var(--tier-${t.n})" data-rate="${SB.esc(e.id)}" data-tier="${t.n}"><i aria-hidden="true">${t.icon}</i>${SB.esc(t.name)}</button>`).join('')}
-          </div>
+          ${verdictPanel(e)}
         </article>`;
+    }
+
+    // The slider starts blank for a fresh episode; Submit stays off until you've picked a score.
+    function verdictPanel(e) {
+      const draft = state.drafts.get(e.id);
+      const picked = draft ?? SB.scoreOf(e);
+      const value = picked ?? 50;
+      const t = SB.tier(SB.tierFor(value));
+      const legacy = e.rating && e.score == null;
+      const bands = SB.TIERS.slice().reverse().map((b) => `
+        <button type="button" class="vp-band" data-band="${b.n}" style="--tc:var(--tier-${b.n});flex-grow:${b.max - b.min + 1}" title="${SB.esc(b.name)}: ${b.min}–${b.max}" aria-label="${SB.esc(b.name)}, ${b.min} to ${b.max}">
+          <i aria-hidden="true">${b.icon}</i><span>${b.min}</span>
+        </button>`).join('');
+      return `
+        <div class="verdict-panel" data-ep="${SB.esc(e.id)}" style="--tc:var(--tier-${t.n})">
+          ${legacy ? `<p class="vp-note">You judged this “${SB.esc(SB.tier(e.rating).name)}” before scores existed. Pick an exact score. It starts at the middle of that band.</p>` : ''}
+          <div class="vp-readout" aria-live="polite">
+            <b class="vp-num">${picked == null ? '—' : value}</b>
+            <span class="vp-tier">${picked == null ? 'Slide to score' : `${t.icon} ${SB.esc(t.name)}`}</span>
+          </div>
+          <label class="visually-hidden" for="s-${SB.esc(e.id)}">SeinScore for ${SB.esc(e.title)}</label>
+          <input class="vp-slider" style="--track:${SB.trackGradient()}" id="s-${SB.esc(e.id)}" type="range" min="0" max="100" step="1" value="${value}" aria-valuetext="${value}, ${SB.esc(t.name)}">
+          <div class="vp-bands">${bands}</div>
+          <div class="vp-actions">
+            <button type="button" class="btn small ghost" data-nudge="-1" aria-label="Lower the score by one">−1</button>
+            <button type="button" class="btn small ghost" data-nudge="1" aria-label="Raise the score by one">+1</button>
+            <button type="button" class="btn vp-submit" data-submit="${SB.esc(e.id)}" ${picked == null ? 'disabled' : ''}>Submit verdict</button>
+          </div>
+        </div>`;
+    }
+
+    function setScore(panel, value) {
+      const v = Math.max(0, Math.min(100, Math.round(value)));
+      const t = SB.tier(SB.tierFor(v));
+      state.drafts.set(panel.dataset.ep, v);
+      panel.style.setProperty('--tc', `var(--tier-${t.n})`);
+      panel.querySelector('.vp-num').textContent = v;
+      panel.querySelector('.vp-tier').textContent = `${t.icon} ${t.name}`;
+      const slider = panel.querySelector('.vp-slider');
+      slider.value = v;
+      slider.setAttribute('aria-valuetext', `${v}, ${t.name}`);
+      panel.querySelector('.vp-submit').disabled = false;
     }
 
     function modelRow(m) {
@@ -258,7 +298,7 @@
     }
 
     function render() {
-      const queue = state.episodes.filter((e) => !e.rating || state.reopened.has(e.id))
+      const queue = state.episodes.filter((e) => e.score == null || state.reopened.has(e.id))
         .sort((a, b) => (a.createdAt || '').localeCompare(b.createdAt || ''));
       $('#n-queue').textContent = queue.length;
       $('#queue').innerHTML = queue.length ? queue.map(verdictCard).join('')
@@ -279,7 +319,7 @@
       $('#suggest-sub').textContent = `Flagship models from the big labs, released in the last ${SUGGEST_DAYS} days${state.modelsUpdated ? ` (list checked ${SB.fmtDate(state.modelsUpdated + 'T12:00:00Z')})` : ''}. Making an episode uses a few cents of OpenRouter credit.`;
       $('#suggest').innerHTML = suggested.length ? suggested.map(modelRow).join('') : '<p class="fine">No recent major releases on file.</p>';
 
-      const rated = state.episodes.filter((e) => e.rating && !state.reopened.has(e.id))
+      const rated = state.episodes.filter((e) => e.score != null && !state.reopened.has(e.id))
         .sort((a, b) => (b.ratedAt || '').localeCompare(a.ratedAt || ''));
       $('#rated').innerHTML = rated.length ? rated.map((e) => `
         <div class="model-row">
@@ -287,7 +327,7 @@
             <div class="mr-name">${SB.esc(e.modelName)} · <i>“${SB.esc(e.title)}”</i></div>
             <div class="mr-meta">${SB.esc(e.model)} · judged ${SB.fmtDate(e.ratedAt)}</div>
           </div>
-          <div class="mr-actions">${SB.badge(e.rating)}<button type="button" class="btn small ghost" data-reopen="${SB.esc(e.id)}">Change</button></div>
+          <div class="mr-actions"><b class="score-chip">${e.score}</b>${SB.badge(e.rating)}<button type="button" class="btn small ghost" data-reopen="${SB.esc(e.id)}">Change</button></div>
         </div>`).join('') : '<p class="fine">No verdicts yet.</p>';
     }
 
@@ -301,22 +341,26 @@
     }
 
     // ---------- Actions ----------
-    async function rate(id, n) {
+    async function rate(id, score) {
       const card = document.getElementById(`ep-${id}`);
-      card?.querySelectorAll('button').forEach((b) => { b.disabled = true; });
+      const controls = card ? [...card.querySelectorAll('.verdict-panel button, .verdict-panel input')] : [];
+      controls.forEach((c) => { c.disabled = true; });
+      const t = SB.tier(SB.tierFor(score));
       try {
         const ep = state.episodes.find((e) => e.id === id);
         state.episodes = await saveEpisodes((eps) => {
           const e = eps.find((x) => x.id === id);
           if (!e) throw new Error('That episode is gone from the repo.');
-          e.rating = n;
+          e.score = score;
+          e.rating = t.n;
           e.ratedAt = new Date().toISOString();
-        }, `Verdict for ${ep?.model || id}: ${SB.tier(n).name}`);
+        }, `Verdict for ${ep?.model || id}: ${score} (${t.name})`);
         state.reopened.delete(id);
+        state.drafts.delete(id);
         render();
-        toast(`Saved: ${SB.tier(n).name} The leaderboard updates in about a minute.`);
+        toast(`Saved: ${score}, ${t.name} The leaderboard updates in about a minute.`);
       } catch (e) {
-        card?.querySelectorAll('button').forEach((b) => { b.disabled = false; });
+        controls.forEach((c) => { c.disabled = false; });
         toast(e.message);
       }
     }
@@ -380,13 +424,20 @@
     document.addEventListener('click', (ev) => {
       const b = ev.target.closest('button');
       if (!b) return;
-      if (b.dataset.rate) rate(b.dataset.rate, Number(b.dataset.tier));
+      const panel = b.closest('.verdict-panel');
+      if (b.dataset.submit) rate(b.dataset.submit, state.drafts.get(b.dataset.submit) ?? Number(panel.querySelector('.vp-slider').value));
+      else if (b.dataset.nudge) setScore(panel, Number(panel.querySelector('.vp-slider').value) + Number(b.dataset.nudge));
+      else if (b.dataset.band) setScore(panel, SB.tier(Number(b.dataset.band)).mid);
       else if (b.dataset.make) make(b.dataset.make);
       else if (b.dataset.reopen) {
         state.reopened.add(b.dataset.reopen);
         render();
         document.getElementById(`ep-${b.dataset.reopen}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
+    });
+
+    document.addEventListener('input', (ev) => {
+      if (ev.target.classList?.contains('vp-slider')) setScore(ev.target.closest('.verdict-panel'), Number(ev.target.value));
     });
 
     $('#any-form').addEventListener('submit', (ev) => {

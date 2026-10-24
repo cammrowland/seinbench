@@ -18,19 +18,19 @@
     <div class="hero">
       <p class="eyebrow">Benchmark · Comedy · Nothing</p>
       <h1>Can a language model write a show about nothing?</h1>
-      <p class="lede">SeinBench gives every frontier model the same task: pitch an original Seinfeld episode and write one scene. A panel of one expert judge then scores it on a rigorous five-point scale, from "It Stinks!" to "Gold, Jerry! Gold!"</p>
+      <p class="lede">SeinBench gives every frontier model the same task: pitch an original Seinfeld episode and write one scene. A panel of one expert judge then awards a SeinScore from 0 to 100, which places it in one of five rigorously defined tiers, from "It Stinks!" to "Gold, Jerry! Gold!"</p>
       <div class="stats" id="stats" aria-live="polite"></div>
     </div>
 
     <section id="board" aria-labelledby="board-title">
       <h2 id="board-title">Leaderboard</h2>
-      <p class="section-sub">Ranked by verdict. Ties share a rank because the judge refuses to split hairs. Tap a model to read its episode.</p>
+      <p class="section-sub">Ranked by SeinScore. Exact ties share a rank. Tap a model to read its episode.</p>
       <div class="board-wrap" id="board-wrap"><div class="empty">Loading the leaderboard…</div></div>
     </section>
 
     <section id="scale" aria-labelledby="scale-title">
       <h2 id="scale-title">The Scale</h2>
-      <p class="section-sub">Five tiers, validated against zero external benchmarks.</p>
+      <p class="section-sub">Every SeinScore from 0 to 100 falls into one of five tiers, validated against zero external benchmarks.</p>
       <div class="scale" id="scale-list"></div>
     </section>
 
@@ -41,7 +41,7 @@
         <div class="card"><h3>Task</h3><p>One fixed prompt asks for an original episode: a title, a one-paragraph synopsis covering all four leads' storylines, and one scene in script format.</p></div>
         <div class="card"><h3>Sampling</h3><p>One attempt per model, temperature 1.0, through OpenRouter. No retries and no best-of-n. You get one shot. No soup for you.</p></div>
         <div class="card"><h3>Model selection</h3><p>Only major releases are tested, picked by hand when something new comes out. Minor variants, distillations, and models with tiny names don't get in.</p></div>
-        <div class="card"><h3>Evaluation</h3><p>A single human expert who has seen every episode several times. Inter-rater agreement is 100%, which our statisticians call "suspicious."</p></div>
+        <div class="card"><h3>Evaluation</h3><p>A single human expert who has seen every episode several times awards a SeinScore from 0 to 100. Inter-rater agreement is 100%, which our statisticians call "suspicious."</p></div>
         <div class="card"><h3>Contamination</h3><p>Models may have memorized real episodes. Recycling a real plot is treated the way Jerry treats a re-gifted label maker.</p></div>
         <div class="card"><h3>Known limitations</h3><p>A sample size of one. The judge is biased and has strong opinions about the finale. The results are not reproducible, and frankly not even producible.</p></div>
       </div>
@@ -66,7 +66,7 @@
 
     document.querySelector('#scale-list').innerHTML = SB.TIERS.map((t) => `
       <div class="scale-row" style="--tc:var(--tier-${t.n})">
-        <div class="n">${t.n}</div>
+        <div class="n">${t.min}–${t.max}</div>
         <div><h3>${SB.badge(t.n)}</h3><p>${SB.esc(t.desc)}</p></div>
       </div>`).join('');
 
@@ -84,6 +84,7 @@
       const stats = [
         [rows.length, 'Models evaluated'],
         [pending, 'Episodes awaiting judgment'],
+        [rows.length ? SB.fmtScore(Math.round(rows.reduce((s, r) => s + r.score, 0) / rows.length * 10) / 10) : '—', 'Average SeinScore'],
         [1, 'Human judges'],
         ['100%', 'Inter-rater agreement'],
         [SB.fmtCost(spent), 'Total compute budget'],
@@ -97,14 +98,15 @@
       wrap.innerHTML = `
         <table class="board">
           <thead><tr>
-            <th scope="col">Rank</th><th scope="col">Model</th><th scope="col">Verdict</th>
+            <th scope="col">Rank</th><th scope="col">Model</th><th scope="col">SeinScore</th><th scope="col" class="hide-sm">Verdict</th>
             <th scope="col" class="hide-sm">Episode</th><th scope="col" class="hide-sm">Cost</th><th scope="col" class="hide-sm">Judged</th>
           </tr></thead>
           <tbody>${rows.map((r) => `
             <tr>
               <td class="rank">${r.rank}</td>
               <td><a class="model-name" href="${SB.modelUrl(r.model)}">${SB.esc(r.name)}</a><span class="model-id">${SB.esc(r.lab)} · ${SB.esc(r.model)}</span></td>
-              <td>${SB.badge(r.tier)}</td>
+              <td class="score" style="color:var(--tier-${r.tier})">${SB.fmtScore(r.score)}${r.count > 1 ? `<small> avg</small>` : ''}</td>
+              <td class="hide-sm">${SB.badge(r.tier)}</td>
               <td class="hide-sm ep-title">${SB.esc(r.latest.title)}${r.count > 1 ? ` <span class="num">+${r.count - 1} more</span>` : ''}</td>
               <td class="hide-sm num">${SB.fmtCost(r.latest.stats?.cost)}</td>
               <td class="hide-sm num">${SB.fmtDate(r.latest.ratedAt)}</td>

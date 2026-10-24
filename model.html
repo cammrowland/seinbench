@@ -58,8 +58,9 @@
           <aside class="run-card">
             <div class="card">
               <h3>Verdict</h3>
-              ${SB.badge(e.rating, true)}
-              <p class="fine">${e.rating ? SB.esc(SB.tier(e.rating).desc) : 'The judge has not ruled yet.'}</p>
+              <div class="big-score" style="color:var(--tier-${SB.tierFor(SB.scoreOf(e))})">${SB.fmtScore(SB.scoreOf(e))}<small> / 100</small></div>
+              ${SB.badge(SB.tierFor(SB.scoreOf(e)), true)}
+              <p class="fine">${SB.esc(SB.tier(SB.tierFor(SB.scoreOf(e))).desc)}</p>
             </div>
             <div class="card">
               <h3>Run card</h3>
@@ -86,7 +87,7 @@
       const content = document.querySelector('#content');
       let episodes = [];
       try { episodes = await SB.getJSON('data/episodes.json'); } catch {}
-      const mine = episodes.filter((e) => e.model === id && e.rating)
+      const mine = episodes.filter((e) => e.model === id && SB.scoreOf(e) != null)
         .sort((a, b) => (b.createdAt || '').localeCompare(a.createdAt || ''));
 
       if (!mine.length) {
@@ -102,7 +103,10 @@
             <h1>${SB.esc(row.name)}</h1>
             <div class="model-id">${SB.esc(id)}</div>
           </div>
-          ${SB.badge(row.tier, true)}
+          <div style="text-align:right">
+            <div class="big-score" style="color:var(--tier-${row.tier})">${SB.fmtScore(row.score)}<small> / 100</small></div>
+            ${SB.badge(row.tier, true)}
+          </div>
         </div>
         ${mine.map(episodeHtml).join('')}`;
     })();

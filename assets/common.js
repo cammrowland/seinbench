@@ -3,17 +3,24 @@ const SB = (() => {
   const OWNER = 'cammrowland';
   const REPO = 'seinbench';
 
-  // Best (1) to worst (5). The number is what gets stored on each episode.
+  // Best (1) to worst (5). A verdict is a 0–100 SeinScore; the tier is the band it falls in.
+  // To move a band, change its `min` (each band runs up to the next one's min - 1).
   const TIERS = [
-    { n: 1, name: 'Gold, Jerry! Gold!', icon: '🏆', desc: 'Indistinguishable from a lost season-five script. Statistically significant. Would interrupt a dinner party to describe it.' },
-    { n: 2, name: 'Real and Spectacular', icon: '✨', desc: 'Strong performance across all four storylines. The threads tie together. Would watch in syndication.' },
-    { n: 3, name: 'Giddyup!', icon: '🐎', desc: 'Competent and enthusiastic. Kramer-level energy, Kramer-level plotting. Some jokes land through the door.' },
-    { n: 4, name: "That's a Shame", icon: '😔', desc: 'Jokes were detected, but not enough to fill twenty-two minutes. The characters are wearing their names like a costume.' },
-    { n: 5, name: 'It Stinks!', icon: '🦨', desc: 'Hugging occurred. Lessons were learned. Automatic disqualification under the original rules of the show.' },
+    { n: 1, min: 90, name: 'Gold, Jerry! Gold!', icon: '🏆', desc: 'Indistinguishable from a lost season-five script. Statistically significant. Would interrupt a dinner party to describe it.' },
+    { n: 2, min: 75, name: 'Real and Spectacular', icon: '✨', desc: 'Strong performance across all four storylines. The threads tie together. Would watch in syndication.' },
+    { n: 3, min: 60, name: 'Giddyup!', icon: '🐎', desc: 'Competent and enthusiastic. Kramer-level energy, Kramer-level plotting. Some jokes land through the door.' },
+    { n: 4, min: 40, name: "That's a Shame", icon: '😔', desc: 'Jokes were detected, but not enough to fill twenty-two minutes. The characters are wearing their names like a costume.' },
+    { n: 5, min: 0, name: 'It Stinks!', icon: '🦨', desc: 'Hugging occurred. Lessons were learned. Automatic disqualification under the original rules of the show.' },
   ];
+  TIERS.forEach((t, i) => { t.max = i ? TIERS[i - 1].min - 1 : 100; t.mid = Math.round((t.min + t.max) / 2); });
 
   const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const tier = (n) => TIERS.find((t) => t.n === n);
+  const trackGradient = () => `linear-gradient(to right, ${TIERS.slice().reverse().map((t) => `var(--tier-${t.n}) ${t.min}% ${t.max + 1}%`).join(', ')})`;
+  const tierFor = (score) => TIERS.find((t) => score >= t.min).n;
+  // Verdicts from before scores existed only have a tier; count them at the middle of their band.
+  const scoreOf = (e) => (e.score != null ? e.score : e.rating ? tier(e.rating).mid : null);
+  const fmtScore = (s) => (s == null ? '—' : Number.isInteger(s) ? String(s) : s.toFixed(1));
 
   function badge(n, large = false) {
     const lg = large ? ' lg' : '';
@@ -37,20 +44,20 @@ const SB = (() => {
   const fmtCost = (c) => (c == null ? '—' : c < 0.01 ? `$${c.toFixed(4)}` : `$${c.toFixed(2)}`);
   const lab = (id) => ({ openai: 'OpenAI', anthropic: 'Anthropic', google: 'Google', 'meta-llama': 'Meta', meta: 'Meta', 'x-ai': 'xAI', mistralai: 'Mistral', deepseek: 'DeepSeek', qwen: 'Qwen', moonshotai: 'Moonshot', 'z-ai': 'Z.ai' }[id.split('/')[0]] || id.split('/')[0]);
 
-  // One leaderboard row per model; a model with several rated episodes gets its average, rounded.
+  // One leaderboard row per model; a model with several judged episodes gets its average score.
   function aggregate(episodes) {
     const byModel = new Map();
-    for (const e of episodes.filter((e) => e.rating)) {
+    for (const e of episodes.filter((e) => scoreOf(e) != null)) {
       if (!byModel.has(e.model)) byModel.set(e.model, []);
       byModel.get(e.model).push(e);
     }
     const rows = [...byModel.entries()].map(([model, eps]) => {
       eps.sort((a, b) => (b.ratedAt || '').localeCompare(a.ratedAt || ''));
-      const mean = eps.reduce((s, e) => s + e.rating, 0) / eps.length;
-      return { model, name: eps[0].modelName || model, lab: lab(model), mean, tier: Math.round(mean), latest: eps[0], count: eps.length };
+      const score = Math.round((eps.reduce((s, e) => s + scoreOf(e), 0) / eps.length) * 10) / 10;
+      return { model, name: eps[0].modelName || model, lab: lab(model), score, tier: tierFor(score), latest: eps[0], count: eps.length };
     });
-    rows.sort((a, b) => a.tier - b.tier || a.mean - b.mean || (b.latest.ratedAt || '').localeCompare(a.latest.ratedAt || ''));
-    rows.forEach((r, i) => { r.rank = i > 0 && rows[i - 1].tier === r.tier ? rows[i - 1].rank : i + 1; });
+    rows.sort((a, b) => b.score - a.score || (b.latest.ratedAt || '').localeCompare(a.latest.ratedAt || ''));
+    rows.forEach((r, i) => { r.rank = i > 0 && rows[i - 1].score === r.score ? rows[i - 1].rank : i + 1; });
     return rows;
   }
 
@@ -101,5 +108,5 @@ const SB = (() => {
       </div>`;
   }
 
-  return { OWNER, REPO, TIERS, esc, tier, badge, getJSON, getText, modelUrl, fmtDate, fmtCost, lab, aggregate, renderScene, chrome };
+  return { OWNER, REPO, TIERS, esc, tier, tierFor, scoreOf, fmtScore, trackGradient, badge, getJSON, getText, modelUrl, fmtDate, fmtCost, lab, aggregate, renderScene, chrome };
 })();
