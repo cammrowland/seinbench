@@ -51,7 +51,7 @@
 
       <section id="queue-sec">
         <h2 class="section-title">Awaiting your verdict</h2>
-        <p class="section-sub">Read it, slide to a SeinScore from 0 to 100, then submit. The leaderboard updates in about a minute.</p>
+        <p class="section-sub">Tap the synopsis and scene scorecards for a suggested SeinScore, nudge it if you disagree, then submit. The leaderboard updates in about a minute.</p>
         <div class="queue" id="queue"></div>
       </section>
 
@@ -224,58 +224,131 @@
     const activeJob = (id) => state.jobs.find((j) => j.model === id && !j.done);
 
     function verdictCard(e) {
+      draftFor(e);
       return `
-        <article class="verdict-card" id="ep-${SB.esc(e.id)}">
+        <article class="verdict-card" id="ep-${SB.esc(e.id)}" data-ep="${SB.esc(e.id)}">
           <div class="vc-body">
             <div class="vc-model">${SB.esc(e.modelName)} · ${SB.esc(e.model)} · ${SB.fmtDate(e.createdAt)} · ${SB.fmtCost(e.stats?.cost)}</div>
             <h3>“${SB.esc(e.title)}”</h3>
             <p>${SB.esc(e.synopsis) || '<em>No synopsis came back.</em>'}</p>
+            ${scorecard(e, 'synopsis')}
             <details open><summary>The scene</summary><div class="teleplay">${SB.renderScene(e.scene)}</div></details>
+            ${scorecard(e, 'scene')}
           </div>
           ${verdictPanel(e)}
         </article>`;
     }
 
-    // The slider starts blank for a fresh episode; Submit stays off until you've picked a score.
+    // One draft per episode in the queue, so taps and slider moves survive re-renders.
+    // `manual` flips on once you move the slider yourself; until then it follows the suggestion.
+    function draftFor(e) {
+      if (!state.drafts.has(e.id)) {
+        state.drafts.set(e.id, { criteria: { ...(e.criteria || {}) }, score: SB.scoreOf(e), manual: e.score != null });
+      }
+      return state.drafts.get(e.id);
+    }
+
+    function scorecard(e, section) {
+      const sec = SB.RUBRIC[section];
+      const d = draftFor(e);
+      const rows = sec.criteria.map((c) => `
+        <div class="crit">
+          <div class="crit-label"><b>${SB.esc(c.name)}</b><span>${SB.esc(c.hint)}</span></div>
+          <div class="crit-scale" role="radiogroup" aria-label="${SB.esc(c.name)}: 1 is ${SB.esc(c.low)}, 5 is ${SB.esc(c.high)}">
+            ${[1, 2, 3, 4, 5].map((v) => `<button type="button" role="radio" class="crit-btn" style="--tc:var(--tier-${6 - v})" data-crit="${c.key}" data-val="${v}" aria-checked="${d.criteria[c.key] === v}">${v}</button>`).join('')}
+          </div>
+          <div class="crit-ends"><span>${SB.esc(c.low)}</span><span>${SB.esc(c.high)}</span></div>
+        </div>`).join('');
+      return `
+        <div class="scorecard" data-section="${section}">
+          <div class="sc-head"><span>${SB.esc(sec.label)} scorecard</span><b class="sc-score">—</b></div>
+          ${rows}
+        </div>`;
+    }
+
     function verdictPanel(e) {
-      const draft = state.drafts.get(e.id);
-      const picked = draft ?? SB.scoreOf(e);
-      const value = picked ?? 50;
-      const t = SB.tier(SB.tierFor(value));
       const legacy = e.rating && e.score == null;
       const bands = SB.TIERS.slice().reverse().map((b) => `
         <button type="button" class="vp-band" data-band="${b.n}" style="--tc:var(--tier-${b.n});flex-grow:${b.max - b.min + 1}" title="${SB.esc(b.name)}: ${b.min}–${b.max}" aria-label="${SB.esc(b.name)}, ${b.min} to ${b.max}">
           <i aria-hidden="true">${b.icon}</i><span>${b.min}</span>
         </button>`).join('');
       return `
-        <div class="verdict-panel" data-ep="${SB.esc(e.id)}" style="--tc:var(--tier-${t.n})">
-          ${legacy ? `<p class="vp-note">You judged this “${SB.esc(SB.tier(e.rating).name)}” before scores existed. Pick an exact score. It starts at the middle of that band.</p>` : ''}
-          <div class="vp-readout" aria-live="polite">
-            <b class="vp-num">${picked == null ? '—' : value}</b>
-            <span class="vp-tier">${picked == null ? 'Slide to score' : `${t.icon} ${SB.esc(t.name)}`}</span>
+        <div class="verdict-panel">
+          <div class="vp-title">Overall SeinScore</div>
+          ${legacy ? `<p class="vp-note">You judged this “${SB.esc(SB.tier(e.rating).name)}” before scores existed. It starts at the middle of that band.</p>` : ''}
+          <div class="vp-readout" aria-live="polite"><b class="vp-num">—</b><span class="vp-tier"></span></div>
+          <p class="vp-suggest"></p>
+          <div class="vp-track">
+            <div class="vp-marker" hidden><span></span></div>
+            <label class="visually-hidden" for="s-${SB.esc(e.id)}">Overall SeinScore for ${SB.esc(e.title)}</label>
+            <input class="vp-slider" style="--track:${SB.trackGradient()}" id="s-${SB.esc(e.id)}" type="range" min="0" max="100" step="1" value="50">
           </div>
-          <label class="visually-hidden" for="s-${SB.esc(e.id)}">SeinScore for ${SB.esc(e.title)}</label>
-          <input class="vp-slider" style="--track:${SB.trackGradient()}" id="s-${SB.esc(e.id)}" type="range" min="0" max="100" step="1" value="${value}" aria-valuetext="${value}, ${SB.esc(t.name)}">
           <div class="vp-bands">${bands}</div>
           <div class="vp-actions">
             <button type="button" class="btn small ghost" data-nudge="-1" aria-label="Lower the score by one">−1</button>
             <button type="button" class="btn small ghost" data-nudge="1" aria-label="Raise the score by one">+1</button>
-            <button type="button" class="btn vp-submit" data-submit="${SB.esc(e.id)}" ${picked == null ? 'disabled' : ''}>Submit verdict</button>
+            <button type="button" class="btn small ghost vp-reset" data-reset hidden>Use suggested</button>
+            <button type="button" class="btn vp-submit" data-submit="${SB.esc(e.id)}" disabled>Submit verdict</button>
           </div>
         </div>`;
     }
 
-    function setScore(panel, value) {
-      const v = Math.max(0, Math.min(100, Math.round(value)));
-      const t = SB.tier(SB.tierFor(v));
-      state.drafts.set(panel.dataset.ep, v);
+    // Repaint one card from its draft: scorecard taps, section scores, the suggestion marker and the slider.
+    function paintCard(card) {
+      const d = state.drafts.get(card.dataset.ep);
+      const suggested = SB.suggestScore(d.criteria);
+      if (!d.manual && suggested != null) d.score = suggested;
+
+      card.querySelectorAll('.crit-btn').forEach((b) => b.setAttribute('aria-checked', String(d.criteria[b.dataset.crit] === Number(b.dataset.val))));
+      card.querySelectorAll('.scorecard').forEach((sc) => {
+        const s = SB.sectionScore(d.criteria, sc.dataset.section);
+        const el = sc.querySelector('.sc-score');
+        el.textContent = s == null ? '—' : s;
+        el.style.color = s == null ? '' : `var(--tier-${SB.tierFor(s)})`;
+      });
+
+      const panel = card.querySelector('.verdict-panel');
+      const value = d.score ?? 50;
+      const t = SB.tier(SB.tierFor(value));
       panel.style.setProperty('--tc', `var(--tier-${t.n})`);
-      panel.querySelector('.vp-num').textContent = v;
-      panel.querySelector('.vp-tier').textContent = `${t.icon} ${t.name}`;
+      panel.querySelector('.vp-num').textContent = d.score == null ? '—' : d.score;
+      panel.querySelector('.vp-tier').textContent = d.score == null ? 'Rate the scorecards or slide to score' : `${t.icon} ${t.name}`;
       const slider = panel.querySelector('.vp-slider');
-      slider.value = v;
-      slider.setAttribute('aria-valuetext', `${v}, ${t.name}`);
-      panel.querySelector('.vp-submit').disabled = false;
+      slider.value = value;
+      slider.setAttribute('aria-valuetext', d.score == null ? 'No score yet' : `${d.score}, ${t.name}`);
+
+      const marker = panel.querySelector('.vp-marker');
+      marker.hidden = suggested == null;
+      if (suggested != null) {
+        marker.style.left = `calc(18px + (100% - 36px) * ${suggested / 100})`;
+        marker.querySelector('span').textContent = suggested;
+      }
+      const nudge = d.score != null && suggested != null ? d.score - suggested : 0;
+      panel.querySelector('.vp-suggest').textContent = suggested == null
+        ? 'Tap the scorecards above for a suggested score, or slide straight to a verdict.'
+        : d.manual && nudge !== 0
+          ? `Suggested ${suggested} · your nudge ${nudge > 0 ? '+' : '−'}${Math.abs(nudge)}`
+          : `Suggested ${suggested}, from the scorecards. Slide or nudge to adjust.`;
+      panel.querySelector('.vp-reset').hidden = !(d.manual && suggested != null && nudge !== 0);
+      panel.querySelector('.vp-submit').disabled = d.score == null;
+    }
+
+    function setScore(card, value) {
+      const d = state.drafts.get(card.dataset.ep);
+      d.score = Math.max(0, Math.min(100, Math.round(value)));
+      d.manual = true;
+      paintCard(card);
+    }
+
+    // Once you've nudged, your nudge rides along with the suggestion as you change taps.
+    function tapCriterion(card, key, value) {
+      const d = state.drafts.get(card.dataset.ep);
+      const before = SB.suggestScore(d.criteria);
+      if (d.criteria[key] === value) delete d.criteria[key]; // tap again to clear
+      else d.criteria[key] = value;
+      const after = SB.suggestScore(d.criteria);
+      if (d.manual && d.score != null && before != null && after != null) d.score = Math.max(0, Math.min(100, d.score + after - before));
+      paintCard(card);
     }
 
     function modelRow(m) {
@@ -303,6 +376,7 @@
       $('#n-queue').textContent = queue.length;
       $('#queue').innerHTML = queue.length ? queue.map(verdictCard).join('')
         : '<div class="empty"><div class="big">Nothing to judge.</div>Make an episode below and it will show up here.</div>';
+      document.querySelectorAll('#queue .verdict-card').forEach(paintCard);
 
       // Finished runs drop off (their episode is already in the queue); failures stay for a day so you can read the log.
       const jobs = state.jobs.filter((j) => !j.done || (j.failed && Date.now() - Date.parse(j.at) < 86400e3)).slice().reverse();
@@ -342,9 +416,11 @@
     }
 
     // ---------- Actions ----------
-    async function rate(id, score) {
+    async function rate(id) {
       const card = document.getElementById(`ep-${id}`);
-      const controls = card ? [...card.querySelectorAll('.verdict-panel button, .verdict-panel input')] : [];
+      const d = state.drafts.get(id);
+      const score = d.score;
+      const controls = card ? [...card.querySelectorAll('button, input')] : [];
       controls.forEach((c) => { c.disabled = true; });
       const t = SB.tier(SB.tierFor(score));
       try {
@@ -354,6 +430,10 @@
           if (!e) throw new Error('That episode is gone from the repo.');
           e.score = score;
           e.rating = t.n;
+          e.criteria = { ...d.criteria };
+          e.synopsisScore = SB.sectionScore(d.criteria, 'synopsis');
+          e.sceneScore = SB.sectionScore(d.criteria, 'scene');
+          e.suggestedScore = SB.suggestScore(d.criteria);
           e.ratedAt = new Date().toISOString();
         }, `Verdict for ${ep?.model || id}: ${score} (${t.name})`);
         state.reopened.delete(id);
@@ -425,10 +505,13 @@
     document.addEventListener('click', (ev) => {
       const b = ev.target.closest('button');
       if (!b) return;
-      const panel = b.closest('.verdict-panel');
-      if (b.dataset.submit) rate(b.dataset.submit, state.drafts.get(b.dataset.submit) ?? Number(panel.querySelector('.vp-slider').value));
-      else if (b.dataset.nudge) setScore(panel, Number(panel.querySelector('.vp-slider').value) + Number(b.dataset.nudge));
-      else if (b.dataset.band) setScore(panel, SB.tier(Number(b.dataset.band)).mid);
+      const card = b.closest('.verdict-card');
+      const draft = card && state.drafts.get(card.dataset.ep);
+      if (b.dataset.submit) rate(b.dataset.submit);
+      else if (b.dataset.crit) tapCriterion(card, b.dataset.crit, Number(b.dataset.val));
+      else if (b.dataset.nudge) setScore(card, (draft.score ?? 50) + Number(b.dataset.nudge));
+      else if (b.dataset.band) setScore(card, SB.tier(Number(b.dataset.band)).mid);
+      else if (b.dataset.reset !== undefined) { draft.manual = false; paintCard(card); }
       else if (b.dataset.make) make(b.dataset.make);
       else if (b.dataset.reopen) {
         state.reopened.add(b.dataset.reopen);
@@ -438,7 +521,7 @@
     });
 
     document.addEventListener('input', (ev) => {
-      if (ev.target.classList?.contains('vp-slider')) setScore(ev.target.closest('.verdict-panel'), Number(ev.target.value));
+      if (ev.target.classList?.contains('vp-slider')) setScore(ev.target.closest('.verdict-card'), Number(ev.target.value));
     });
 
     $('#any-form').addEventListener('submit', (ev) => {

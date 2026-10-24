@@ -41,7 +41,7 @@
         <div class="card"><h3>Task</h3><p>One fixed prompt asks for an original episode: a title, a one-paragraph synopsis covering all four leads' storylines, and one scene in script format.</p></div>
         <div class="card"><h3>Sampling</h3><p>One attempt per model, temperature 1.0, through OpenRouter. No retries and no best-of-n. You get one shot. No soup for you.</p></div>
         <div class="card"><h3>Model selection</h3><p>Only major releases are tested, picked by hand when something new comes out. Minor variants, distillations, and models with tiny names don't get in.</p></div>
-        <div class="card"><h3>Evaluation</h3><p>A single human expert who has seen every episode several times awards a SeinScore from 0 to 100. Inter-rater agreement is 100%, which our statisticians call "suspicious."</p></div>
+        <div class="card"><h3>Evaluation</h3><p>A single human expert who has seen every episode several times fills in two scorecards. The synopsis is rated on originality, plot weaving and character authenticity; the scene on laughs, voices and craft. These produce a suggested SeinScore, to which the judge applies a discretionary nudge, as is customary in rigorous science. Inter-rater agreement is 100%, which our statisticians call "suspicious."</p></div>
         <div class="card"><h3>Contamination</h3><p>Models may have memorized real episodes. Recycling a real plot is treated the way Jerry treats a re-gifted label maker.</p></div>
         <div class="card"><h3>Known limitations</h3><p>A sample size of one. The judge is biased and has strong opinions about the finale. The results are not reproducible, and frankly not even producible.</p></div>
       </div>
@@ -98,7 +98,7 @@
       wrap.innerHTML = `
         <table class="board">
           <thead><tr>
-            <th scope="col">Rank</th><th scope="col">Model</th><th scope="col">SeinScore</th><th scope="col" class="hide-sm">Verdict</th>
+            <th scope="col">Rank</th><th scope="col">Model</th><th scope="col">SeinScore</th><th scope="col" class="hide-sm">Verdict</th><th scope="col" class="hide-sm" title="Synopsis scorecard">Synopsis</th><th scope="col" class="hide-sm" title="Scene scorecard">Scene</th>
             <th scope="col" class="hide-sm">Episode</th><th scope="col" class="hide-sm">Cost</th><th scope="col" class="hide-sm">Judged</th>
           </tr></thead>
           <tbody>${rows.map((r) => `
@@ -107,6 +107,8 @@
               <td><a class="model-name" href="${SB.modelUrl(r.model)}">${SB.esc(r.name)}</a><span class="model-id">${SB.esc(r.lab)} · ${SB.esc(r.model)}</span></td>
               <td class="score" style="color:var(--tier-${r.tier})">${SB.fmtScore(r.score)}${r.count > 1 ? `<small> avg</small>` : ''}</td>
               <td class="hide-sm">${SB.badge(r.tier)}</td>
+              <td class="hide-sm num">${SB.fmtScore(r.synopsis)}</td>
+              <td class="hide-sm num">${SB.fmtScore(r.scene)}</td>
               <td class="hide-sm ep-title">${SB.esc(r.latest.title)}${r.count > 1 ? ` <span class="num">+${r.count - 1} more</span>` : ''}</td>
               <td class="hide-sm num">${SB.fmtCost(r.latest.stats?.cost)}</td>
               <td class="hide-sm num">${SB.fmtDate(r.latest.ratedAt)}</td>

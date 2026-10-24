@@ -14,6 +14,29 @@ const SB = (() => {
   ];
   TIERS.forEach((t, i) => { t.max = i ? TIERS[i - 1].min - 1 : 100; t.mid = Math.round((t.min + t.max) / 2); });
 
+  // Scorecards. Each criterion is a 1–5 tap, and a tap of 5 means "this part is Gold", 4 "Real and
+  // Spectacular", and so on down to 1 "It Stinks!". Each tap counts as the middle of that tier's band;
+  // a section's score is the average of its taps, and the suggested SeinScore is the weighted average
+  // of the sections. Weights must add up to 1.
+  const RUBRIC = {
+    synopsis: {
+      label: 'Synopsis', weight: 0.5,
+      criteria: [
+        { key: 'originality', name: 'Originality', low: 'Derivative', high: 'Original', hint: 'Recycled plots and known gags, or a premise the show never did?' },
+        { key: 'weaving', name: 'Plot weaving', low: 'Forced', high: 'Clever', hint: 'Do the four storylines collide naturally, or get jammed together?' },
+        { key: 'characters', name: 'Characters', low: 'Imitation', high: 'Authentic', hint: 'Do Jerry, George, Elaine and Kramer act like themselves?' },
+      ],
+    },
+    scene: {
+      label: 'Scene', weight: 0.5,
+      criteria: [
+        { key: 'laughs', name: 'Laughs', low: 'Groaner', high: 'Laugh-out-loud', hint: 'Did anything actually make you laugh?' },
+        { key: 'voices', name: 'Voices', low: 'Off-key', high: 'Dead-on', hint: 'Does the dialogue sound like the real characters talking?' },
+        { key: 'craft', name: 'Craft', low: 'Flat', high: 'Tight', hint: 'Does the scene build and land on a button?' },
+      ],
+    },
+  };
+
   const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const tier = (n) => TIERS.find((t) => t.n === n);
   const trackGradient = () => `linear-gradient(to right, ${TIERS.slice().reverse().map((t) => `var(--tier-${t.n}) ${t.min}% ${t.max + 1}%`).join(', ')})`;
@@ -21,6 +44,19 @@ const SB = (() => {
   // Verdicts from before scores existed only have a tier; count them at the middle of their band.
   const scoreOf = (e) => (e.score != null ? e.score : e.rating ? tier(e.rating).mid : null);
   const fmtScore = (s) => (s == null ? '—' : Number.isInteger(s) ? String(s) : s.toFixed(1));
+
+  // A tap of v (1–5) stands for tier 6 - v.
+  const tapScore = (v) => tier(6 - v).mid;
+  function sectionScore(criteria, section) {
+    const taps = RUBRIC[section].criteria.map((c) => criteria?.[c.key]).filter((v) => v >= 1 && v <= 5);
+    return taps.length ? Math.round(taps.reduce((sum, v) => sum + tapScore(v), 0) / taps.length) : null;
+  }
+  // Sections you haven't rated are left out, and the rest are reweighted to fill the gap.
+  function suggestScore(criteria) {
+    const parts = Object.keys(RUBRIC).map((k) => [RUBRIC[k].weight, sectionScore(criteria, k)]).filter(([, v]) => v != null);
+    const weight = parts.reduce((sum, [w]) => sum + w, 0);
+    return parts.length ? Math.round(parts.reduce((sum, [w, v]) => sum + w * v, 0) / weight) : null;
+  }
 
   function badge(n, large = false) {
     const lg = large ? ' lg' : '';
@@ -53,8 +89,11 @@ const SB = (() => {
     }
     const rows = [...byModel.entries()].map(([model, eps]) => {
       eps.sort((a, b) => (b.ratedAt || '').localeCompare(a.ratedAt || ''));
-      const score = Math.round((eps.reduce((s, e) => s + scoreOf(e), 0) / eps.length) * 10) / 10;
-      return { model, name: eps[0].modelName || model, lab: lab(model), score, tier: tierFor(score), latest: eps[0], count: eps.length };
+      const avg = (vals) => (vals.length ? Math.round((vals.reduce((s, v) => s + v, 0) / vals.length) * 10) / 10 : null);
+      const score = avg(eps.map(scoreOf));
+      const synopsis = avg(eps.map((e) => e.synopsisScore).filter((v) => v != null));
+      const scene = avg(eps.map((e) => e.sceneScore).filter((v) => v != null));
+      return { model, name: eps[0].modelName || model, lab: lab(model), score, synopsis, scene, tier: tierFor(score), latest: eps[0], count: eps.length };
     });
     rows.sort((a, b) => b.score - a.score || (b.latest.ratedAt || '').localeCompare(a.latest.ratedAt || ''));
     rows.forEach((r, i) => { r.rank = i > 0 && rows[i - 1].score === r.score ? rows[i - 1].rank : i + 1; });
@@ -108,5 +147,5 @@ const SB = (() => {
       </div>`;
   }
 
-  return { OWNER, REPO, TIERS, esc, tier, tierFor, scoreOf, fmtScore, trackGradient, badge, getJSON, getText, modelUrl, fmtDate, fmtCost, lab, aggregate, renderScene, chrome };
+  return { OWNER, REPO, TIERS, esc, tier, tierFor, scoreOf, fmtScore, trackGradient, RUBRIC, sectionScore, suggestScore, badge, getJSON, getText, modelUrl, fmtDate, fmtCost, lab, aggregate, renderScene, chrome };
 })();
