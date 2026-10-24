@@ -57,7 +57,7 @@
 
       <section id="jobs-sec">
         <h2 class="section-title">In the works</h2>
-        <p class="section-sub">Episodes being written right now. Each one usually takes one to three minutes.</p>
+        <p class="section-sub">Episodes being written right now, plus any that failed today. Each one usually takes one to three minutes.</p>
         <div class="model-list" id="jobs"></div>
       </section>
 
@@ -304,12 +304,13 @@
       $('#queue').innerHTML = queue.length ? queue.map(verdictCard).join('')
         : '<div class="empty"><div class="big">Nothing to judge.</div>Make an episode below and it will show up here.</div>';
 
-      const jobs = state.jobs.filter((j) => !j.done || Date.now() - Date.parse(j.at) < 86400e3).slice().reverse();
+      // Finished runs drop off (their episode is already in the queue); failures stay for a day so you can read the log.
+      const jobs = state.jobs.filter((j) => !j.done || (j.failed && Date.now() - Date.parse(j.at) < 86400e3)).slice().reverse();
       $('#n-jobs').textContent = state.jobs.filter((j) => !j.done).length;
       $('#jobs').innerHTML = jobs.length ? jobs.map((j) => `
         <div class="model-row">
           <div>
-            <div class="mr-name">${SB.esc(j.model)}${!j.done ? '<span class="pill run">Writing…</span>' : j.failed ? '<span class="pill fail">Failed</span>' : '<span class="pill done">Done</span>'}</div>
+            <div class="mr-name">${SB.esc(j.model)}${j.done ? '<span class="pill fail">Failed</span>' : '<span class="pill run">Writing…</span>'}</div>
             <div class="mr-meta">started ${new Date(j.at).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })}${j.failed ? ` · ${SB.esc(j.note || 'Usually means no OpenRouter credits yet, or the model id was retired.')}` : ''}</div>
           </div>
           <div class="mr-actions">${j.url ? `<a href="${SB.esc(j.url)}" target="_blank" rel="noopener">View run</a>` : ''}</div>
