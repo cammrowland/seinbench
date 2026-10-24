@@ -6,6 +6,11 @@ on:
   schedule:
     - cron: "17 13 * * *"
   workflow_dispatch:
+    inputs:
+      test_email:
+        description: "Also send a test email (no model calls)"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -38,6 +43,13 @@ jobs:
           GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
         run: python3 scripts/send_email.py
+
+      - name: Send a test email
+        if: inputs.test_email
+        env:
+          GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+        run: python3 scripts/send_email.py --test
 
   deploy:
     needs: scout
