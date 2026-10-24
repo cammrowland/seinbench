@@ -22,6 +22,7 @@ const SB = (() => {
     synopsis: {
       label: 'Synopsis', weight: 0.5,
       criteria: [
+        { key: 'premiseLaughs', name: 'Laughs', low: 'Groaner', high: 'Laugh-out-loud', hint: 'Is the premise itself funny, before a single line is written?' },
         { key: 'originality', name: 'Originality', low: 'Derivative', high: 'Original', hint: 'Recycled plots and known gags, or a premise the show never did?' },
         { key: 'weaving', name: 'Plot weaving', low: 'Forced', high: 'Clever', hint: 'Do the four storylines collide naturally, or get jammed together?' },
         { key: 'characters', name: 'Characters', low: 'Imitation', high: 'Authentic', hint: 'Do Jerry, George, Elaine and Kramer act like themselves?' },
