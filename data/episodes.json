@@ -96,7 +96,20 @@
    "provider": "Meta",
    "repeatCollapsed": false
   },
-  "rating": null,
-  "ratedAt": null
+  "rating": 4,
+  "ratedAt": "2026-10-24T23:01:00.868Z",
+  "score": 52,
+  "criteria": {
+   "premiseLaughs": 1,
+   "originality": 2,
+   "weaving": 2,
+   "characters": 2,
+   "laughs": 2,
+   "voices": 3,
+   "craft": 3
+  },
+  "synopsisScore": 43,
+  "sceneScore": 61,
+  "suggestedScore": 52
  }
 ]
