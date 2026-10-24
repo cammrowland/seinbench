@@ -24,13 +24,7 @@
 
     <section id="board" aria-labelledby="board-title">
       <h2 id="board-title">Leaderboard</h2>
-      <div class="board-head">
-        <p class="section-sub">Ranked by SeinScore. Exact ties share a rank. Open a model's details to read its episode.</p>
-        <div class="view-toggle" role="group" aria-label="Leaderboard view">
-          <button type="button" data-view="cards" aria-pressed="true">Cards</button>
-          <button type="button" data-view="table" aria-pressed="false">Table</button>
-        </div>
-      </div>
+      <p class="section-sub">Ranked by SeinScore. Exact ties share a rank. Tap a row for the full scorecard.</p>
       <div id="board-wrap"><div class="empty">Loading the leaderboard…</div></div>
     </section>
 
@@ -101,22 +95,21 @@
         wrap.innerHTML = `<div class="empty"><div class="big">No models have been rated yet.</div>It's a leaderboard about nothing.${pending ? ` ${pending} episode${pending > 1 ? 's are' : ' is'} waiting for a verdict.` : ''}</div>`;
         return;
       }
-      const VIEW_KEY = 'seinbench-board-view';
-      let view = 'cards';
-      try { view = localStorage.getItem(VIEW_KEY) === 'table' ? 'table' : 'cards'; } catch {}
-      const draw = () => {
-        wrap.innerHTML = view === 'cards' ? cardsHtml(rows) : tableHtml(rows);
-        document.querySelectorAll('.view-toggle button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.view === view)));
-      };
-      document.querySelector('.view-toggle').addEventListener('click', (ev) => {
-        const b = ev.target.closest('button[data-view]');
-        if (!b) return;
-        view = b.dataset.view;
-        try { localStorage.setItem(VIEW_KEY, view); } catch {}
-        draw();
+      wrap.innerHTML = tableHtml(rows);
+      // Tap a row (or its arrow) to open its details; links inside the row still work as links.
+      wrap.addEventListener('click', (ev) => {
+        if (ev.target.closest('a')) return;
+        const row = ev.target.closest('tr.board-row');
+        if (row) toggleRow(row.querySelector('.row-toggle'));
       });
-      draw();
     })();
+
+    function toggleRow(button) {
+      const open = button.getAttribute('aria-expanded') !== 'true';
+      button.setAttribute('aria-expanded', String(open));
+      button.closest('tr').classList.toggle('open', open);
+      document.getElementById(button.getAttribute('aria-controls')).hidden = !open;
+    }
 
     function measure(label, value) {
       if (value == null) {
@@ -125,49 +118,46 @@
       return `<div class="mc-row"><span>${SB.esc(label)}</span><span class="mc-bar"><i style="width:${value}%;background:var(--tier-${SB.tierFor(value)})"></i></span><span class="mc-val">${SB.fmtScore(Math.round(value))}</span></div>`;
     }
 
-    function cardsHtml(rows) {
-      return `<div class="cards">${rows.map((r) => {
-        const [whole, frac] = r.score.toFixed(1).split('.');
-        const sections = Object.entries(SB.RUBRIC).map(([key, sec]) => `
-          <div class="mc-section">
-            <h4><span>${SB.esc(sec.label)}</span><b>${SB.fmtScore(r[key])}</b></h4>
-            ${sec.criteria.map((c) => measure(c.name, r.criteria[c.key])).join('')}
-          </div>`).join('');
-        return `
-          <article class="model-card">
-            <header class="mc-head">
-              <div class="mc-mono" aria-hidden="true">${SB.esc(r.lab[0].toUpperCase())}</div>
-              <div class="mc-id">
-                <a class="mc-name" href="${SB.modelUrl(r.model)}">${SB.esc(SB.shortName(r.name))}</a>
-                <div>${SB.badge(r.tier)}</div>
-                <div class="mc-sub">${SB.esc(r.lab)} · ${String(r.rank).padStart(2, '0')}</div>
-              </div>
-              <div class="mc-score">
-                <span>SeinScore</span>
-                <b style="color:var(--tier-${r.tier})">${whole}<em>.${frac}</em></b>
-                <small>90% interval 0–100 · n&nbsp;=&nbsp;${r.count}</small>
-              </div>
-            </header>
-            ${sections}
-            <footer class="mc-foot">
-              <span><i class="dot" style="background:var(--tier-${r.tier})"></i>Judged · one human, no appeals</span>
-              <a href="${SB.modelUrl(r.model)}">Details →</a>
-            </footer>
-          </article>`;
-      }).join('')}</div>`;
+    function detailHtml(r) {
+      const [whole, frac] = r.score.toFixed(1).split('.');
+      const sections = Object.entries(SB.RUBRIC).map(([key, sec]) => `
+        <div class="mc-section">
+          <h4><span>${SB.esc(sec.label)}</span><b>${SB.fmtScore(r[key])}</b></h4>
+          ${sec.criteria.map((c) => measure(c.name, r.criteria[c.key])).join('')}
+        </div>`).join('');
+      return `
+        <div class="row-detail">
+          ${sections}
+          <aside class="rd-aside">
+            <span class="rd-label">SeinScore</span>
+            <b class="rd-score" style="color:var(--tier-${r.tier})">${whole}<em>.${frac}</em></b>
+            <small class="rd-interval">90% interval 0–100 · n&nbsp;=&nbsp;${r.count}</small>
+            ${SB.badge(r.tier)}
+            <p class="rd-episode">“${SB.esc(r.latest.title)}”${r.count > 1 ? ` <span>+${r.count - 1} more</span>` : ''}</p>
+            <dl>
+              <dt>Cost</dt><dd>${SB.fmtCost(r.latest.stats?.cost)}</dd>
+              <dt>Judged</dt><dd>${SB.fmtDate(r.latest.ratedAt)}</dd>
+            </dl>
+            <a class="rd-link" href="${SB.modelUrl(r.model)}">Read the episode →</a>
+            <p class="rd-fine">Judged by one human. No appeals.</p>
+          </aside>
+        </div>`;
     }
 
     function tableHtml(rows) {
       return `<div class="board-wrap">
         <table class="board">
           <thead><tr>
+            <th scope="col"><span class="visually-hidden">Details</span></th>
             <th scope="col">Rank</th><th scope="col">Model</th><th scope="col">SeinScore</th><th scope="col" class="hide-sm">Verdict</th><th scope="col" class="hide-sm" title="Synopsis scorecard">Synopsis</th><th scope="col" class="hide-sm" title="Scene scorecard">Scene</th>
             <th scope="col" class="hide-sm">Episode</th><th scope="col" class="hide-sm">Cost</th><th scope="col" class="hide-sm">Judged</th>
           </tr></thead>
-          <tbody>${rows.map((r) => `
-            <tr>
+          ${rows.map((r, i) => `
+          <tbody>
+            <tr class="board-row">
+              <td class="toggle-cell"><button type="button" class="row-toggle" aria-expanded="false" aria-controls="detail-${i}" aria-label="Show details for ${SB.esc(SB.shortName(r.name))}"></button></td>
               <td class="rank">${r.rank}</td>
-              <td><a class="model-name" href="${SB.modelUrl(r.model)}">${SB.esc(r.name)}</a><span class="model-id">${SB.esc(r.lab)} · ${SB.esc(r.model)}</span></td>
+              <td><a class="model-name" href="${SB.modelUrl(r.model)}">${SB.esc(SB.shortName(r.name))}</a><span class="model-id">${SB.esc(r.lab)} · ${SB.esc(r.model)}</span></td>
               <td class="score" style="color:var(--tier-${r.tier})">${SB.fmtScore(r.score)}${r.count > 1 ? `<small> avg</small>` : ''}</td>
               <td class="hide-sm">${SB.badge(r.tier)}</td>
               <td class="hide-sm num">${SB.fmtScore(r.synopsis)}</td>
@@ -175,8 +165,9 @@
               <td class="hide-sm ep-title">${SB.esc(r.latest.title)}${r.count > 1 ? ` <span class="num">+${r.count - 1} more</span>` : ''}</td>
               <td class="hide-sm num">${SB.fmtCost(r.latest.stats?.cost)}</td>
               <td class="hide-sm num">${SB.fmtDate(r.latest.ratedAt)}</td>
-            </tr>`).join('')}
-          </tbody>
+            </tr>
+            <tr class="detail-row" id="detail-${i}" hidden><td colspan="10">${detailHtml(r)}</td></tr>
+          </tbody>`).join('')}
         </table></div>`;
     }
   </script>
