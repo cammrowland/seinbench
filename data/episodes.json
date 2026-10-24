@@ -45,7 +45,19 @@
    "provider": "xAI",
    "repeatCollapsed": true
   },
-  "rating": null,
-  "ratedAt": null
+  "rating": 4,
+  "ratedAt": "2026-10-24T21:36:49.282Z",
+  "score": 44,
+  "criteria": {
+   "weaving": 1,
+   "originality": 3,
+   "characters": 3,
+   "laughs": 1,
+   "voices": 2,
+   "craft": 2
+  },
+  "synopsisScore": 51,
+  "sceneScore": 40,
+  "suggestedScore": 46
  }
 ]
