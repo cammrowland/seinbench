@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Courier+Prime:wght@400;700&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:ital,wght@0,400;0,600;0,700;1,400;1,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/style.css?v=dev">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥨</text></svg>">
 </head>
 <body>
@@ -92,7 +92,7 @@
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <footer class="site-footer" id="site-footer"></footer>
 
-  <script src="assets/common.js"></script>
+  <script src="assets/common.js?v=dev"></script>
   <script>
     SB.chrome('');
     const API = `https://api.github.com/repos/${SB.OWNER}/${SB.REPO}`;
@@ -190,10 +190,10 @@
       token = $('#token').value.trim();
       try {
         await checkToken(true);
-        store.set(TOKEN_KEY, token);
-        $('#token').value = '';
-        await openRoom();
-      } catch (e) { token = ''; err.textContent = e.message; }
+      } catch (e) { token = ''; err.textContent = e.message; return; }
+      store.set(TOKEN_KEY, token);
+      $('#token').value = '';
+      enterRoom();
     });
 
     $('#lock-btn').addEventListener('click', () => {
@@ -201,6 +201,18 @@
       token = '';
       location.reload();
     });
+
+    // The token is fine by the time this runs, so a failure here is a loading problem, not a login one.
+    function enterRoom() {
+      openRoom().catch((e) => {
+        $('#queue').innerHTML = `
+          <div class="empty">
+            <div class="big">The room didn't load.</div>
+            <p>${SB.esc(e.message)}</p>
+            <button type="button" class="btn small" onclick="location.reload()">Reload</button>
+          </div>`;
+      });
+    }
 
     async function openRoom() {
       $('#locked').hidden = true;
@@ -533,7 +545,7 @@
 
     // ---------- Start ----------
     if (token) {
-      checkToken().then(openRoom).catch((e) => {
+      checkToken().then(enterRoom, (e) => {
         $('#locked').hidden = false;
         $('#unlock-err').textContent = `${e.message} Paste a fresh token.`;
       });

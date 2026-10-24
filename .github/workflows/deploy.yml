@@ -30,6 +30,9 @@ jobs:
         run: |
           mkdir _site
           cp -r index.html model.html writers-room.html 404.html assets data _site/
+          # Browsers cache assets for 10 minutes; a content hash in each link makes them fetch the new ones.
+          VERSION=$(cat assets/* | sha1sum | cut -c1-10)
+          sed -i "s/?v=dev/?v=$VERSION/g" _site/*.html
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
         with:
