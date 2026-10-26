@@ -1,6 +1,30 @@
 {
- "updated": "2026-10-25",
+ "updated": "2026-10-26",
  "models": [
+  {
+   "id": "openai/gpt-6.1-terra",
+   "name": "OpenAI: GPT-6.1 Terra",
+   "lab": "OpenAI",
+   "created": 1793038409,
+   "firstSeen": "2026-10-26",
+   "major": true,
+   "inPrice": 1.0,
+   "outPrice": 5.0,
+   "context": 1050000,
+   "description": "GPT-6.1 Terra is the mid-tier model in OpenAI's GPT-6.1 series, priced below GPT-6.1 Sol. It is suited for everyday agentic, coding, and writing work, is particularly strong at understanding screenshots..."
+  },
+  {
+   "id": "openai/gpt-6.1-terra:batch",
+   "name": "OpenAI: GPT-6.1 Terra (batch)",
+   "lab": "OpenAI",
+   "created": 1793038409,
+   "firstSeen": "2026-10-26",
+   "major": false,
+   "inPrice": 0.5,
+   "outPrice": 2.5,
+   "context": 1050000,
+   "description": "GPT-6.1 Terra is the mid-tier model in OpenAI's GPT-6.1 series, priced below GPT-6.1 Sol. It is suited for everyday agentic, coding, and writing work, is particularly strong at understanding screenshots..."
+  },
   {
    "id": "moonshotai/kimi-k3.1-pro",
    "name": "MoonshotAI: Kimi K3.1 Pro",
@@ -752,8 +776,8 @@
    "created": 1789399150,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.02,
-   "outPrice": 1.0,
+   "inPrice": 0.04,
+   "outPrice": 0.5,
    "context": 1048576,
    "description": "This model always redirects to the latest model in the DeepSeek Flash family."
   },
@@ -812,8 +836,8 @@
    "created": 1789130925,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 2.0,
-   "outPrice": 12.0,
+   "inPrice": 1.0,
+   "outPrice": 5.0,
    "context": 1050000,
    "description": "This model always redirects to the latest model in the GPT Terra family."
   },
@@ -872,8 +896,8 @@
    "created": 1789021285,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.02,
-   "outPrice": 1.0,
+   "inPrice": 0.0477,
+   "outPrice": 0.1908,
    "context": 1048576,
    "description": "DeepSeek V4.1 Flash is a sparse mixture-of-experts model from DeepSeek, and the first built on the company's Causal Encoder-Decoder (CED) architecture. It activates 8B parameters on input and 16B on..."
   },
@@ -1088,8 +1112,8 @@
    "created": 1787817633,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.0513,
-   "outPrice": 0.0701,
+   "inPrice": 0.0413,
+   "outPrice": 0.0758,
    "context": 1048576,
    "description": "This model always redirects to the latest model in the GLM Flash family."
   },
@@ -1184,8 +1208,8 @@
    "created": 1787151053,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.0703,
-   "outPrice": 4.3843,
+   "inPrice": 0.0699,
+   "outPrice": 1.4,
    "context": 1048576,
    "description": "This model always redirects to the latest GLM model from Z.ai."
   },
@@ -1208,7 +1232,7 @@
    "created": 1787086655,
    "firstSeen": "2026-10-24",
    "major": true,
-   "inPrice": 0.079,
+   "inPrice": 0.0699,
    "outPrice": 1.4,
    "context": 1048576,
    "description": "GLM-5.3 is a large-scale reasoning model from Z.ai, built for complex software engineering and long-horizon agent tasks. It supports text input and output with a 1M-token context window, and improves..."
@@ -1437,7 +1461,7 @@
    "firstSeen": "2026-10-24",
    "major": false,
    "inPrice": 0.0422,
-   "outPrice": 0.1763,
+   "outPrice": 0.1694,
    "context": 1048576,
    "description": "This model always redirects to the latest model in the DeepSeek V4 Flash family."
   },
@@ -1652,8 +1676,8 @@
    "created": 1784215858,
    "firstSeen": "2026-10-24",
    "major": true,
-   "inPrice": 0.239,
-   "outPrice": 10.8,
+   "inPrice": 0.2,
+   "outPrice": 20.0,
    "context": 1048576,
    "description": "Kimi K3 is a 2.8T parameter open-weight multimodal reasoning model from Moonshot AI. It is suited for complex coding, knowledge work, and long-horizon agentic workflows, and is particularly strong at..."
   },
@@ -2384,8 +2408,8 @@
    "created": 1777318428,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.152,
-   "outPrice": 16.0,
+   "inPrice": 0.2,
+   "outPrice": 20.0,
    "context": 1048576,
    "description": "This model always redirects to the latest model in the Kimi family."
   },
@@ -2516,8 +2540,8 @@
    "created": 1777000679,
    "firstSeen": "2026-10-24",
    "major": true,
-   "inPrice": 0.2088,
-   "outPrice": 0.4176,
+   "inPrice": 0.7367,
+   "outPrice": 1.4734,
    "context": 1048576,
    "description": "DeepSeek V4 Pro is a large-scale Mixture-of-Experts model from DeepSeek with 1.6T total parameters and 49B activated parameters, supporting a 1M-token context window. It is designed for advanced reasoning, coding,..."
   },
@@ -2660,8 +2684,8 @@
    "created": 1775227989,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.0675,
-   "outPrice": 0.225,
+   "inPrice": 0.0765,
+   "outPrice": 0.255,
    "context": 262144,
    "description": "Gemma 4 26B A4B IT is an instruction-tuned Mixture-of-Experts (MoE) model from Google DeepMind. Despite 25.2B total parameters, only 3.8B activate per token during inference \u2014 delivering near-31B quality at..."
   },
@@ -2724,18 +2748,6 @@
    "outPrice": 4.0,
    "context": 202752,
    "description": "GLM-5V-Turbo is Z.ai\u2019s first native multimodal agent foundation model, built for vision-based coding and agent-driven tasks. It natively handles image, video, and text inputs, excels at long-horizon planning, complex coding,..."
-  },
-  {
-   "id": "arcee-ai/trinity-large-thinking",
-   "name": "Arcee AI: Trinity Large Thinking",
-   "lab": "arcee-ai",
-   "created": 1775058318,
-   "firstSeen": "2026-10-24",
-   "major": false,
-   "inPrice": 0.25,
-   "outPrice": 0.8,
-   "context": 262144,
-   "description": "Trinity Large Thinking is a powerful open source reasoning model from the team at Arcee AI. It shows strong performance in PinchBench, agentic workloads, and reasoning tasks. Launch video: https://youtu.be/Gc82AXLa0Rg?si=4RLn6WBz33qT--B7..."
   },
   {
    "id": "x-ai/grok-4.20-multi-agent",
@@ -3068,8 +3080,8 @@
    "created": 1772053789,
    "firstSeen": "2026-10-24",
    "major": true,
-   "inPrice": 0.4,
-   "outPrice": 3.2,
+   "inPrice": 0.26,
+   "outPrice": 2.08,
    "context": 262144,
    "description": "The Qwen3.5 122B-A10B native vision-language model is built on a hybrid architecture that integrates a linear attention mechanism with a sparse mixture-of-experts model, achieving higher inference efficiency. In terms of..."
   },
@@ -4352,7 +4364,7 @@
    "created": 1753806965,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.09,
+   "inPrice": 0.1,
    "outPrice": 0.3,
    "context": 262144,
    "description": "Qwen3-30B-A3B-Instruct-2507 is a 30.5B-parameter mixture-of-experts language model from Qwen, with 3.3B active parameters per inference. It operates in non-thinking mode and is designed for high-quality instruction following, multilingual understanding, and..."
