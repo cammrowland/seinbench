@@ -1,6 +1,30 @@
 {
- "updated": "2026-10-26",
+ "updated": "2026-10-27",
  "models": [
+  {
+   "id": "openai/gpt-6.1-terra-pro",
+   "name": "OpenAI: GPT-6.1 Terra Pro",
+   "lab": "OpenAI",
+   "created": 1793038556,
+   "firstSeen": "2026-10-27",
+   "major": true,
+   "inPrice": 1.0,
+   "outPrice": 5.0,
+   "context": 1050000,
+   "description": "GPT-6.1 Terra Pro is the same underlying model as [GPT-6.1 Terra](https://openrouter.ai/openai/gpt-6.1-terra), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks. **Cost note:** pro mode spends far more..."
+  },
+  {
+   "id": "openai/gpt-6.1-terra-pro:batch",
+   "name": "OpenAI: GPT-6.1 Terra Pro (batch)",
+   "lab": "OpenAI",
+   "created": 1793038556,
+   "firstSeen": "2026-10-27",
+   "major": false,
+   "inPrice": 0.5,
+   "outPrice": 2.5,
+   "context": 1050000,
+   "description": "GPT-6.1 Terra Pro is the same underlying model as [GPT-6.1 Terra](https://openrouter.ai/openai/gpt-6.1-terra), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks. **Cost note:** pro mode spends far more..."
+  },
   {
    "id": "openai/gpt-6.1-terra",
    "name": "OpenAI: GPT-6.1 Terra",
@@ -671,7 +695,7 @@
    "inPrice": -1000000.0,
    "outPrice": -1000000.0,
    "context": 1000000,
-   "description": "Switchyard is an open-source model router that switches between multiple models to optimize the cost of requests. By default it will use OpenRouter market data to select the most popular..."
+   "description": "Switchyard is an open-source model routing system that switches between multiple models to optimize the cost of requests. By default it will use OpenRouter market data to select the most..."
   },
   {
    "id": "xiaomi/mimo-v2.6-pro-ultraspeed",
@@ -764,7 +788,7 @@
    "created": 1789399174,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.1188,
+   "inPrice": 0.1259,
    "outPrice": 8.0,
    "context": 1048576,
    "description": "This model always redirects to the latest model in the DeepSeek Pro family."
@@ -776,8 +800,8 @@
    "created": 1789399150,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.04,
-   "outPrice": 0.5,
+   "inPrice": 0.022,
+   "outPrice": 1.331,
    "context": 1048576,
    "description": "This model always redirects to the latest model in the DeepSeek Flash family."
   },
@@ -896,8 +920,8 @@
    "created": 1789021285,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.0477,
-   "outPrice": 0.1908,
+   "inPrice": 0.14,
+   "outPrice": 0.42,
    "context": 1048576,
    "description": "DeepSeek V4.1 Flash is a sparse mixture-of-experts model from DeepSeek, and the first built on the company's Causal Encoder-Decoder (CED) architecture. It activates 8B parameters on input and 16B on..."
   },
@@ -1112,8 +1136,8 @@
    "created": 1787817633,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.0413,
-   "outPrice": 0.0758,
+   "inPrice": 0.0345,
+   "outPrice": 0.0823,
    "context": 1048576,
    "description": "This model always redirects to the latest model in the GLM Flash family."
   },
@@ -1472,8 +1496,8 @@
    "created": 1785478908,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.0444,
-   "outPrice": 0.1333,
+   "inPrice": 0.119,
+   "outPrice": 0.238,
    "context": 1048576,
    "description": "DeepSeek V4 Flash 0731 is a sparse mixture-of-experts model from DeepSeek, with 13B active parameters out of 284B total. This re-post-trained revision is suited for coding, reasoning, and agent workflows...."
   },
@@ -1676,8 +1700,8 @@
    "created": 1784215858,
    "firstSeen": "2026-10-24",
    "major": true,
-   "inPrice": 0.2,
-   "outPrice": 20.0,
+   "inPrice": 0.159,
+   "outPrice": 11.5,
    "context": 1048576,
    "description": "Kimi K3 is a 2.8T parameter open-weight multimodal reasoning model from Moonshot AI. It is suited for complex coding, knowledge work, and long-horizon agentic workflows, and is particularly strong at..."
   },
@@ -2048,8 +2072,8 @@
    "created": 1781266361,
    "firstSeen": "2026-10-24",
    "major": true,
-   "inPrice": 0.6712,
-   "outPrice": 3.35,
+   "inPrice": 0.56,
+   "outPrice": 3.1,
    "context": 262144,
    "description": "MoonshotAI: Kimi K2.7 Code is a coding-focused model in Moonshot AI's Kimi K2 family, built to complete end-to-end programming tasks reliably over long contexts. It uses a native multimodal mixture-of-experts..."
   },
@@ -2408,8 +2432,8 @@
    "created": 1777318428,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.2,
-   "outPrice": 20.0,
+   "inPrice": 0.151,
+   "outPrice": 9.7224,
    "context": 1048576,
    "description": "This model always redirects to the latest model in the Kimi family."
   },
@@ -2540,8 +2564,8 @@
    "created": 1777000679,
    "firstSeen": "2026-10-24",
    "major": true,
-   "inPrice": 0.7367,
-   "outPrice": 1.4734,
+   "inPrice": 0.8771,
+   "outPrice": 1.7543,
    "context": 1048576,
    "description": "DeepSeek V4 Pro is a large-scale Mixture-of-Experts model from DeepSeek with 1.6T total parameters and 49B activated parameters, supporting a 1M-token context window. It is designed for advanced reasoning, coding,..."
   },
@@ -2552,8 +2576,8 @@
    "created": 1777000666,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.091,
-   "outPrice": 0.182,
+   "inPrice": 0.0473,
+   "outPrice": 0.0946,
    "context": 1048576,
    "description": "DeepSeek V4 Flash is an efficiency-optimized Mixture-of-Experts model from DeepSeek with 284B total parameters and 13B activated parameters, supporting a 1M-token context window. It is designed for fast inference and..."
   },
@@ -2576,8 +2600,8 @@
    "created": 1776874273,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.3045,
-   "outPrice": 0.609,
+   "inPrice": 0.48,
+   "outPrice": 1.8,
    "context": 1050000,
    "description": "MiMo-V2.5-Pro is Xiaomi\u2019s flagship model, delivering strong performance in general agentic capabilities, complex software engineering, and long-horizon tasks, with top rankings on benchmarks such as ClawEval, GDPVal, and SWE-bench Pro...."
   },
@@ -2588,8 +2612,8 @@
    "created": 1776874269,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.119,
-   "outPrice": 0.238,
+   "inPrice": 0.4,
+   "outPrice": 2.0,
    "context": 1050000,
    "description": "MiMo-V2.5 is a native omnimodal model by Xiaomi. It delivers Pro-level agentic performance at roughly half the inference cost, while surpassing MiMo-V2-Omni in multimodal perception across image and video understanding..."
   },
@@ -2672,8 +2696,8 @@
    "created": 1775578025,
    "firstSeen": "2026-10-24",
    "major": true,
-   "inPrice": 1.4,
-   "outPrice": 4.4,
+   "inPrice": 0.966,
+   "outPrice": 3.036,
    "context": 204800,
    "description": "GLM-5.1 delivers a major leap in coding capability, with particularly significant gains in handling long-horizon tasks. Unlike previous models built around minute-level interactions, GLM-5.1 can work independently and continuously on..."
   },
@@ -2684,8 +2708,8 @@
    "created": 1775227989,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.0765,
-   "outPrice": 0.255,
+   "inPrice": 0.09,
+   "outPrice": 0.3,
    "context": 262144,
    "description": "Gemma 4 26B A4B IT is an instruction-tuned Mixture-of-Experts (MoE) model from Google DeepMind. Despite 25.2B total parameters, only 3.8B activate per token during inference \u2014 delivering near-31B quality at..."
   },
@@ -2882,18 +2906,6 @@
    "description": "Mistral Small 4 is the next major release in the Mistral Small family, unifying the capabilities of several flagship Mistral models into a single system. It combines strong reasoning from..."
   },
   {
-   "id": "mistralai/mistral-small-2603:batch",
-   "name": "Mistral: Mistral Small 4 (batch)",
-   "lab": "Mistral",
-   "created": 1773695685,
-   "firstSeen": "2026-10-24",
-   "major": false,
-   "inPrice": 0.075,
-   "outPrice": 0.3,
-   "context": 262144,
-   "description": "Mistral Small 4 is the next major release in the Mistral Small family, unifying the capabilities of several flagship Mistral models into a single system. It combines strong reasoning from..."
-  },
-  {
    "id": "z-ai/glm-5-turbo",
    "name": "Z.ai: GLM 5 Turbo",
    "lab": "Z.ai",
@@ -2914,18 +2926,6 @@
    "major": false,
    "inPrice": 0.3,
    "outPrice": 2.4,
-   "context": 262144,
-   "description": "NVIDIA Nemotron 3 Super is a 120B-parameter open hybrid MoE model, activating just 12B parameters for maximum compute efficiency and accuracy in complex multi-agent applications. Built on a hybrid Mamba-Transformer..."
-  },
-  {
-   "id": "nvidia/nemotron-3-super-120b-a12b:free",
-   "name": "NVIDIA: Nemotron 3 Super (free)",
-   "lab": "nvidia",
-   "created": 1773245239,
-   "firstSeen": "2026-10-24",
-   "major": false,
-   "inPrice": 0.0,
-   "outPrice": 0.0,
    "context": 262144,
    "description": "NVIDIA Nemotron 3 Super is a 120B-parameter open hybrid MoE model, activating just 12B parameters for maximum compute efficiency and accuracy in complex multi-agent applications. Built on a hybrid Mamba-Transformer..."
   },
@@ -3068,8 +3068,8 @@
    "created": 1772053810,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.27,
-   "outPrice": 2.16,
+   "inPrice": 0.26,
+   "outPrice": 2.6,
    "context": 262144,
    "description": "The Qwen3.5 27B native vision-language Dense model incorporates a linear attention mechanism, delivering fast response times while balancing inference speed and performance. Its overall capabilities are comparable to those of..."
   },
@@ -3626,18 +3626,6 @@
    "description": "A balanced model in the Ministral 3 family, Ministral 3 8B is a powerful, efficient tiny language model with vision capabilities."
   },
   {
-   "id": "mistralai/ministral-8b-2512:batch",
-   "name": "Mistral: Ministral 3 8B 2512 (batch)",
-   "lab": "Mistral",
-   "created": 1764681654,
-   "firstSeen": "2026-10-24",
-   "major": false,
-   "inPrice": 0.075,
-   "outPrice": 0.075,
-   "context": 262144,
-   "description": "A balanced model in the Ministral 3 family, Ministral 3 8B is a powerful, efficient tiny language model with vision capabilities."
-  },
-  {
    "id": "mistralai/ministral-3b-2512",
    "name": "Mistral: Ministral 3 3B 2512",
    "lab": "Mistral",
@@ -3658,18 +3646,6 @@
    "major": false,
    "inPrice": 0.5,
    "outPrice": 1.5,
-   "context": 262144,
-   "description": "Mistral Large 3 2512 is Mistral\u2019s most capable model to date, featuring a sparse mixture-of-experts architecture with 41B active parameters (675B total), and released under the Apache 2.0 license."
-  },
-  {
-   "id": "mistralai/mistral-large-2512:batch",
-   "name": "Mistral: Mistral Large 3 2512 (batch)",
-   "lab": "Mistral",
-   "created": 1764624472,
-   "firstSeen": "2026-10-24",
-   "major": false,
-   "inPrice": 0.25,
-   "outPrice": 0.75,
    "context": 262144,
    "description": "Mistral Large 3 2512 is Mistral\u2019s most capable model to date, featuring a sparse mixture-of-experts architecture with 41B active parameters (675B total), and released under the Apache 2.0 license."
   },
@@ -3840,18 +3816,6 @@
    "outPrice": 1.02,
    "context": 204800,
    "description": "MiniMax-M2 is a compact, high-efficiency large language model optimized for end-to-end coding and agentic workflows. With 10 billion activated parameters (230 billion total), it delivers near-frontier intelligence across general reasoning,..."
-  },
-  {
-   "id": "ibm-granite/granite-4.0-h-micro",
-   "name": "IBM: Granite 4.0 Micro",
-   "lab": "ibm-granite",
-   "created": 1760927695,
-   "firstSeen": "2026-10-24",
-   "major": false,
-   "inPrice": 0.017,
-   "outPrice": 0.112,
-   "context": 131000,
-   "description": "Granite-4.0-H-Micro is a 3B parameter from the Granite 4 family of models. These models are the latest in a series of models released by IBM. They are fine-tuned for long..."
   },
   {
    "id": "openai/gpt-5-image-mini",
@@ -4154,18 +4118,6 @@
    "description": "Mistral Medium 3.1 is an updated version of Mistral Medium 3, which is a high-performance enterprise-grade language model designed to deliver frontier-level capabilities at significantly reduced operational cost. It balances..."
   },
   {
-   "id": "mistralai/mistral-medium-3.1:batch",
-   "name": "Mistral: Mistral Medium 3.1 (batch)",
-   "lab": "Mistral",
-   "created": 1755095639,
-   "firstSeen": "2026-10-24",
-   "major": false,
-   "inPrice": 0.2,
-   "outPrice": 1.0,
-   "context": 131072,
-   "description": "Mistral Medium 3.1 is an updated version of Mistral Medium 3, which is a high-performance enterprise-grade language model designed to deliver frontier-level capabilities at significantly reduced operational cost. It balances..."
-  },
-  {
    "id": "z-ai/glm-4.5v",
    "name": "Z.ai: GLM 4.5V",
    "lab": "Z.ai",
@@ -4330,18 +4282,6 @@
    "major": false,
    "inPrice": 0.3,
    "outPrice": 0.9,
-   "context": 256000,
-   "description": "Mistral's cutting-edge language model for coding released end of July 2025. Codestral specializes in low-latency, high-frequency tasks such as fill-in-the-middle (FIM), code correction and test generation.\n\n[Blog Post](https://mistral.ai/news/codestral-25-08)"
-  },
-  {
-   "id": "mistralai/codestral-2508:batch",
-   "name": "Mistral: Codestral 2508 (batch)",
-   "lab": "Mistral",
-   "created": 1754079630,
-   "firstSeen": "2026-10-24",
-   "major": false,
-   "inPrice": 0.15,
-   "outPrice": 0.45,
    "context": 256000,
    "description": "Mistral's cutting-edge language model for coding released end of July 2025. Codestral specializes in low-latency, high-frequency tasks such as fill-in-the-middle (FIM), code correction and test generation.\n\n[Blog Post](https://mistral.ai/news/codestral-25-08)"
   },
@@ -4856,8 +4796,8 @@
    "created": 1741905510,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.04,
-   "outPrice": 0.05,
+   "inPrice": 0.05,
+   "outPrice": 0.1,
    "context": 131072,
    "description": "Gemma 3 introduces multimodality, supporting vision-language input and text outputs. It handles context windows up to 128k tokens, understands over 140 languages, and offers improved math, reasoning, and chat capabilities,..."
   },
