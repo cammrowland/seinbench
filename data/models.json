@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-27",
+ "updated": "2026-10-28",
  "models": [
   {
    "id": "openai/gpt-6.1-terra-pro",
@@ -144,6 +144,18 @@
    "outPrice": 0.35,
    "context": 1000000,
    "description": "Mercury 3 is a diffusion-based language model from Inception, and the lab's most capable model to date. It is suited for agentic workflows and real-time applications where latency compounds, such..."
+  },
+  {
+   "id": "prism-ml/ternary-bonsai-2-9b",
+   "name": "PrismML: Ternary Bonsai 2 9B",
+   "lab": "prism-ml",
+   "created": 1792130995,
+   "firstSeen": "2026-10-28",
+   "major": false,
+   "inPrice": 0.08,
+   "outPrice": 0.13,
+   "context": 262144,
+   "description": "Ternary Bonsai 2 9B is PrismML\u2019s compact, open-weight language model for conversational AI, reasoning, and tool use. Built on Qwen3.5, it uses ternary weights packed into 2 bits for efficient..."
   },
   {
    "id": "moondream/moondream3-preview",
@@ -382,7 +394,7 @@
    "major": false,
    "inPrice": 0.075,
    "outPrice": 0.225,
-   "context": 262144,
+   "context": 1000000,
    "description": "Ling 3.1 Flash is a hybrid reasoning mixture-of-experts model from inclusionAI, with 25B active parameters out of 560B total."
   },
   {
@@ -788,7 +800,7 @@
    "created": 1789399174,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.1259,
+   "inPrice": 0.1318,
    "outPrice": 8.0,
    "context": 1048576,
    "description": "This model always redirects to the latest model in the DeepSeek Pro family."
@@ -800,8 +812,8 @@
    "created": 1789399150,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.022,
-   "outPrice": 1.331,
+   "inPrice": 0.0115,
+   "outPrice": 1.8,
    "context": 1048576,
    "description": "This model always redirects to the latest model in the DeepSeek Flash family."
   },
@@ -1136,8 +1148,8 @@
    "created": 1787817633,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.0345,
-   "outPrice": 0.0823,
+   "inPrice": 0.0259,
+   "outPrice": 0.1042,
    "context": 1048576,
    "description": "This model always redirects to the latest model in the GLM Flash family."
   },
@@ -1280,8 +1292,8 @@
    "created": 1786722910,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.2,
-   "outPrice": 2.5,
+   "inPrice": 0.039,
+   "outPrice": 1.25,
    "context": 1000000,
    "description": "Qwen3.8 27B is an open-weight dense vision-language model from Qwen. It is suited for coding, professional workflows, research, multimodal interaction, and long-running agent tasks, with flexible thinking that can be..."
   },
@@ -1700,8 +1712,8 @@
    "created": 1784215858,
    "firstSeen": "2026-10-24",
    "major": true,
-   "inPrice": 0.159,
-   "outPrice": 11.5,
+   "inPrice": 0.192,
+   "outPrice": 20.0,
    "context": 1048576,
    "description": "Kimi K3 is a 2.8T parameter open-weight multimodal reasoning model from Moonshot AI. It is suited for complex coding, knowledge work, and long-horizon agentic workflows, and is particularly strong at..."
   },
@@ -2048,7 +2060,7 @@
    "created": 1781631930,
    "firstSeen": "2026-10-24",
    "major": true,
-   "inPrice": 0.0341,
+   "inPrice": 0.0096,
    "outPrice": 7.0,
    "context": 1048576,
    "description": "GLM 5.2 is a large-scale reasoning model from Z.ai. It supports text input and output with a 1M-token context window, and is suited for long-horizon agent workflows, project-level software engineering,..."
@@ -2432,8 +2444,8 @@
    "created": 1777318428,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.151,
-   "outPrice": 9.7224,
+   "inPrice": 0.1824,
+   "outPrice": 8.504,
    "context": 1048576,
    "description": "This model always redirects to the latest model in the Kimi family."
   },
@@ -2493,7 +2505,7 @@
    "firstSeen": "2026-10-24",
    "major": true,
    "inPrice": 0.1,
-   "outPrice": 0.95,
+   "outPrice": 0.9,
    "context": 262144,
    "description": "Qwen3.6-35B-A3B is an open-weight multimodal model from Alibaba Cloud with 35 billion total parameters and 3 billion active parameters per token. It uses a hybrid sparse mixture-of-experts architecture combining Gated..."
   },
@@ -2504,8 +2516,8 @@
    "created": 1777255064,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.32,
-   "outPrice": 3.2,
+   "inPrice": 0.45,
+   "outPrice": 2.7,
    "context": 262144,
    "description": "Qwen3.6 27B is a dense 27-billion-parameter language model from the Qwen Team at Alibaba, released in April 2026. It features hybrid multimodal capabilities \u2014 accepting text, image, and video inputs..."
   },
@@ -2564,8 +2576,8 @@
    "created": 1777000679,
    "firstSeen": "2026-10-24",
    "major": true,
-   "inPrice": 0.8771,
-   "outPrice": 1.7543,
+   "inPrice": 0.889,
+   "outPrice": 1.7779,
    "context": 1048576,
    "description": "DeepSeek V4 Pro is a large-scale Mixture-of-Experts model from DeepSeek with 1.6T total parameters and 49B activated parameters, supporting a 1M-token context window. It is designed for advanced reasoning, coding,..."
   },
@@ -2576,8 +2588,8 @@
    "created": 1777000666,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.0473,
-   "outPrice": 0.0946,
+   "inPrice": 0.091,
+   "outPrice": 0.182,
    "context": 1048576,
    "description": "DeepSeek V4 Flash is an efficiency-optimized Mixture-of-Experts model from DeepSeek with 284B total parameters and 13B activated parameters, supporting a 1M-token context window. It is designed for fast inference and..."
   },
@@ -2696,8 +2708,8 @@
    "created": 1775578025,
    "firstSeen": "2026-10-24",
    "major": true,
-   "inPrice": 0.966,
-   "outPrice": 3.036,
+   "inPrice": 1.4,
+   "outPrice": 4.4,
    "context": 204800,
    "description": "GLM-5.1 delivers a major leap in coding capability, with particularly significant gains in handling long-horizon tasks. Unlike previous models built around minute-level interactions, GLM-5.1 can work independently and continuously on..."
   },
@@ -4046,18 +4058,6 @@
    "description": "Qwen3 Coder Flash is Alibaba's fast and cost efficient version of their proprietary Qwen3 Coder Plus. It is a powerful coding agent model specializing in autonomous programming via tool calling..."
   },
   {
-   "id": "qwen/qwen3-next-80b-a3b-thinking",
-   "name": "Qwen: Qwen3 Next 80B A3B Thinking",
-   "lab": "Qwen",
-   "created": 1757612284,
-   "firstSeen": "2026-10-24",
-   "major": true,
-   "inPrice": 0.15,
-   "outPrice": 1.2,
-   "context": 262144,
-   "description": "Qwen3-Next-80B-A3B-Thinking is a reasoning-first chat model in the Qwen3-Next line that outputs structured \u201cthinking\u201d traces by default. It\u2019s designed for hard multi-step problems; math proofs, code synthesis/debugging, logic, and agentic..."
-  },
-  {
    "id": "qwen/qwen3-next-80b-a3b-instruct",
    "name": "Qwen: Qwen3 Next 80B A3B Instruct",
    "lab": "Qwen",
@@ -4598,18 +4598,6 @@
    "description": "Qwen3-32B is a dense 32.8B parameter causal language model from the Qwen3 series, optimized for both complex reasoning and efficient dialogue. It supports seamless switching between a \"thinking\" mode for..."
   },
   {
-   "id": "openai/o4-mini-high",
-   "name": "OpenAI: o4 Mini High",
-   "lab": "OpenAI",
-   "created": 1744824212,
-   "firstSeen": "2026-10-24",
-   "major": false,
-   "inPrice": 1.1,
-   "outPrice": 4.4,
-   "context": 200000,
-   "description": "OpenAI o4-mini-high is the same model as [o4-mini](/openai/o4-mini) with reasoning_effort set to high. OpenAI o4-mini is a compact reasoning model in the o-series, optimized for fast, cost-efficient performance while retaining..."
-  },
-  {
    "id": "openai/o3",
    "name": "OpenAI: o3",
    "lab": "OpenAI",
@@ -4632,18 +4620,6 @@
    "outPrice": 4.0,
    "context": 200000,
    "description": "o3 is a well-rounded and powerful model across domains. It sets a new standard for math, science, coding, and visual reasoning tasks. It also excels at technical writing and instruction-following...."
-  },
-  {
-   "id": "openai/o4-mini",
-   "name": "OpenAI: o4 Mini",
-   "lab": "OpenAI",
-   "created": 1744820942,
-   "firstSeen": "2026-10-24",
-   "major": false,
-   "inPrice": 1.1,
-   "outPrice": 4.4,
-   "context": 200000,
-   "description": "OpenAI o4-mini is a compact reasoning model in the o-series, optimized for fast, cost-efficient performance while retaining strong multimodal and agentic capabilities. It supports tool use and demonstrates competitive reasoning..."
   },
   {
    "id": "openai/o4-mini:batch",
@@ -4764,18 +4740,6 @@
    "outPrice": 1.14,
    "context": 163840,
    "description": "DeepSeek V3, a 685B-parameter, mixture-of-experts model, is the latest iteration of the flagship chat model family from the DeepSeek team. It succeeds the [DeepSeek V3](/deepseek/deepseek-chat-v3) model and performs really well..."
-  },
-  {
-   "id": "openai/o1-pro",
-   "name": "OpenAI: o1-pro",
-   "lab": "OpenAI",
-   "created": 1742423211,
-   "firstSeen": "2026-10-24",
-   "major": true,
-   "inPrice": 150.0,
-   "outPrice": 600.0,
-   "context": 200000,
-   "description": "The o1 series of models are trained with reinforcement learning to think before they answer and perform complex reasoning. The o1-pro model uses more compute to think harder and provide..."
   },
   {
    "id": "mistralai/mistral-small-3.1-24b-instruct",
@@ -4910,18 +4874,6 @@
    "description": "Mistral Saba is a 24B-parameter language model specifically designed for the Middle East and South Asia, delivering accurate and contextually relevant responses while maintaining efficient performance. Trained on curated regional..."
   },
   {
-   "id": "openai/o3-mini-high",
-   "name": "OpenAI: o3 Mini High",
-   "lab": "OpenAI",
-   "created": 1739372611,
-   "firstSeen": "2026-10-24",
-   "major": false,
-   "inPrice": 1.1,
-   "outPrice": 4.4,
-   "context": 200000,
-   "description": "OpenAI o3-mini-high is the same model as [o3-mini](/openai/o3-mini) with reasoning_effort set to high. o3-mini is a cost-efficient language model optimized for STEM reasoning tasks, particularly excelling in science, mathematics, and..."
-  },
-  {
    "id": "aion-labs/aion-rp-llama-3.1-8b",
    "name": "AionLabs: Aion-RP 1.0 (8B)",
    "lab": "aion-labs",
@@ -4956,18 +4908,6 @@
    "outPrice": 0.78,
    "context": 1000000,
    "description": "Qwen-Plus, based on the Qwen2.5 foundation model, is a 131K context model with a balanced performance, speed, and cost combination."
-  },
-  {
-   "id": "openai/o3-mini",
-   "name": "OpenAI: o3 Mini",
-   "lab": "OpenAI",
-   "created": 1738351721,
-   "firstSeen": "2026-10-24",
-   "major": false,
-   "inPrice": 1.1,
-   "outPrice": 4.4,
-   "context": 200000,
-   "description": "OpenAI o3-mini is a cost-efficient language model optimized for STEM reasoning tasks, particularly excelling in science, mathematics, and coding. This model supports the `reasoning_effort` parameter, which can be set to..."
   },
   {
    "id": "openai/o3-mini:batch",
@@ -5040,18 +4980,6 @@
    "outPrice": 1.0287,
    "context": 163840,
    "description": "DeepSeek-V3 is the latest model from the DeepSeek team, building upon the instruction following and coding abilities of the previous versions. Pre-trained on nearly 15 trillion tokens, the reported evaluations..."
-  },
-  {
-   "id": "openai/o1",
-   "name": "OpenAI: o1",
-   "lab": "OpenAI",
-   "created": 1734459999,
-   "firstSeen": "2026-10-24",
-   "major": true,
-   "inPrice": 15.0,
-   "outPrice": 60.0,
-   "context": 200000,
-   "description": "The latest and strongest model family from OpenAI, o1 is designed to spend more time thinking before responding. The o1 model series is trained with large-scale reinforcement learning to reason..."
   },
   {
    "id": "cohere/command-r7b-12-2024",
@@ -5436,18 +5364,6 @@
    "outPrice": 6.0,
    "context": 65536,
    "description": "Mistral's official instruct fine-tuned version of [Mixtral 8x22B](/models/mistralai/mixtral-8x22b). It uses 39B active parameters out of 141B, offering unparalleled cost efficiency for its size. Its strengths include: - strong math, coding,..."
-  },
-  {
-   "id": "openai/gpt-4-turbo",
-   "name": "OpenAI: GPT-4 Turbo",
-   "lab": "OpenAI",
-   "created": 1712620800,
-   "firstSeen": "2026-10-24",
-   "major": true,
-   "inPrice": 10.0,
-   "outPrice": 30.0,
-   "context": 128000,
-   "description": "The latest GPT-4 Turbo model with vision capabilities. Vision requests can now use JSON mode and function calling.\n\nTraining data: up to December 2023."
   },
   {
    "id": "openai/gpt-4-turbo:batch",
