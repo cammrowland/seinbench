@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-29",
+ "updated": "2026-10-30",
  "models": [
   {
    "id": "particle-ai/particle-1",
@@ -8,8 +8,8 @@
    "created": 1793207893,
    "firstSeen": "2026-10-29",
    "major": false,
-   "inPrice": 0.25,
-   "outPrice": 1.0,
+   "inPrice": 0.05,
+   "outPrice": 0.5,
    "context": 1048576,
    "description": "Particle-1 is a token-efficient agentic coding model from Particle AI, post-trained on DeepSeek V4.1 Flash. It is suited for software engineering work such as terminal workflows, codebase changes, and data..."
   },
@@ -92,8 +92,8 @@
    "created": 1792379569,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.15,
-   "outPrice": 0.6,
+   "inPrice": 0.075,
+   "outPrice": 0.3,
    "context": 1048576,
    "description": "MiniMax-M3.1-Flash is a multimodal model from MiniMax. Compared with M3, it delivers significant improvements across multiple benchmarks, particularly in complex agentic tasks, coding, and cybersecurity. It is built for complex,..."
   },
@@ -813,7 +813,7 @@
    "firstSeen": "2026-10-24",
    "major": false,
    "inPrice": 0.1035,
-   "outPrice": 8.0,
+   "outPrice": 4.0,
    "context": 1048576,
    "description": "This model always redirects to the latest model in the DeepSeek Pro family."
   },
@@ -824,8 +824,8 @@
    "created": 1789399150,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.0409,
-   "outPrice": 1.5,
+   "inPrice": 0.022,
+   "outPrice": 0.192,
    "context": 1048576,
    "description": "This model always redirects to the latest model in the DeepSeek Flash family."
   },
@@ -1160,8 +1160,8 @@
    "created": 1787817633,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.0513,
-   "outPrice": 0.0701,
+   "inPrice": 0.018,
+   "outPrice": 0.1402,
    "context": 1048576,
    "description": "This model always redirects to the latest model in the GLM Flash family."
   },
@@ -1184,8 +1184,8 @@
    "created": 1787752741,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.15,
-   "outPrice": 0.5,
+   "inPrice": 0.018,
+   "outPrice": 0.1402,
    "context": 1048576,
    "description": "GLM-5.3-Flash is a native multimodal model from Z.ai. It is suited for efficient coding and long-horizon agent tasks. Its hybrid sparse and linear attention architecture maintains accurate long-context behavior while..."
   },
@@ -1280,8 +1280,8 @@
    "created": 1787086655,
    "firstSeen": "2026-10-24",
    "major": true,
-   "inPrice": 0.0699,
-   "outPrice": 1.4,
+   "inPrice": 0.08,
+   "outPrice": 3.6,
    "context": 1048576,
    "description": "GLM-5.3 is a large-scale reasoning model from Z.ai, built for complex software engineering and long-horizon agent tasks. It supports text input and output with a 1M-token context window, and improves..."
   },
@@ -1304,8 +1304,8 @@
    "created": 1786722910,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.039,
-   "outPrice": 1.25,
+   "inPrice": 0.15,
+   "outPrice": 1.875,
    "context": 1000000,
    "description": "Qwen3.8 27B is an open-weight dense vision-language model from Qwen. It is suited for coding, professional workflows, research, multimodal interaction, and long-running agent tasks, with flexible thinking that can be..."
   },
@@ -1508,8 +1508,8 @@
    "created": 1785606009,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.0509,
-   "outPrice": 0.1487,
+   "inPrice": 0.0359,
+   "outPrice": 0.3,
    "context": 1048576,
    "description": "This model always redirects to the latest model in the DeepSeek V4 Flash family."
   },
@@ -1724,8 +1724,8 @@
    "created": 1784215858,
    "firstSeen": "2026-10-24",
    "major": true,
-   "inPrice": 0.239,
-   "outPrice": 10.8,
+   "inPrice": 0.192,
+   "outPrice": 15.0,
    "context": 1048576,
    "description": "Kimi K3 is a 2.8T parameter open-weight multimodal reasoning model from Moonshot AI. It is suited for complex coding, knowledge work, and long-horizon agentic workflows, and is particularly strong at..."
   },
@@ -2096,8 +2096,8 @@
    "created": 1781266361,
    "firstSeen": "2026-10-24",
    "major": true,
-   "inPrice": 0.56,
-   "outPrice": 3.1,
+   "inPrice": 0.6,
+   "outPrice": 3.5,
    "context": 262144,
    "description": "MoonshotAI: Kimi K2.7 Code is a coding-focused model in Moonshot AI's Kimi K2 family, built to complete end-to-end programming tasks reliably over long contexts. It uses a native multimodal mixture-of-experts..."
   },
@@ -2457,7 +2457,7 @@
    "firstSeen": "2026-10-24",
    "major": false,
    "inPrice": 0.1824,
-   "outPrice": 9.3388,
+   "outPrice": 9.75,
    "context": 1048576,
    "description": "This model always redirects to the latest model in the Kimi family."
   },
@@ -2528,8 +2528,8 @@
    "created": 1777255064,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.45,
-   "outPrice": 2.7,
+   "inPrice": 0.32,
+   "outPrice": 3.2,
    "context": 262144,
    "description": "Qwen3.6 27B is a dense 27-billion-parameter language model from the Qwen Team at Alibaba, released in April 2026. It features hybrid multimodal capabilities \u2014 accepting text, image, and video inputs..."
   },
@@ -2588,8 +2588,8 @@
    "created": 1777000679,
    "firstSeen": "2026-10-24",
    "major": true,
-   "inPrice": 0.8568,
-   "outPrice": 1.7136,
+   "inPrice": 0.9483,
+   "outPrice": 1.8966,
    "context": 1048576,
    "description": "DeepSeek V4 Pro is a large-scale Mixture-of-Experts model from DeepSeek with 1.6T total parameters and 49B activated parameters, supporting a 1M-token context window. It is designed for advanced reasoning, coding,..."
   },
@@ -3668,8 +3668,8 @@
    "created": 1764594642,
    "firstSeen": "2026-10-24",
    "major": true,
-   "inPrice": 0.28,
-   "outPrice": 0.42,
+   "inPrice": 0.26,
+   "outPrice": 0.38,
    "context": 163840,
    "description": "DeepSeek-V3.2 is a large language model designed to harmonize high computational efficiency with strong reasoning and agentic tool-use performance. It introduces DeepSeek Sparse Attention (DSA), a fine-grained sparse attention mechanism..."
   },
