@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-31",
+ "updated": "2026-11-01",
  "models": [
   {
    "id": "particle-ai/particle-1",
@@ -824,8 +824,8 @@
    "created": 1789399150,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.0141,
-   "outPrice": 0.144,
+   "inPrice": 0.035,
+   "outPrice": 0.5,
    "context": 1048576,
    "description": "This model always redirects to the latest model in the DeepSeek Flash family."
   },
@@ -1160,8 +1160,8 @@
    "created": 1787817633,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.0163,
-   "outPrice": 0.1479,
+   "inPrice": 0.0285,
+   "outPrice": 0.0923,
    "context": 1048576,
    "description": "This model always redirects to the latest model in the GLM Flash family."
   },
@@ -1184,8 +1184,8 @@
    "created": 1787752741,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.0163,
-   "outPrice": 0.1479,
+   "inPrice": 0.0285,
+   "outPrice": 0.0923,
    "context": 1048576,
    "description": "GLM-5.3-Flash is a native multimodal model from Z.ai. It is suited for efficient coding and long-horizon agent tasks. Its hybrid sparse and linear attention architecture maintains accurate long-context behavior while..."
   },
@@ -1280,8 +1280,8 @@
    "created": 1787086655,
    "firstSeen": "2026-10-24",
    "major": true,
-   "inPrice": 0.0699,
-   "outPrice": 1.4,
+   "inPrice": 0.08,
+   "outPrice": 3.6,
    "context": 1048576,
    "description": "GLM-5.3 is a large-scale reasoning model from Z.ai, built for complex software engineering and long-horizon agent tasks. It supports text input and output with a 1M-token context window, and improves..."
   },
@@ -1304,8 +1304,8 @@
    "created": 1786722910,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.04,
-   "outPrice": 2.3,
+   "inPrice": 0.15,
+   "outPrice": 1.875,
    "context": 1000000,
    "description": "Qwen3.8 27B is an open-weight dense vision-language model from Qwen. It is suited for coding, professional workflows, research, multimodal interaction, and long-running agent tasks, with flexible thinking that can be..."
   },
@@ -1388,8 +1388,8 @@
    "created": 1786549364,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.66,
-   "outPrice": 1.98,
+   "inPrice": 0.115,
+   "outPrice": 4.0,
    "context": 1048576,
    "description": "DeepSeek V4 Pro 0813 is a large-scale mixture-of-experts model from DeepSeek. This is the GA release of DeepSeek V4 Pro."
   },
@@ -1508,8 +1508,8 @@
    "created": 1785606009,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.0576,
-   "outPrice": 0.1729,
+   "inPrice": 0.059,
+   "outPrice": 0.3,
    "context": 1048576,
    "description": "This model always redirects to the latest model in the DeepSeek V4 Flash family."
   },
@@ -4160,8 +4160,8 @@
    "created": 1754414231,
    "firstSeen": "2026-10-24",
    "major": true,
-   "inPrice": 0.15,
-   "outPrice": 0.6,
+   "inPrice": 0.014,
+   "outPrice": 0.05,
    "context": 131072,
    "description": "gpt-oss-120b is an open-weight, 117B-parameter Mixture-of-Experts (MoE) language model from OpenAI designed for high-reasoning, agentic, and general-purpose production use cases. It activates 5.1B parameters per forward pass and is optimized..."
   },
@@ -4184,8 +4184,8 @@
    "created": 1754414229,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.018,
-   "outPrice": 0.09,
+   "inPrice": 0.03,
+   "outPrice": 0.13,
    "context": 131072,
    "description": "gpt-oss-20b is an open-weight 21B parameter model released by OpenAI under the Apache 2.0 license. It uses a Mixture-of-Experts (MoE) architecture with 3.6B active parameters per forward pass, optimized for..."
   },
