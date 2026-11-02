@@ -1,6 +1,18 @@
 {
- "updated": "2026-11-01",
+ "updated": "2026-11-02",
  "models": [
+  {
+   "id": "z-ai/glm-5.3-flashx-legal",
+   "name": "Z.ai: GLM 5.3 FlashX Legal",
+   "lab": "Z.ai",
+   "created": 1793626154,
+   "firstSeen": "2026-11-02",
+   "major": false,
+   "inPrice": 0.37,
+   "outPrice": 1.25,
+   "context": 1048576,
+   "description": "GLM-5.3-FlashX-Legal (GLM-Legal) is Z.ai's legal-domain variant of GLM-5.3-FlashX, a native multimodal model that accepts text, image, and video input and produces text. It adds legal-domain mid-training and post-training with reinforcement..."
+  },
   {
    "id": "particle-ai/particle-1",
    "name": "Particle AI: Particle-1",
@@ -1306,7 +1318,7 @@
    "major": false,
    "inPrice": 0.15,
    "outPrice": 1.875,
-   "context": 1000000,
+   "context": 1024000,
    "description": "Qwen3.8 27B is an open-weight dense vision-language model from Qwen. It is suited for coding, professional workflows, research, multimodal interaction, and long-running agent tasks, with flexible thinking that can be..."
   },
   {
@@ -1508,7 +1520,7 @@
    "created": 1785606009,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.059,
+   "inPrice": 0.0434,
    "outPrice": 0.3,
    "context": 1048576,
    "description": "This model always redirects to the latest model in the DeepSeek V4 Flash family."
@@ -2684,8 +2696,8 @@
    "created": 1775227989,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.0675,
-   "outPrice": 0.225,
+   "inPrice": 0.0765,
+   "outPrice": 0.255,
    "context": 262144,
    "description": "Gemma 4 26B A4B IT is an instruction-tuned Mixture-of-Experts (MoE) model from Google DeepMind. Despite 25.2B total parameters, only 3.8B activate per token during inference \u2014 delivering near-31B quality at..."
   },
@@ -4160,8 +4172,8 @@
    "created": 1754414231,
    "firstSeen": "2026-10-24",
    "major": true,
-   "inPrice": 0.014,
-   "outPrice": 0.05,
+   "inPrice": 0.023,
+   "outPrice": 0.087,
    "context": 131072,
    "description": "gpt-oss-120b is an open-weight, 117B-parameter Mixture-of-Experts (MoE) language model from OpenAI designed for high-reasoning, agentic, and general-purpose production use cases. It activates 5.1B parameters per forward pass and is optimized..."
   },
@@ -5084,8 +5096,8 @@
    "created": 1727222400,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.05,
-   "outPrice": 0.33,
+   "inPrice": 0.0509,
+   "outPrice": 0.335,
    "context": 131072,
    "description": "Llama 3.2 3B is a 3-billion-parameter multilingual large language model, optimized for advanced natural language processing tasks like dialogue generation, reasoning, and summarization. Designed with the latest transformer architecture, it..."
   },
@@ -5136,30 +5148,6 @@
    "outPrice": 0.85,
    "context": 131072,
    "description": "Euryale L3.1 70B v2.2 is a model focused on creative roleplay from [Sao10k](https://ko-fi.com/sao10k). It is the successor of [Euryale L3 70B v2.1](/models/sao10k/l3-euryale-70b)."
-  },
-  {
-   "id": "nousresearch/hermes-3-llama-3.1-70b",
-   "name": "Nous: Hermes 3 70B Instruct",
-   "lab": "nousresearch",
-   "created": 1723939200,
-   "firstSeen": "2026-10-24",
-   "major": false,
-   "inPrice": 0.7,
-   "outPrice": 0.7,
-   "context": 131072,
-   "description": "Hermes 3 is a generalist language model with many improvements over [Hermes 2](/models/nousresearch/nous-hermes-2-mistral-7b-dpo), including advanced agentic capabilities, much better roleplaying, reasoning, multi-turn conversation, long context coherence, and improvements across"
-  },
-  {
-   "id": "nousresearch/hermes-3-llama-3.1-405b",
-   "name": "Nous: Hermes 3 405B Instruct",
-   "lab": "nousresearch",
-   "created": 1723766400,
-   "firstSeen": "2026-10-24",
-   "major": false,
-   "inPrice": 1.0,
-   "outPrice": 1.0,
-   "context": 131072,
-   "description": "Hermes 3 is a generalist language model with many improvements over Hermes 2, including advanced agentic capabilities, much better roleplaying, reasoning, multi-turn conversation, long context coherence, and improvements across the..."
   },
   {
    "id": "sao10k/l3-lunaris-8b",
