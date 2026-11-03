@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-02",
+ "updated": "2026-11-03",
  "models": [
   {
    "id": "z-ai/glm-5.3-flashx-legal",
@@ -782,6 +782,18 @@
    "description": "Grok 4.7 is SpaceXAI's flagship model for coding, agentic tasks, and knowledge work, succeeding Grok 4.6. It is particularly strong at long-running software engineering tasks, verifying its own work, and..."
   },
   {
+   "id": "x-ai/grok-4.7:batch",
+   "name": "SpaceXAI: Grok 4.7 (batch)",
+   "lab": "xAI",
+   "created": 1790007541,
+   "firstSeen": "2026-11-03",
+   "major": false,
+   "inPrice": 1.6,
+   "outPrice": 4.8,
+   "context": 500000,
+   "description": "Grok 4.7 is SpaceXAI's flagship model for coding, agentic tasks, and knowledge work, succeeding Grok 4.6. It is particularly strong at long-running software engineering tasks, verifying its own work, and..."
+  },
+  {
    "id": "qwen/qwen3.8-omni-flash",
    "name": "Qwen: Qwen3.8 Omni Flash",
    "lab": "Qwen",
@@ -837,7 +849,7 @@
    "firstSeen": "2026-10-24",
    "major": false,
    "inPrice": 0.035,
-   "outPrice": 0.5,
+   "outPrice": 0.315,
    "context": 1048576,
    "description": "This model always redirects to the latest model in the DeepSeek Flash family."
   },
@@ -1172,8 +1184,8 @@
    "created": 1787817633,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.0285,
-   "outPrice": 0.0923,
+   "inPrice": 0.033,
+   "outPrice": 0.242,
    "context": 1048576,
    "description": "This model always redirects to the latest model in the GLM Flash family."
   },
@@ -1196,8 +1208,8 @@
    "created": 1787752741,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.0285,
-   "outPrice": 0.0923,
+   "inPrice": 0.033,
+   "outPrice": 0.242,
    "context": 1048576,
    "description": "GLM-5.3-Flash is a native multimodal model from Z.ai. It is suited for efficient coding and long-horizon agent tasks. Its hybrid sparse and linear attention architecture maintains accurate long-context behavior while..."
   },
@@ -1418,6 +1430,18 @@
    "description": "Grok 4.6 is a model from SpaceXAI with frontier performance on coding, knowledge work, and STEM. It is succeeded by [Grok 4.7](/x-ai/grok-4.7)."
   },
   {
+   "id": "x-ai/grok-4.6:batch",
+   "name": "SpaceXAI: Grok 4.6 (batch)",
+   "lab": "xAI",
+   "created": 1786548957,
+   "firstSeen": "2026-11-03",
+   "major": false,
+   "inPrice": 1.6,
+   "outPrice": 4.8,
+   "context": 500000,
+   "description": "Grok 4.6 is a model from SpaceXAI with frontier performance on coding, knowledge work, and STEM. It is succeeded by [Grok 4.7](/x-ai/grok-4.7)."
+  },
+  {
    "id": "liquid/lfm-2.5-2.6b",
    "name": "LiquidAI: LFM2.5-2.6B",
    "lab": "liquid",
@@ -1520,7 +1544,7 @@
    "created": 1785606009,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.0434,
+   "inPrice": 0.059,
    "outPrice": 0.3,
    "context": 1048576,
    "description": "This model always redirects to the latest model in the DeepSeek V4 Flash family."
@@ -1532,8 +1556,8 @@
    "created": 1785478908,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.119,
-   "outPrice": 0.238,
+   "inPrice": 0.059,
+   "outPrice": 0.3,
    "context": 1048576,
    "description": "DeepSeek V4 Flash 0731 is a sparse mixture-of-experts model from DeepSeek, with 13B active parameters out of 284B total. This re-post-trained revision is suited for coding, reasoning, and agent workflows...."
   },
@@ -1712,8 +1736,8 @@
    "created": 1784215858,
    "firstSeen": "2026-10-24",
    "major": true,
-   "inPrice": 0.192,
-   "outPrice": 15.0,
+   "inPrice": 0.276,
+   "outPrice": 9.6,
    "context": 1048576,
    "description": "Kimi K3 is a 2.8T parameter open-weight multimodal reasoning model from Moonshot AI. It is suited for complex coding, knowledge work, and long-horizon agentic workflows, and is particularly strong at..."
   },
@@ -2420,8 +2444,8 @@
    "created": 1777318428,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.1495,
-   "outPrice": 7.15,
+   "inPrice": 0.1596,
+   "outPrice": 10.5354,
    "context": 1048576,
    "description": "This model always redirects to the latest model in the Kimi family."
   },
@@ -2696,8 +2720,8 @@
    "created": 1775227989,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.0765,
-   "outPrice": 0.255,
+   "inPrice": 0.073,
+   "outPrice": 0.219,
    "context": 262144,
    "description": "Gemma 4 26B A4B IT is an instruction-tuned Mixture-of-Experts (MoE) model from Google DeepMind. Despite 25.2B total parameters, only 3.8B activate per token during inference \u2014 delivering near-31B quality at..."
   },
@@ -4028,7 +4052,7 @@
    "created": 1757612213,
    "firstSeen": "2026-10-24",
    "major": true,
-   "inPrice": 0.09,
+   "inPrice": 0.1,
    "outPrice": 1.1,
    "context": 262144,
    "description": "Qwen3-Next-80B-A3B-Instruct is an instruction-tuned chat model in the Qwen3-Next series optimized for fast, stable responses without \u201cthinking\u201d traces. It targets complex tasks across reasoning, code generation, knowledge QA, and multilingual..."
@@ -4173,7 +4197,7 @@
    "firstSeen": "2026-10-24",
    "major": true,
    "inPrice": 0.023,
-   "outPrice": 0.087,
+   "outPrice": 0.085,
    "context": 131072,
    "description": "gpt-oss-120b is an open-weight, 117B-parameter Mixture-of-Experts (MoE) language model from OpenAI designed for high-reasoning, agentic, and general-purpose production use cases. It activates 5.1B parameters per forward pass and is optimized..."
   },
@@ -4196,8 +4220,8 @@
    "created": 1754414229,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.03,
-   "outPrice": 0.13,
+   "inPrice": 0.018,
+   "outPrice": 0.09,
    "context": 131072,
    "description": "gpt-oss-20b is an open-weight 21B parameter model released by OpenAI under the Apache 2.0 license. It uses a Mixture-of-Experts (MoE) architecture with 3.6B active parameters per forward pass, optimized for..."
   },
@@ -4256,8 +4280,8 @@
    "created": 1753972379,
    "firstSeen": "2026-10-24",
    "major": true,
-   "inPrice": 0.07,
-   "outPrice": 0.28,
+   "inPrice": 0.15,
+   "outPrice": 0.6,
    "context": 262144,
    "description": "Qwen3-Coder-30B-A3B-Instruct is a 30.5B parameter Mixture-of-Experts (MoE) model with 128 experts (8 active per forward pass), designed for advanced code generation, repository-scale understanding, and agentic tool use. Built on the..."
   },
@@ -4352,8 +4376,8 @@
    "created": 1753119555,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.09,
-   "outPrice": 0.55,
+   "inPrice": 0.14,
+   "outPrice": 0.8,
    "context": 262144,
    "description": "Qwen3-235B-A22B-Instruct-2507 is a multilingual, instruction-tuned mixture-of-experts language model based on the Qwen3-235B architecture, with 22B active parameters per forward pass. It is optimized for general-purpose text generation, including instruction following,..."
   },
@@ -4964,8 +4988,8 @@
    "created": 1733506137,
    "firstSeen": "2026-10-24",
    "major": true,
-   "inPrice": 0.1,
-   "outPrice": 0.32,
+   "inPrice": 0.2,
+   "outPrice": 0.52,
    "context": 131072,
    "description": "The Meta Llama 3.3 multilingual large language model (LLM) is a pretrained and instruction tuned generative model in 70B (text in/text out). The Llama 3.3 instruction tuned text only model..."
   },
@@ -5180,8 +5204,8 @@
    "created": 1721692800,
    "firstSeen": "2026-10-24",
    "major": true,
-   "inPrice": 0.4,
-   "outPrice": 0.4,
+   "inPrice": 0.72,
+   "outPrice": 0.72,
    "context": 131072,
    "description": "Meta's latest class of model (Llama 3.1) launched with a variety of sizes & flavors. This 70B instruct-tuned version is optimized for high quality dialogue usecases. It has demonstrated strong..."
   },
