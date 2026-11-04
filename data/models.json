@@ -1,6 +1,42 @@
 {
- "updated": "2026-11-03",
+ "updated": "2026-11-04",
  "models": [
+  {
+   "id": "ricursiveai/ripple-65b-preview",
+   "name": "ricursiveAI/Ripple-65B-Preview",
+   "lab": "ricursiveai",
+   "created": 1793818990,
+   "firstSeen": "2026-11-04",
+   "major": false,
+   "inPrice": 0.2,
+   "outPrice": 0.6,
+   "context": 16384,
+   "description": "Ripple-65B-Preview by ricursiveAI, a 65B model with native tool calling, served in BF16."
+  },
+  {
+   "id": "tencent/hy4",
+   "name": "Tencent: Hy4",
+   "lab": "tencent",
+   "created": 1793766031,
+   "firstSeen": "2026-11-04",
+   "major": false,
+   "inPrice": 0.417,
+   "outPrice": 1.2505,
+   "context": 1048576,
+   "description": "The official release of Hy4 delivers comprehensive and substantial improvements over Hy4 Preview, with particularly strong gains in agentic capabilities and performance across a wide range of long-horizon, real-world productivity..."
+  },
+  {
+   "id": "stealth/crouton-alpha",
+   "name": "Crouton Alpha",
+   "lab": "stealth",
+   "created": 1793669930,
+   "firstSeen": "2026-11-04",
+   "major": false,
+   "inPrice": 0.0,
+   "outPrice": 0.0,
+   "context": 1048576,
+   "description": "Crouton Alpha is a lightweight model built for scalable coding, agentic, and multimodal workflows. It's ideal for executing agentic sub-tasks, tool use, and document analysis in high-volume, repeated work. Developers..."
+  },
   {
    "id": "z-ai/glm-5.3-flashx-legal",
    "name": "Z.ai: GLM 5.3 FlashX Legal",
@@ -848,8 +884,8 @@
    "created": 1789399150,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.035,
-   "outPrice": 0.315,
+   "inPrice": 0.022,
+   "outPrice": 0.4,
    "context": 1048576,
    "description": "This model always redirects to the latest model in the DeepSeek Flash family."
   },
@@ -1161,7 +1197,7 @@
    "firstSeen": "2026-10-24",
    "major": false,
    "inPrice": 0.06,
-   "outPrice": 0.15,
+   "outPrice": 0.25,
    "context": 131072,
    "description": "Granite 4.2 8B is a dense reasoning model from IBM. It is suited for mathematics, code generation, multilingual dialogue, and agentic workflows that need multi-step reasoning. It supports full, low-effort,..."
   },
@@ -1184,8 +1220,8 @@
    "created": 1787817633,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.033,
-   "outPrice": 0.242,
+   "inPrice": 0.0285,
+   "outPrice": 0.0846,
    "context": 1048576,
    "description": "This model always redirects to the latest model in the GLM Flash family."
   },
@@ -1208,8 +1244,8 @@
    "created": 1787752741,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.033,
-   "outPrice": 0.242,
+   "inPrice": 0.15,
+   "outPrice": 0.5,
    "context": 1048576,
    "description": "GLM-5.3-Flash is a native multimodal model from Z.ai. It is suited for efficient coding and long-horizon agent tasks. Its hybrid sparse and linear attention architecture maintains accurate long-context behavior while..."
   },
@@ -1304,8 +1340,8 @@
    "created": 1787086655,
    "firstSeen": "2026-10-24",
    "major": true,
-   "inPrice": 0.08,
-   "outPrice": 3.6,
+   "inPrice": 0.0699,
+   "outPrice": 1.4,
    "context": 1048576,
    "description": "GLM-5.3 is a large-scale reasoning model from Z.ai, built for complex software engineering and long-horizon agent tasks. It supports text input and output with a 1M-token context window, and improves..."
   },
@@ -1413,7 +1449,7 @@
    "firstSeen": "2026-10-24",
    "major": false,
    "inPrice": 0.115,
-   "outPrice": 4.0,
+   "outPrice": 4.6,
    "context": 1048576,
    "description": "DeepSeek V4 Pro 0813 is a large-scale mixture-of-experts model from DeepSeek. This is the GA release of DeepSeek V4 Pro."
   },
@@ -1544,7 +1580,7 @@
    "created": 1785606009,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.059,
+   "inPrice": 0.0487,
    "outPrice": 0.3,
    "context": 1048576,
    "description": "This model always redirects to the latest model in the DeepSeek V4 Flash family."
@@ -1556,7 +1592,7 @@
    "created": 1785478908,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.059,
+   "inPrice": 0.0487,
    "outPrice": 0.3,
    "context": 1048576,
    "description": "DeepSeek V4 Flash 0731 is a sparse mixture-of-experts model from DeepSeek, with 13B active parameters out of 284B total. This re-post-trained revision is suited for coding, reasoning, and agent workflows...."
@@ -1571,18 +1607,6 @@
    "inPrice": 0.45,
    "outPrice": 1.2,
    "context": 524288,
-   "description": "Inkling Small is an open-weight multimodal mixture-of-experts model from Thinking Machines Lab, with 12B active parameters out of 276B total. It is positioned as the smaller, more efficient member of..."
-  },
-  {
-   "id": "thinkingmachines/inkling-small:free",
-   "name": "Thinking Machines: Inkling Small (free)",
-   "lab": "thinkingmachines",
-   "created": 1785443117,
-   "firstSeen": "2026-10-24",
-   "major": false,
-   "inPrice": 0.0,
-   "outPrice": 0.0,
-   "context": 1048576,
    "description": "Inkling Small is an open-weight multimodal mixture-of-experts model from Thinking Machines Lab, with 12B active parameters out of 276B total. It is positioned as the smaller, more efficient member of..."
   },
   {
@@ -1706,18 +1730,6 @@
    "description": "Inkling is an open-weight multimodal mixture-of-experts model from Thinking Machines Lab, with 41B active parameters out of 975B total. It is designed for general-purpose reasoning, coding, agentic and tool-use systems,..."
   },
   {
-   "id": "thinkingmachines/inkling:free",
-   "name": "Thinking Machines: Inkling (free)",
-   "lab": "thinkingmachines",
-   "created": 1784325956,
-   "firstSeen": "2026-10-24",
-   "major": false,
-   "inPrice": 0.0,
-   "outPrice": 0.0,
-   "context": 1048576,
-   "description": "Inkling is an open-weight multimodal mixture-of-experts model from Thinking Machines Lab, with 41B active parameters out of 975B total. It is designed for general-purpose reasoning, coding, agentic and tool-use systems,..."
-  },
-  {
    "id": "openrouter/auto-beta",
    "name": "Auto Router (Beta)",
    "lab": "openrouter",
@@ -1736,8 +1748,8 @@
    "created": 1784215858,
    "firstSeen": "2026-10-24",
    "major": true,
-   "inPrice": 0.276,
-   "outPrice": 9.6,
+   "inPrice": 0.2,
+   "outPrice": 16.0,
    "context": 1048576,
    "description": "Kimi K3 is a 2.8T parameter open-weight multimodal reasoning model from Moonshot AI. It is suited for complex coding, knowledge work, and long-horizon agentic workflows, and is particularly strong at..."
   },
@@ -2444,8 +2456,8 @@
    "created": 1777318428,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.1596,
-   "outPrice": 10.5354,
+   "inPrice": 0.1824,
+   "outPrice": 10.5572,
    "context": 1048576,
    "description": "This model always redirects to the latest model in the Kimi family."
   },
@@ -2626,7 +2638,7 @@
    "major": false,
    "inPrice": 0.4,
    "outPrice": 2.0,
-   "context": 1050000,
+   "context": 1000000,
    "description": "MiMo-V2.5 is a native omnimodal model by Xiaomi. It delivers Pro-level agentic performance at roughly half the inference cost, while surpassing MiMo-V2-Omni in multimodal perception across image and video understanding..."
   },
   {
@@ -2720,8 +2732,8 @@
    "created": 1775227989,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.073,
-   "outPrice": 0.219,
+   "inPrice": 0.055,
+   "outPrice": 0.165,
    "context": 262144,
    "description": "Gemma 4 26B A4B IT is an instruction-tuned Mixture-of-Experts (MoE) model from Google DeepMind. Despite 25.2B total parameters, only 3.8B activate per token during inference \u2014 delivering near-31B quality at..."
   },
@@ -4196,8 +4208,8 @@
    "created": 1754414231,
    "firstSeen": "2026-10-24",
    "major": true,
-   "inPrice": 0.023,
-   "outPrice": 0.085,
+   "inPrice": 0.029,
+   "outPrice": 0.108,
    "context": 131072,
    "description": "gpt-oss-120b is an open-weight, 117B-parameter Mixture-of-Experts (MoE) language model from OpenAI designed for high-reasoning, agentic, and general-purpose production use cases. It activates 5.1B parameters per forward pass and is optimized..."
   },
@@ -4376,8 +4388,8 @@
    "created": 1753119555,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.14,
-   "outPrice": 0.8,
+   "inPrice": 0.09,
+   "outPrice": 0.55,
    "context": 262144,
    "description": "Qwen3-235B-A22B-Instruct-2507 is a multilingual, instruction-tuned mixture-of-experts language model based on the Qwen3-235B architecture, with 22B active parameters per forward pass. It is optimized for general-purpose text generation, including instruction following,..."
   },
@@ -4988,8 +5000,8 @@
    "created": 1733506137,
    "firstSeen": "2026-10-24",
    "major": true,
-   "inPrice": 0.2,
-   "outPrice": 0.52,
+   "inPrice": 0.1,
+   "outPrice": 0.32,
    "context": 131072,
    "description": "The Meta Llama 3.3 multilingual large language model (LLM) is a pretrained and instruction tuned generative model in 70B (text in/text out). The Llama 3.3 instruction tuned text only model..."
   },
