@@ -1,6 +1,30 @@
 {
- "updated": "2026-11-06",
+ "updated": "2026-11-07",
  "models": [
+  {
+   "id": "liquid/lfm-3-1.7b",
+   "name": "LiquidAI: LFM3-1.7B",
+   "lab": "liquid",
+   "created": 1794009477,
+   "firstSeen": "2026-11-07",
+   "major": false,
+   "inPrice": 0.08,
+   "outPrice": 0.2,
+   "context": 262144,
+   "description": "A compact 1.7B-parameter text model with a 256K-token context, post-trained for agents, tool calling, and structured outputs. It reasons before it answers. Prompts and outputs may be retained and used..."
+  },
+  {
+   "id": "liquid/lfm-3-1.7b:free",
+   "name": "LiquidAI: LFM3-1.7B (free)",
+   "lab": "liquid",
+   "created": 1794009477,
+   "firstSeen": "2026-11-07",
+   "major": false,
+   "inPrice": 0.0,
+   "outPrice": 0.0,
+   "context": 262144,
+   "description": "A compact 1.7B-parameter text model with a 256K-token context, post-trained for agents, tool calling, and structured outputs. It reasons before it answers. Prompts and outputs may be retained and used..."
+  },
   {
    "id": "google/gemini-omni-1.2-flash",
    "name": "Google: Gemini Omni 1.2 Flash",
@@ -500,8 +524,8 @@
    "created": 1790950024,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.075,
-   "outPrice": 0.225,
+   "inPrice": 0.045,
+   "outPrice": 0.135,
    "context": 1000000,
    "description": "Ling 3.1 Flash is a hybrid reasoning mixture-of-experts model from inclusionAI, with 25B active parameters out of 560B total."
   },
@@ -1268,7 +1292,7 @@
    "created": 1787817633,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.0284,
+   "inPrice": 0.0285,
    "outPrice": 0.0923,
    "context": 1048576,
    "description": "This model always redirects to the latest model in the GLM Flash family."
@@ -1508,8 +1532,8 @@
    "created": 1786549364,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.1165,
-   "outPrice": 4.66,
+   "inPrice": 0.111,
+   "outPrice": 4.44,
    "context": 1048576,
    "description": "DeepSeek V4 Pro 0813 is a large-scale mixture-of-experts model from DeepSeek. This is the GA release of DeepSeek V4 Pro."
   },
@@ -2564,7 +2588,7 @@
    "created": 1777318428,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.1634,
+   "inPrice": 0.1558,
    "outPrice": 9.3388,
    "context": 1048576,
    "description": "This model always redirects to the latest model in the Kimi family."
@@ -2696,8 +2720,8 @@
    "created": 1777000679,
    "firstSeen": "2026-10-24",
    "major": true,
-   "inPrice": 0.7705,
-   "outPrice": 1.5409,
+   "inPrice": 0.6064,
+   "outPrice": 1.2128,
    "context": 1048576,
    "description": "DeepSeek V4 Pro is a large-scale Mixture-of-Experts model from DeepSeek with 1.6T total parameters and 49B activated parameters, supporting a 1M-token context window. It is designed for advanced reasoning, coding,..."
   },
@@ -3344,8 +3368,8 @@
    "created": 1770908502,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.27,
-   "outPrice": 0.95,
+   "inPrice": 0.3,
+   "outPrice": 1.2,
    "context": 204800,
    "description": "MiniMax-M2.5 is a SOTA large language model designed for real-world productivity. Trained in a diverse range of complex real-world digital working environments, M2.5 builds upon the coding expertise of M2.1..."
   },
@@ -4280,8 +4304,8 @@
    "created": 1754414231,
    "firstSeen": "2026-10-24",
    "major": true,
-   "inPrice": 0.02,
-   "outPrice": 0.072,
+   "inPrice": 0.023,
+   "outPrice": 0.084,
    "context": 131072,
    "description": "gpt-oss-120b is an open-weight, 117B-parameter Mixture-of-Experts (MoE) language model from OpenAI designed for high-reasoning, agentic, and general-purpose production use cases. It activates 5.1B parameters per forward pass and is optimized..."
   },
