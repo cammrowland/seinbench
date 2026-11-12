@@ -1,6 +1,30 @@
 {
- "updated": "2026-11-11",
+ "updated": "2026-11-12",
  "models": [
+  {
+   "id": "google/gemini-4-hydrogen",
+   "name": "Google: Gemini 4 Hydrogen",
+   "lab": "Google",
+   "created": 1794506460,
+   "firstSeen": "2026-11-12",
+   "major": true,
+   "inPrice": 1.5,
+   "outPrice": 7.5,
+   "context": 1048576,
+   "description": "Gemini 4 Hydrogen is the high-efficiency workhorse model of the Gemini 4 family from Google, built for high-throughput agentic workflows, coding and multi-model routing at lower cost and latency than..."
+  },
+  {
+   "id": "google/gemini-4-hydrogen:batch",
+   "name": "Google: Gemini 4 Hydrogen (batch)",
+   "lab": "Google",
+   "created": 1794506460,
+   "firstSeen": "2026-11-12",
+   "major": false,
+   "inPrice": 0.75,
+   "outPrice": 3.75,
+   "context": 1048576,
+   "description": "Gemini 4 Hydrogen is the high-efficiency workhorse model of the Gemini 4 family from Google, built for high-throughput agentic workflows, coding and multi-model routing at lower cost and latency than..."
+  },
   {
    "id": "baidu/ernie-5.5-flash-preview:free",
    "name": "Baidu: ERNIE-5.5-Flash-Preview (free)",
@@ -308,8 +332,20 @@
    "created": 1792778188,
    "firstSeen": "2026-10-24",
    "major": true,
-   "inPrice": 2.0,
-   "outPrice": 10.0,
+   "inPrice": 0.2375,
+   "outPrice": 8.7856,
+   "context": 1048576,
+   "description": "Kimi K3.1 Pro is Moonshot AI's flagship open-weight multimodal reasoning model and a post-trained successor to Kimi K3, with a 1M-token context window. It is built for long-horizon coding, 3D..."
+  },
+  {
+   "id": "moonshotai/kimi-k3.1-pro:batch",
+   "name": "MoonshotAI: Kimi K3.1 Pro (batch)",
+   "lab": "Moonshot",
+   "created": 1792778188,
+   "firstSeen": "2026-11-12",
+   "major": false,
+   "inPrice": 0.7,
+   "outPrice": 6.0,
    "context": 1048576,
    "description": "Kimi K3.1 Pro is Moonshot AI's flagship open-weight multimodal reasoning model and a post-trained successor to Kimi K3, with a 1M-token context window. It is built for long-horizon coding, 3D..."
   },
@@ -344,8 +380,8 @@
    "created": 1792225624,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.006,
-   "outPrice": 0.5,
+   "inPrice": 0.15,
+   "outPrice": 0.6,
    "context": 1048576,
    "description": "DeepSeek V4.1 Flash 1017 is the October 17, 2026 snapshot of DeepSeek V4.1 Flash, served by DeepSeek under the `deepseek-flash` API model name. V4.1 Flash is a sparse mixture-of-experts model..."
   },
@@ -356,8 +392,8 @@
    "created": 1792225624,
    "firstSeen": "2026-11-08",
    "major": false,
-   "inPrice": 0.011,
-   "outPrice": 0.2,
+   "inPrice": 0.05,
+   "outPrice": 0.15,
    "context": 1048576,
    "description": "DeepSeek V4.1 Flash 1017 is the October 17, 2026 snapshot of DeepSeek V4.1 Flash, served by DeepSeek under the `deepseek-flash` API model name. V4.1 Flash is a sparse mixture-of-experts model..."
   },
@@ -636,6 +672,30 @@
    "outPrice": 0.135,
    "context": 1000000,
    "description": "Ling 3.1 Flash is a hybrid reasoning mixture-of-experts model from inclusionAI, with 25B active parameters out of 560B total."
+  },
+  {
+   "id": "apodex/apodex-1.1-mini:free",
+   "name": "Apodex: Apodex 1.1 Mini (free)",
+   "lab": "apodex",
+   "created": 1790875335,
+   "firstSeen": "2026-11-12",
+   "major": false,
+   "inPrice": 0.0,
+   "outPrice": 0.0,
+   "context": 262144,
+   "description": "Apodex 1.1 Mini is a reasoning-first model from Apodex, built for complex, long-horizon research and forecasting tasks. It works directly with files, data, code, and tools to produce verifiable results,..."
+  },
+  {
+   "id": "unbiased/pareto-26.10-preview",
+   "name": "Pareto 26.10 Preview",
+   "lab": "unbiased",
+   "created": 1790863623,
+   "firstSeen": "2026-11-12",
+   "major": false,
+   "inPrice": 0.8,
+   "outPrice": 3.2,
+   "context": 1048576,
+   "description": "Pareto is a multimodal composite model built for research, coding, and agentic workflows, while delivering frontier-level performance across a broad range of general-purpose tasks. This is a preview of the..."
   },
   {
    "id": "openai/gpt-6.1-sol-pro",
@@ -1064,8 +1124,8 @@
    "created": 1789399150,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.006,
-   "outPrice": 0.5,
+   "inPrice": 0.022,
+   "outPrice": 0.4,
    "context": 1048576,
    "description": "This model always redirects to the latest model in the DeepSeek Flash family."
   },
@@ -1184,8 +1244,8 @@
    "created": 1789021285,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.051,
-   "outPrice": 0.567,
+   "inPrice": 0.3,
+   "outPrice": 1.2,
    "context": 1048576,
    "description": "DeepSeek V4.1 Flash is a sparse mixture-of-experts model from DeepSeek, and the first built on the company's Causal Encoder-Decoder (CED) architecture. It activates 8B parameters on input and 16B on..."
   },
@@ -1272,6 +1332,18 @@
    "outPrice": 25.0,
    "context": 1050000,
    "description": "GPT-6 Astra Pro is the same underlying model as [GPT-6 Astra](https://openrouter.ai/openai/gpt-6-astra), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks. **Cost note:** pro mode spends far more..."
+  },
+  {
+   "id": "inclusionai/ling-3.0-flash-sante",
+   "name": "inclusionAI: Ling 3.0 Flash Sante",
+   "lab": "inclusionai",
+   "created": 1788545946,
+   "firstSeen": "2026-11-12",
+   "major": false,
+   "inPrice": 0.042,
+   "outPrice": 0.1232,
+   "context": 262144,
+   "description": "Ling 3.0 Flash Sante is a health and medicine-focused mixture-of-experts model from InclusionAI, built on Ling 3.0 Flash with 5.1B active parameters out of 124B total. It is designed for..."
   },
   {
    "id": "qwen/qwen3.8-max-0902",
@@ -1377,7 +1449,7 @@
    "firstSeen": "2026-10-24",
    "major": false,
    "inPrice": 0.06,
-   "outPrice": 0.25,
+   "outPrice": 0.15,
    "context": 131072,
    "description": "Granite 4.2 8B is a dense reasoning model from IBM. It is suited for mathematics, code generation, multilingual dialogue, and agentic workflows that need multi-step reasoning. It supports full, low-effort,..."
   },
@@ -1392,6 +1464,18 @@
    "outPrice": 2.2509,
    "context": 1048576,
    "description": "Tencent: Hy4 preview is a mixture-of-experts model from Tencent, with 49B active parameters out of 770B total. It is designed for coding agents, complex tool-use workflows, and productivity tasks that..."
+  },
+  {
+   "id": "inclusionai/ling-3.0-flash-fin",
+   "name": "inclusionAI: Ling 3.0 Flash Fin",
+   "lab": "inclusionai",
+   "created": 1787846290,
+   "firstSeen": "2026-11-12",
+   "major": false,
+   "inPrice": 0.042,
+   "outPrice": 0.1232,
+   "context": 262144,
+   "description": "Ling 3.0 Flash Fin is a finance-focused mixture-of-experts model from InclusionAI, built on Ling 3.0 Flash with 5.1B active parameters out of 124B total. It is designed for real-world investment..."
   },
   {
    "id": "~z-ai/glm-flash-latest",
@@ -1436,8 +1520,8 @@
    "created": 1787752741,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.047,
-   "outPrice": 0.061,
+   "inPrice": 0.05,
+   "outPrice": 0.18,
    "context": 1048576,
    "description": "GLM-5.3-Flash is a native multimodal model from Z.ai. It is suited for efficient coding and long-horizon agent tasks. Its hybrid sparse and linear attention architecture maintains accurate long-context behavior while..."
   },
@@ -2132,8 +2216,8 @@
    "created": 1783590850,
    "firstSeen": "2026-10-24",
    "major": true,
-   "inPrice": 4.0,
-   "outPrice": 20.0,
+   "inPrice": 4.4,
+   "outPrice": 22.0,
    "context": 1050000,
    "description": "GPT-5.6 Sol is the flagship model in OpenAI's GPT-5.6 series. It is suited for complex reasoning, coding, and agentic workflows, and is particularly strong at command-line and multi-step coding tasks..."
   },
@@ -2312,8 +2396,8 @@
    "created": 1781631930,
    "firstSeen": "2026-11-08",
    "major": false,
-   "inPrice": 0.527,
-   "outPrice": 1.075,
+   "inPrice": 0.322,
+   "outPrice": 0.989,
    "context": 1048576,
    "description": "GLM 5.2 is a large-scale reasoning model from Z.ai. It supports text input and output with a 1M-token context window, and is suited for long-horizon agent workflows, project-level software engineering,..."
   },
@@ -2708,8 +2792,8 @@
    "created": 1777318398,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.75,
-   "outPrice": 3.75,
+   "inPrice": 1.5,
+   "outPrice": 7.5,
    "context": 1048576,
    "description": "This model always redirects to the latest model in the Gemini Flash family."
   },
@@ -2828,8 +2912,8 @@
    "created": 1777000679,
    "firstSeen": "2026-10-24",
    "major": true,
-   "inPrice": 0.8804,
-   "outPrice": 1.7609,
+   "inPrice": 0.889,
+   "outPrice": 1.7779,
    "context": 1048576,
    "description": "DeepSeek V4 Pro is a large-scale Mixture-of-Experts model from DeepSeek with 1.6T total parameters and 49B activated parameters, supporting a 1M-token context window. It is designed for advanced reasoning, coding,..."
   },
@@ -2960,8 +3044,8 @@
    "created": 1775578025,
    "firstSeen": "2026-10-24",
    "major": true,
-   "inPrice": 1.33,
-   "outPrice": 4.18,
+   "inPrice": 1.4,
+   "outPrice": 4.4,
    "context": 204800,
    "description": "GLM-5.1 delivers a major leap in coding capability, with particularly significant gains in handling long-horizon tasks. Unlike previous models built around minute-level interactions, GLM-5.1 can work independently and continuously on..."
   },
@@ -2972,8 +3056,8 @@
    "created": 1775227989,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.08,
-   "outPrice": 0.1,
+   "inPrice": 0.09,
+   "outPrice": 0.28,
    "context": 262144,
    "description": "Gemma 4 26B A4B IT is an instruction-tuned Mixture-of-Experts (MoE) model from Google DeepMind. Despite 25.2B total parameters, only 3.8B activate per token during inference \u2014 delivering near-31B quality at..."
   },
@@ -3548,8 +3632,8 @@
    "created": 1769487076,
    "firstSeen": "2026-10-24",
    "major": true,
-   "inPrice": 0.532,
-   "outPrice": 3.325,
+   "inPrice": 0.5,
+   "outPrice": 2.5,
    "context": 262144,
    "description": "Kimi K2.5 is Moonshot AI's native multimodal model, delivering state-of-the-art visual coding capability and a self-directed agent swarm paradigm. Built on Kimi K2 with continued pretraining over approximately 15T mixed..."
   },
@@ -4760,8 +4844,8 @@
    "created": 1745876478,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.1,
-   "outPrice": 0.22,
+   "inPrice": 0.12,
+   "outPrice": 0.24,
    "context": 40960,
    "description": "Qwen3-14B is a dense 14.8B parameter causal language model from the Qwen3 series, designed for both complex reasoning and efficient dialogue. It supports seamless switching between a \"thinking\" mode for..."
   },
