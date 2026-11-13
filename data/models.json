@@ -1,6 +1,18 @@
 {
- "updated": "2026-11-12",
+ "updated": "2026-11-13",
  "models": [
+  {
+   "id": "inclusionai/ling-3.2-flash:free",
+   "name": "inclusionAI: Ling 3.2 Flash (free)",
+   "lab": "inclusionai",
+   "created": 1794591958,
+   "firstSeen": "2026-11-13",
+   "major": false,
+   "inPrice": 0.0,
+   "outPrice": 0.0,
+   "context": 1048576,
+   "description": "Ling 3.2 Flash is a hybrid reasoning model from inclusionAI that accepts text and image input, with a 1M-token context window and up to 200 images per request. Thinking can..."
+  },
   {
    "id": "google/gemini-4-hydrogen",
    "name": "Google: Gemini 4 Hydrogen",
@@ -86,6 +98,18 @@
    "description": "Nex-N2.6 is an agentic model from Nex AGI, built on [GLM-5.3-Flash](https://huggingface.co/zai-org/GLM-5.3-Flash-BF16) with about 321B parameters. It is suited for computer use, coding, and long-horizon tasks that involve tools. Compared with..."
   },
   {
+   "id": "thinkingmachines/inkling-2-small",
+   "name": "Thinking Machines: Inkling 2 Small",
+   "lab": "thinkingmachines",
+   "created": 1794261847,
+   "firstSeen": "2026-11-13",
+   "major": false,
+   "inPrice": 0.3,
+   "outPrice": 1.0,
+   "context": 1048576,
+   "description": "Inkling 2 Small is an open-weight multimodal mixture-of-experts reasoning model from Thinking Machines Lab, with 17B active parameters out of 594B total. It is the first model in the second..."
+  },
+  {
    "id": "thinkingmachines/inkling-2-small:free",
    "name": "Thinking Machines: Inkling 2 Small (free)",
    "lab": "thinkingmachines",
@@ -95,7 +119,7 @@
    "inPrice": 0.0,
    "outPrice": 0.0,
    "context": 1048576,
-   "description": "Inkling 2 Small is a multimodal mixture-of-experts reasoning model from Thinking Machines Lab, with 17B active parameters out of 594B total. It is the first model in the second Inkling..."
+   "description": "Inkling 2 Small is an open-weight multimodal mixture-of-experts reasoning model from Thinking Machines Lab, with 17B active parameters out of 594B total. It is the first model in the second..."
   },
   {
    "id": "anthropic/claude-fable-5.2",
@@ -224,8 +248,8 @@
    "created": 1793818990,
    "firstSeen": "2026-11-04",
    "major": false,
-   "inPrice": 0.2,
-   "outPrice": 0.6,
+   "inPrice": 0.1,
+   "outPrice": 0.3,
    "context": 1048576,
    "description": "Ripple-65B-Preview by ricursiveAI, a 65B model with native tool calling, served in BF16."
   },
@@ -274,6 +298,18 @@
    "major": false,
    "inPrice": 0.05,
    "outPrice": 0.5,
+   "context": 1048576,
+   "description": "Particle-1 is a token-efficient agentic coding model from Particle AI, post-trained on DeepSeek V4.1 Flash. It is suited for software engineering work such as terminal workflows, codebase changes, and data..."
+  },
+  {
+   "id": "particle-ai/particle-1:free",
+   "name": "Particle AI: Particle-1 (free)",
+   "lab": "particle-ai",
+   "created": 1793207893,
+   "firstSeen": "2026-11-13",
+   "major": false,
+   "inPrice": 0.0,
+   "outPrice": 0.0,
    "context": 1048576,
    "description": "Particle-1 is a token-efficient agentic coding model from Particle AI, post-trained on DeepSeek V4.1 Flash. It is suited for software engineering work such as terminal workflows, codebase changes, and data..."
   },
@@ -332,8 +368,8 @@
    "created": 1792778188,
    "firstSeen": "2026-10-24",
    "major": true,
-   "inPrice": 0.2375,
-   "outPrice": 8.7856,
+   "inPrice": 2.0,
+   "outPrice": 10.0,
    "context": 1048576,
    "description": "Kimi K3.1 Pro is Moonshot AI's flagship open-weight multimodal reasoning model and a post-trained successor to Kimi K3, with a 1M-token context window. It is built for long-horizon coding, 3D..."
   },
@@ -380,8 +416,8 @@
    "created": 1792225624,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.15,
-   "outPrice": 0.6,
+   "inPrice": 0.038,
+   "outPrice": 0.5,
    "context": 1048576,
    "description": "DeepSeek V4.1 Flash 1017 is the October 17, 2026 snapshot of DeepSeek V4.1 Flash, served by DeepSeek under the `deepseek-flash` API model name. V4.1 Flash is a sparse mixture-of-experts model..."
   },
@@ -672,18 +708,6 @@
    "outPrice": 0.135,
    "context": 1000000,
    "description": "Ling 3.1 Flash is a hybrid reasoning mixture-of-experts model from inclusionAI, with 25B active parameters out of 560B total."
-  },
-  {
-   "id": "apodex/apodex-1.1-mini:free",
-   "name": "Apodex: Apodex 1.1 Mini (free)",
-   "lab": "apodex",
-   "created": 1790875335,
-   "firstSeen": "2026-11-12",
-   "major": false,
-   "inPrice": 0.0,
-   "outPrice": 0.0,
-   "context": 262144,
-   "description": "Apodex 1.1 Mini is a reasoning-first model from Apodex, built for complex, long-horizon research and forecasting tasks. It works directly with files, data, code, and tools to produce verifiable results,..."
   },
   {
    "id": "unbiased/pareto-26.10-preview",
@@ -1124,8 +1148,8 @@
    "created": 1789399150,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.022,
-   "outPrice": 0.4,
+   "inPrice": 0.038,
+   "outPrice": 0.5,
    "context": 1048576,
    "description": "This model always redirects to the latest model in the DeepSeek Flash family."
   },
@@ -1334,18 +1358,6 @@
    "description": "GPT-6 Astra Pro is the same underlying model as [GPT-6 Astra](https://openrouter.ai/openai/gpt-6-astra), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks. **Cost note:** pro mode spends far more..."
   },
   {
-   "id": "inclusionai/ling-3.0-flash-sante",
-   "name": "inclusionAI: Ling 3.0 Flash Sante",
-   "lab": "inclusionai",
-   "created": 1788545946,
-   "firstSeen": "2026-11-12",
-   "major": false,
-   "inPrice": 0.042,
-   "outPrice": 0.1232,
-   "context": 262144,
-   "description": "Ling 3.0 Flash Sante is a health and medicine-focused mixture-of-experts model from InclusionAI, built on Ling 3.0 Flash with 5.1B active parameters out of 124B total. It is designed for..."
-  },
-  {
    "id": "qwen/qwen3.8-max-0902",
    "name": "Qwen: Qwen3.8 Max (0902)",
    "lab": "Qwen",
@@ -1449,7 +1461,7 @@
    "firstSeen": "2026-10-24",
    "major": false,
    "inPrice": 0.06,
-   "outPrice": 0.15,
+   "outPrice": 0.25,
    "context": 131072,
    "description": "Granite 4.2 8B is a dense reasoning model from IBM. It is suited for mathematics, code generation, multilingual dialogue, and agentic workflows that need multi-step reasoning. It supports full, low-effort,..."
   },
@@ -1464,18 +1476,6 @@
    "outPrice": 2.2509,
    "context": 1048576,
    "description": "Tencent: Hy4 preview is a mixture-of-experts model from Tencent, with 49B active parameters out of 770B total. It is designed for coding agents, complex tool-use workflows, and productivity tasks that..."
-  },
-  {
-   "id": "inclusionai/ling-3.0-flash-fin",
-   "name": "inclusionAI: Ling 3.0 Flash Fin",
-   "lab": "inclusionai",
-   "created": 1787846290,
-   "firstSeen": "2026-11-12",
-   "major": false,
-   "inPrice": 0.042,
-   "outPrice": 0.1232,
-   "context": 262144,
-   "description": "Ling 3.0 Flash Fin is a finance-focused mixture-of-experts model from InclusionAI, built on Ling 3.0 Flash with 5.1B active parameters out of 124B total. It is designed for real-world investment..."
   },
   {
    "id": "~z-ai/glm-flash-latest",
@@ -1604,8 +1604,8 @@
    "created": 1787086655,
    "firstSeen": "2026-10-24",
    "major": true,
-   "inPrice": 0.0699,
-   "outPrice": 1.4,
+   "inPrice": 0.084,
+   "outPrice": 3.6,
    "context": 1048576,
    "description": "GLM-5.3 is a large-scale reasoning model from Z.ai, built for complex software engineering and long-horizon agent tasks. It supports text input and output with a 1M-token context window, and improves..."
   },
@@ -1740,30 +1740,6 @@
    "outPrice": 4.8,
    "context": 500000,
    "description": "Grok 4.6 is a model from SpaceXAI with frontier performance on coding, knowledge work, and STEM. It is succeeded by [Grok 4.7](/x-ai/grok-4.7)."
-  },
-  {
-   "id": "liquid/lfm-2.5-2.6b",
-   "name": "LiquidAI: LFM2.5-2.6B",
-   "lab": "liquid",
-   "created": 1786470519,
-   "firstSeen": "2026-10-25",
-   "major": false,
-   "inPrice": 0.35,
-   "outPrice": 0.5,
-   "context": 128000,
-   "description": "LFM2.5-2.6B is a compact reasoning model from Liquid AI. It is suited for agent workflows, data extraction, RAG, and long-context processing. Liquid advises against using it for agentic coding or..."
-  },
-  {
-   "id": "liquid/lfm-2.5-2.6b:free",
-   "name": "LiquidAI: LFM2.5-2.6B (free)",
-   "lab": "liquid",
-   "created": 1786470519,
-   "firstSeen": "2026-10-24",
-   "major": false,
-   "inPrice": 0.0,
-   "outPrice": 0.0,
-   "context": 65536,
-   "description": "LFM2.5-2.6B is a compact reasoning model from Liquid AI. It is suited for agent workflows, data extraction, RAG, and long-context processing. Liquid advises against using it for agentic coding or..."
   },
   {
    "id": "nvidia/nemotron-3.5-lightning",
@@ -2396,8 +2372,8 @@
    "created": 1781631930,
    "firstSeen": "2026-11-08",
    "major": false,
-   "inPrice": 0.322,
-   "outPrice": 0.989,
+   "inPrice": 0.347,
+   "outPrice": 1.068,
    "context": 1048576,
    "description": "GLM 5.2 is a large-scale reasoning model from Z.ai. It supports text input and output with a 1M-token context window, and is suited for long-horizon agent workflows, project-level software engineering,..."
   },
@@ -2912,8 +2888,8 @@
    "created": 1777000679,
    "firstSeen": "2026-10-24",
    "major": true,
-   "inPrice": 0.889,
-   "outPrice": 1.7779,
+   "inPrice": 0.9,
+   "outPrice": 1.5,
    "context": 1048576,
    "description": "DeepSeek V4 Pro is a large-scale Mixture-of-Experts model from DeepSeek with 1.6T total parameters and 49B activated parameters, supporting a 1M-token context window. It is designed for advanced reasoning, coding,..."
   },
@@ -2948,8 +2924,8 @@
    "created": 1776874273,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.48,
-   "outPrice": 1.8,
+   "inPrice": 0.435,
+   "outPrice": 0.87,
    "context": 1024000,
    "description": "MiMo-V2.5-Pro is Xiaomi\u2019s flagship model, delivering strong performance in general agentic capabilities, complex software engineering, and long-horizon tasks, with top rankings on benchmarks such as ClawEval, GDPVal, and SWE-bench Pro...."
   },
@@ -3056,8 +3032,8 @@
    "created": 1775227989,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.09,
-   "outPrice": 0.28,
+   "inPrice": 0.0675,
+   "outPrice": 0.225,
    "context": 262144,
    "description": "Gemma 4 26B A4B IT is an instruction-tuned Mixture-of-Experts (MoE) model from Google DeepMind. Despite 25.2B total parameters, only 3.8B activate per token during inference \u2014 delivering near-31B quality at..."
   },
@@ -3296,8 +3272,8 @@
    "created": 1773152396,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.17,
-   "outPrice": 0.25,
+   "inPrice": 0.153,
+   "outPrice": 0.225,
    "context": 262144,
    "description": "Qwen3.5-9B is a multimodal foundation model from the Qwen3.5 family, designed to deliver strong reasoning, coding, and visual understanding in an efficient 9B-parameter architecture. It uses a unified vision-language design..."
   },
@@ -3549,8 +3525,8 @@
    "firstSeen": "2026-10-24",
    "major": false,
    "inPrice": 0.27,
-   "outPrice": 1.08,
-   "context": 200000,
+   "outPrice": 0.95,
+   "context": 198000,
    "description": "MiniMax-M2.5 is a SOTA large language model designed for real-world productivity. Trained in a diverse range of complex real-world digital working environments, M2.5 builds upon the coding expertise of M2.1..."
   },
   {
@@ -5228,8 +5204,8 @@
    "created": 1735241320,
    "firstSeen": "2026-10-24",
    "major": true,
-   "inPrice": 0.32,
-   "outPrice": 0.89,
+   "inPrice": 0.2574,
+   "outPrice": 1.0287,
    "context": 163840,
    "description": "DeepSeek-V3 is the latest model from the DeepSeek team, building upon the instruction following and coding abilities of the previous versions. Pre-trained on nearly 15 trillion tokens, the reported evaluations..."
   },
