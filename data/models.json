@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-13",
+ "updated": "2026-11-14",
  "models": [
   {
    "id": "inclusionai/ling-3.2-flash:free",
@@ -296,7 +296,7 @@
    "created": 1793207893,
    "firstSeen": "2026-10-29",
    "major": false,
-   "inPrice": 0.05,
+   "inPrice": 0.06,
    "outPrice": 0.5,
    "context": 1048576,
    "description": "Particle-1 is a token-efficient agentic coding model from Particle AI, post-trained on DeepSeek V4.1 Flash. It is suited for software engineering work such as terminal workflows, codebase changes, and data..."
@@ -1268,8 +1268,8 @@
    "created": 1789021285,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.3,
-   "outPrice": 1.2,
+   "inPrice": 0.0507,
+   "outPrice": 0.2028,
    "context": 1048576,
    "description": "DeepSeek V4.1 Flash is a sparse mixture-of-experts model from DeepSeek, and the first built on the company's Causal Encoder-Decoder (CED) architecture. It activates 8B parameters on input and 16B on..."
   },
@@ -1630,7 +1630,7 @@
    "major": false,
    "inPrice": 0.15,
    "outPrice": 1.875,
-   "context": 1048575,
+   "context": 1024000,
    "description": "Qwen3.8 27B is an open-weight dense vision-language model from Qwen. It is suited for coding, professional workflows, research, multimodal interaction, and long-running agent tasks, with flexible thinking that can be..."
   },
   {
@@ -2192,8 +2192,8 @@
    "created": 1783590850,
    "firstSeen": "2026-10-24",
    "major": true,
-   "inPrice": 4.4,
-   "outPrice": 22.0,
+   "inPrice": 4.0,
+   "outPrice": 20.0,
    "context": 1050000,
    "description": "GPT-5.6 Sol is the flagship model in OpenAI's GPT-5.6 series. It is suited for complex reasoning, coding, and agentic workflows, and is particularly strong at command-line and multi-step coding tasks..."
   },
@@ -3272,8 +3272,8 @@
    "created": 1773152396,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.153,
-   "outPrice": 0.225,
+   "inPrice": 0.08,
+   "outPrice": 0.118,
    "context": 262144,
    "description": "Qwen3.5-9B is a multimodal foundation model from the Qwen3.5 family, designed to deliver strong reasoning, coding, and visual understanding in an efficient 9B-parameter architecture. It uses a unified vision-language design..."
   },
@@ -4772,8 +4772,8 @@
    "created": 1748455170,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.5,
-   "outPrice": 2.15,
+   "inPrice": 0.571,
+   "outPrice": 2.286,
    "context": 163840,
    "description": "May 28th update to the [original DeepSeek R1](/deepseek/deepseek-r1) Performance on par with [OpenAI o1](/openai/o1), but open-sourced and with fully open reasoning tokens. It's 671B parameters in size, with 37B active..."
   },
@@ -5348,8 +5348,8 @@
    "created": 1727222400,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.05,
-   "outPrice": 0.33,
+   "inPrice": 0.0509,
+   "outPrice": 0.335,
    "context": 131072,
    "description": "Llama 3.2 3B is a 3-billion-parameter multilingual large language model, optimized for advanced natural language processing tasks like dialogue generation, reasoning, and summarization. Designed with the latest transformer architecture, it..."
   },
