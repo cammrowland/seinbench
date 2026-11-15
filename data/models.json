@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-14",
+ "updated": "2026-11-15",
  "models": [
   {
    "id": "inclusionai/ling-3.2-flash:free",
@@ -416,8 +416,8 @@
    "created": 1792225624,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.038,
-   "outPrice": 0.5,
+   "inPrice": 0.02,
+   "outPrice": 0.108,
    "context": 1048576,
    "description": "DeepSeek V4.1 Flash 1017 is the October 17, 2026 snapshot of DeepSeek V4.1 Flash, served by DeepSeek under the `deepseek-flash` API model name. V4.1 Flash is a sparse mixture-of-experts model..."
   },
@@ -428,8 +428,8 @@
    "created": 1792225624,
    "firstSeen": "2026-11-08",
    "major": false,
-   "inPrice": 0.05,
-   "outPrice": 0.15,
+   "inPrice": 0.029,
+   "outPrice": 0.253,
    "context": 1048576,
    "description": "DeepSeek V4.1 Flash 1017 is the October 17, 2026 snapshot of DeepSeek V4.1 Flash, served by DeepSeek under the `deepseek-flash` API model name. V4.1 Flash is a sparse mixture-of-experts model..."
   },
@@ -513,7 +513,7 @@
    "firstSeen": "2026-10-24",
    "major": false,
    "inPrice": 0.15,
-   "outPrice": 0.47,
+   "outPrice": 0.5,
    "context": 1048576,
    "description": "NVIDIA Nemotron 3.5 Super VL is an open multimodal mixture-of-experts model from NVIDIA, with 12B active parameters out of 120B total. It takes text, images, documents, GUI screenshots, and video..."
   },
@@ -1148,8 +1148,8 @@
    "created": 1789399150,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.038,
-   "outPrice": 0.5,
+   "inPrice": 0.02,
+   "outPrice": 0.108,
    "context": 1048576,
    "description": "This model always redirects to the latest model in the DeepSeek Flash family."
   },
@@ -1461,7 +1461,7 @@
    "firstSeen": "2026-10-24",
    "major": false,
    "inPrice": 0.06,
-   "outPrice": 0.25,
+   "outPrice": 0.15,
    "context": 131072,
    "description": "Granite 4.2 8B is a dense reasoning model from IBM. It is suited for mathematics, code generation, multilingual dialogue, and agentic workflows that need multi-step reasoning. It supports full, low-effort,..."
   },
@@ -2192,8 +2192,8 @@
    "created": 1783590850,
    "firstSeen": "2026-10-24",
    "major": true,
-   "inPrice": 4.0,
-   "outPrice": 20.0,
+   "inPrice": 4.4,
+   "outPrice": 22.0,
    "context": 1050000,
    "description": "GPT-5.6 Sol is the flagship model in OpenAI's GPT-5.6 series. It is suited for complex reasoning, coding, and agentic workflows, and is particularly strong at command-line and multi-step coding tasks..."
   },
@@ -2362,18 +2362,6 @@
    "major": true,
    "inPrice": 0.007,
    "outPrice": 6.8,
-   "context": 1048576,
-   "description": "GLM 5.2 is a large-scale reasoning model from Z.ai. It supports text input and output with a 1M-token context window, and is suited for long-horizon agent workflows, project-level software engineering,..."
-  },
-  {
-   "id": "z-ai/glm-5.2:batch",
-   "name": "Z.ai: GLM 5.2 (batch)",
-   "lab": "Z.ai",
-   "created": 1781631930,
-   "firstSeen": "2026-11-08",
-   "major": false,
-   "inPrice": 0.347,
-   "outPrice": 1.068,
    "context": 1048576,
    "description": "GLM 5.2 is a large-scale reasoning model from Z.ai. It supports text input and output with a 1M-token context window, and is suited for long-horizon agent workflows, project-level software engineering,..."
   },
@@ -3272,8 +3260,8 @@
    "created": 1773152396,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.08,
-   "outPrice": 0.118,
+   "inPrice": 0.037,
+   "outPrice": 0.054,
    "context": 262144,
    "description": "Qwen3.5-9B is a multimodal foundation model from the Qwen3.5 family, designed to deliver strong reasoning, coding, and visual understanding in an efficient 9B-parameter architecture. It uses a unified vision-language design..."
   },
@@ -3590,18 +3578,6 @@
    "description": "The simplest way to get free inference. openrouter/free is a router that selects free models at random from the models available on OpenRouter. The router smartly filters for models that..."
   },
   {
-   "id": "stepfun/step-3.5-flash",
-   "name": "StepFun: Step 3.5 Flash",
-   "lab": "stepfun",
-   "created": 1769728337,
-   "firstSeen": "2026-10-24",
-   "major": false,
-   "inPrice": 0.1,
-   "outPrice": 0.3,
-   "context": 262144,
-   "description": "Step 3.5 Flash is StepFun's most capable open-source foundation model. Built on a sparse Mixture of Experts (MoE) architecture, it selectively activates only 11B of its 196B parameters per token...."
-  },
-  {
    "id": "moonshotai/kimi-k2.5",
    "name": "MoonshotAI: Kimi K2.5",
    "lab": "Moonshot",
@@ -3680,8 +3656,8 @@
    "created": 1766378014,
    "firstSeen": "2026-10-24",
    "major": true,
-   "inPrice": 0.6,
-   "outPrice": 2.2,
+   "inPrice": 0.4,
+   "outPrice": 1.75,
    "context": 204800,
    "description": "GLM-4.7 is Z.ai\u2019s latest flagship model, featuring upgrades in two key areas: enhanced programming capabilities and more stable multi-step reasoning/execution. It demonstrates significant improvements in executing complex agent tasks while..."
   },
@@ -4128,18 +4104,6 @@
    "outPrice": 2.5,
    "context": 32768,
    "description": "Gemini 2.5 Flash Image, a.k.a. \"Nano Banana,\" is now generally available. It is a state of the art image generation model with contextual understanding. It is capable of image generation,..."
-  },
-  {
-   "id": "qwen/qwen3-vl-30b-a3b-thinking",
-   "name": "Qwen: Qwen3 VL 30B A3B Thinking",
-   "lab": "Qwen",
-   "created": 1759794479,
-   "firstSeen": "2026-10-24",
-   "major": false,
-   "inPrice": 0.29,
-   "outPrice": 1.0,
-   "context": 262144,
-   "description": "Qwen3-VL-30B-A3B-Thinking is a multimodal model that unifies strong text generation with visual understanding for images and videos. Its Thinking variant enhances reasoning in STEM, math, and complex tasks. It excels..."
   },
   {
    "id": "qwen/qwen3-vl-30b-a3b-instruct",
@@ -4646,18 +4610,6 @@
    "description": "Venice Uncensored Dolphin Mistral 24B Venice Edition is a fine-tuned variant of Mistral-Small-24B-Instruct-2501, developed by dphn.ai in collaboration with Venice.ai. This model is designed as an \u201cuncensored\u201d instruct-tuned LLM, preserving..."
   },
   {
-   "id": "tencent/hunyuan-a13b-instruct",
-   "name": "Tencent: Hunyuan A13B Instruct",
-   "lab": "tencent",
-   "created": 1751987664,
-   "firstSeen": "2026-10-24",
-   "major": false,
-   "inPrice": 0.14,
-   "outPrice": 0.57,
-   "context": 131072,
-   "description": "Hunyuan-A13B is a 13B active parameter Mixture-of-Experts (MoE) language model developed by Tencent, with a total parameter count of 80B and support for reasoning via Chain-of-Thought. It offers competitive benchmark..."
-  },
-  {
    "id": "morph/morph-v3-large",
    "name": "Morph: Morph V3 Large",
    "lab": "morph",
@@ -4772,8 +4724,8 @@
    "created": 1748455170,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.571,
-   "outPrice": 2.286,
+   "inPrice": 0.5,
+   "outPrice": 2.15,
    "context": 163840,
    "description": "May 28th update to the [original DeepSeek R1](/deepseek/deepseek-r1) Performance on par with [OpenAI o1](/openai/o1), but open-sourced and with fully open reasoning tokens. It's 671B parameters in size, with 37B active..."
   },
