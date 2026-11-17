@@ -1,6 +1,54 @@
 {
- "updated": "2026-11-16",
+ "updated": "2026-11-17",
  "models": [
+  {
+   "id": "openai/gpt-6.2-astra-pro",
+   "name": "OpenAI: GPT-6.2 Astra Pro",
+   "lab": "OpenAI",
+   "created": 1794938432,
+   "firstSeen": "2026-11-17",
+   "major": true,
+   "inPrice": 8.0,
+   "outPrice": 40.0,
+   "context": 1050000,
+   "description": "GPT-6.2 Astra Pro is the same underlying model as [GPT-6.2 Astra](https://openrouter.ai/openai/gpt-6.2-astra), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks. **Cost note:** pro mode spends far more..."
+  },
+  {
+   "id": "openai/gpt-6.2-astra",
+   "name": "OpenAI: GPT-6.2 Astra",
+   "lab": "OpenAI",
+   "created": 1794938423,
+   "firstSeen": "2026-11-17",
+   "major": true,
+   "inPrice": 8.0,
+   "outPrice": 40.0,
+   "context": 1050000,
+   "description": "GPT-6.2 Astra is the flagship model in the GPT-6.2 series from OpenAI, built for the hardest projects. It is suited for real-world engineering, professional work and scientific research, with stronger..."
+  },
+  {
+   "id": "openai/gpt-6.2-sol-pro",
+   "name": "OpenAI: GPT-6.2 Sol Pro",
+   "lab": "OpenAI",
+   "created": 1794938409,
+   "firstSeen": "2026-11-17",
+   "major": true,
+   "inPrice": 2.0,
+   "outPrice": 10.0,
+   "context": 1050000,
+   "description": "GPT-6.2 Sol Pro is the same underlying model as [GPT-6.2 Sol](https://openrouter.ai/openai/gpt-6.2-sol), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks. **Cost note:** pro mode spends far more..."
+  },
+  {
+   "id": "openai/gpt-6.2-sol",
+   "name": "OpenAI: GPT-6.2 Sol",
+   "lab": "OpenAI",
+   "created": 1794938371,
+   "firstSeen": "2026-11-17",
+   "major": true,
+   "inPrice": 2.0,
+   "outPrice": 10.0,
+   "context": 1050000,
+   "description": "GPT-6.2 Sol is an upgrade to GPT-6.1 Sol from OpenAI, positioned below the flagship GPT-6.2 Astra in the GPT-6.2 series. It is an efficient, versatile model for everyday work, suited..."
+  },
   {
    "id": "tencent/hy4-flash",
    "name": "Tencent: Hy4 flash",
@@ -404,8 +452,8 @@
    "created": 1792778188,
    "firstSeen": "2026-11-12",
    "major": false,
-   "inPrice": 0.354,
-   "outPrice": 5.31,
+   "inPrice": 0.372,
+   "outPrice": 5.583,
    "context": 1048576,
    "description": "Kimi K3.1 Pro is Moonshot AI's flagship open-weight multimodal reasoning model and a post-trained successor to Kimi K3, with a 1M-token context window. It is built for long-horizon coding, 3D..."
   },
@@ -440,8 +488,8 @@
    "created": 1792225624,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.15,
-   "outPrice": 0.6,
+   "inPrice": 0.036,
+   "outPrice": 0.5,
    "context": 1048576,
    "description": "DeepSeek V4.1 Flash 1017 is the October 17, 2026 snapshot of DeepSeek V4.1 Flash, served by DeepSeek under the `deepseek-flash` API model name. V4.1 Flash is a sparse mixture-of-experts model..."
   },
@@ -453,7 +501,7 @@
    "firstSeen": "2026-11-08",
    "major": false,
    "inPrice": 0.036,
-   "outPrice": 0.317,
+   "outPrice": 0.15,
    "context": 1048576,
    "description": "DeepSeek V4.1 Flash 1017 is the October 17, 2026 snapshot of DeepSeek V4.1 Flash, served by DeepSeek under the `deepseek-flash` API model name. V4.1 Flash is a sparse mixture-of-experts model..."
   },
@@ -1208,8 +1256,8 @@
    "created": 1789130932,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 10.0,
-   "outPrice": 50.0,
+   "inPrice": 8.0,
+   "outPrice": 40.0,
    "context": 1050000,
    "description": "This model always redirects to the latest model in the GPT Astra family."
   },
@@ -1292,8 +1340,8 @@
    "created": 1789021285,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.14,
-   "outPrice": 0.42,
+   "inPrice": 0.3,
+   "outPrice": 1.2,
    "context": 1048576,
    "description": "DeepSeek V4.1 Flash is a sparse mixture-of-experts model from DeepSeek, and the first built on the company's Causal Encoder-Decoder (CED) architecture. It activates 8B parameters on input and 16B on..."
   },
@@ -1544,8 +1592,8 @@
    "created": 1787752741,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.03,
-   "outPrice": 0.087,
+   "inPrice": 0.024,
+   "outPrice": 0.069,
    "context": 1048576,
    "description": "GLM-5.3-Flash is a native multimodal model from Z.ai. It is suited for efficient coding and long-horizon agent tasks. Its hybrid sparse and linear attention architecture maintains accurate long-context behavior while..."
   },
@@ -1640,8 +1688,8 @@
    "created": 1787086655,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.45,
-   "outPrice": 2.0,
+   "inPrice": 0.281,
+   "outPrice": 1.25,
    "context": 1048576,
    "description": "GLM-5.3 is a large-scale reasoning model from Z.ai, built for complex software engineering and long-horizon agent tasks. It supports text input and output with a 1M-token context window, and improves..."
   },
@@ -1774,7 +1822,7 @@
    "major": false,
    "inPrice": 0.07,
    "outPrice": 0.2,
-   "context": 262144,
+   "context": 1048576,
    "description": "NVIDIA Nemotron 3.5 Lightning is an open mixture-of-experts model from NVIDIA, with 3B active parameters out of 30B total. It is suited for high-throughput agentic workloads and specialized tasks that..."
   },
   {
@@ -1820,8 +1868,8 @@
    "created": 1786302394,
    "firstSeen": "2026-10-24",
    "major": true,
-   "inPrice": 0.3,
-   "outPrice": 1.2,
+   "inPrice": 0.35,
+   "outPrice": 1.5,
    "context": 131072,
    "description": "Muse Glimmer 30B is a dense, open-weight multimodal model from Meta Superintelligence Labs, distilled from Muse Spark and optimized for autonomous agents on consumer hardware. It is suited for long-horizon..."
   },
@@ -2420,8 +2468,8 @@
    "created": 1781266361,
    "firstSeen": "2026-10-24",
    "major": true,
-   "inPrice": 0.6,
-   "outPrice": 3.5,
+   "inPrice": 0.7,
+   "outPrice": 3.75,
    "context": 262144,
    "description": "MoonshotAI: Kimi K2.7 Code is a coding-focused model in Moonshot AI's Kimi K2 family, built to complete end-to-end programming tasks reliably over long contexts. It uses a native multimodal mixture-of-experts..."
   },
@@ -2480,8 +2528,8 @@
    "created": 1780551208,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.6,
-   "outPrice": 2.4,
+   "inPrice": 0.5,
+   "outPrice": 2.2,
    "context": 262144,
    "description": "NVIDIA Nemotron 3 Ultra is an open frontier-reasoning and orchestration model from NVIDIA, with 55B active parameters out of 550B total (MoE). Built on a hybrid Transformer-Mamba mixture-of-experts architecture, it..."
   },
@@ -4340,8 +4388,8 @@
    "created": 1755095639,
    "firstSeen": "2026-10-24",
    "major": true,
-   "inPrice": 0.4,
-   "outPrice": 2.0,
+   "inPrice": 0.44,
+   "outPrice": 2.2,
    "context": 131072,
    "description": "Mistral Medium 3.1 is an updated version of Mistral Medium 3, which is a high-performance enterprise-grade language model designed to deliver frontier-level capabilities at significantly reduced operational cost. It balances..."
   },
@@ -4460,8 +4508,8 @@
    "created": 1754414229,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.075,
-   "outPrice": 0.3,
+   "inPrice": 0.018,
+   "outPrice": 0.09,
    "context": 131072,
    "description": "gpt-oss-20b is an open-weight 21B parameter model released by OpenAI under the Apache 2.0 license. It uses a Mixture-of-Experts (MoE) architecture with 3.6B active parameters per forward pass, optimized for..."
   },
@@ -4700,8 +4748,8 @@
    "created": 1750443016,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.1,
-   "outPrice": 0.3,
+   "inPrice": 0.075,
+   "outPrice": 0.2,
    "context": 256000,
    "description": "Mistral-Small-3.2-24B-Instruct-2506 is an updated 24B parameter model from Mistral optimized for instruction following, repetition reduction, and improved function calling. Compared to the 3.1 release, version 3.2 significantly improves accuracy on..."
   },
@@ -4772,8 +4820,8 @@
    "created": 1746627341,
    "firstSeen": "2026-10-24",
    "major": true,
-   "inPrice": 0.4,
-   "outPrice": 2.0,
+   "inPrice": 0.44,
+   "outPrice": 2.2,
    "context": 131072,
    "description": "Mistral Medium 3 is a high-performance enterprise-grade language model designed to deliver frontier-level capabilities at significantly reduced operational cost. It balances state-of-the-art reasoning and multimodal performance with 8\u00d7 lower cost..."
   },
