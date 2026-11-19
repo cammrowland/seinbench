@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-18",
+ "updated": "2026-11-19",
  "models": [
   {
    "id": "google/gemini-4-neon",
@@ -10,6 +10,18 @@
    "major": true,
    "inPrice": 3.0,
    "outPrice": 15.0,
+   "context": 1048576,
+   "description": "Gemini 4 Neon is a fast, mid-priced model in the Gemini 4 family from Google, built for coding and agentic work. It is suited for repository and terminal coding, web..."
+  },
+  {
+   "id": "google/gemini-4-neon:batch",
+   "name": "Google: Gemini 4 Neon (batch)",
+   "lab": "Google",
+   "created": 1795006977,
+   "firstSeen": "2026-11-19",
+   "major": false,
+   "inPrice": 1.5,
+   "outPrice": 7.5,
    "context": 1048576,
    "description": "Gemini 4 Neon is a fast, mid-priced model in the Gemini 4 family from Google, built for coding and agentic work. It is suited for repository and terminal coding, web..."
   },
@@ -238,18 +250,6 @@
    "major": false,
    "inPrice": 0.3,
    "outPrice": 1.0,
-   "context": 1048576,
-   "description": "Inkling 2 Small is an open-weight multimodal mixture-of-experts reasoning model from Thinking Machines Lab, with 17B active parameters out of 594B total. It is the first model in the second..."
-  },
-  {
-   "id": "thinkingmachines/inkling-2-small:free",
-   "name": "Thinking Machines: Inkling 2 Small (free)",
-   "lab": "thinkingmachines",
-   "created": 1794261847,
-   "firstSeen": "2026-11-09",
-   "major": false,
-   "inPrice": 0.0,
-   "outPrice": 0.0,
    "context": 1048576,
    "description": "Inkling 2 Small is an open-weight multimodal mixture-of-experts reasoning model from Thinking Machines Lab, with 17B active parameters out of 594B total. It is the first model in the second..."
   },
@@ -500,8 +500,8 @@
    "created": 1792778188,
    "firstSeen": "2026-10-24",
    "major": true,
-   "inPrice": 0.2403,
-   "outPrice": 8.4023,
+   "inPrice": 0.253,
+   "outPrice": 8.8,
    "context": 1048576,
    "description": "Kimi K3.1 Pro is Moonshot AI's flagship open-weight multimodal reasoning model and a post-trained successor to Kimi K3, with a 1M-token context window. It is built for long-horizon coding, 3D..."
   },
@@ -584,7 +584,7 @@
    "created": 1792160499,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.3,
+   "inPrice": 0.25,
    "outPrice": 1.0,
    "context": 1048576,
    "description": "Beam 1.0 is Reflection's open-weight reasoning model for coding and long-horizon agentic workflows. It uses a sparse mixture-of-experts architecture with 501B total and 23B active parameters per token, and a..."
@@ -1268,7 +1268,7 @@
    "created": 1789399174,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.0999,
+   "inPrice": 0.1211,
    "outPrice": 8.0,
    "context": 1048576,
    "description": "This model always redirects to the latest model in the DeepSeek Pro family."
@@ -1280,8 +1280,8 @@
    "created": 1789399150,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.035,
-   "outPrice": 0.15,
+   "inPrice": 0.036,
+   "outPrice": 0.5,
    "context": 1048576,
    "description": "This model always redirects to the latest model in the DeepSeek Flash family."
   },
@@ -1844,8 +1844,8 @@
    "created": 1786549364,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.111,
-   "outPrice": 4.44,
+   "inPrice": 0.18,
+   "outPrice": 7.8,
    "context": 1048576,
    "description": "DeepSeek V4 Pro 0813 is a large-scale mixture-of-experts model from DeepSeek. This is the GA release of DeepSeek V4 Pro."
   },
@@ -1976,8 +1976,8 @@
    "created": 1785606009,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.0434,
-   "outPrice": 0.3,
+   "inPrice": 0.0466,
+   "outPrice": 0.1399,
    "context": 1048576,
    "description": "This model always redirects to the latest model in the DeepSeek V4 Flash family."
   },
@@ -1988,8 +1988,8 @@
    "created": 1785478908,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.06,
-   "outPrice": 0.18,
+   "inPrice": 0.062,
+   "outPrice": 0.3,
    "context": 1048576,
    "description": "DeepSeek V4 Flash 0731 is a sparse mixture-of-experts model from DeepSeek, with 13B active parameters out of 284B total. This re-post-trained revision is suited for coding, reasoning, and agent workflows...."
   },
@@ -2528,7 +2528,7 @@
    "created": 1781266361,
    "firstSeen": "2026-10-24",
    "major": true,
-   "inPrice": 0.6,
+   "inPrice": 0.65,
    "outPrice": 3.5,
    "context": 262144,
    "description": "MoonshotAI: Kimi K2.7 Code is a coding-focused model in Moonshot AI's Kimi K2 family, built to complete end-to-end programming tasks reliably over long contexts. It uses a native multimodal mixture-of-experts..."
@@ -2888,7 +2888,7 @@
    "created": 1777318428,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.1824,
+   "inPrice": 0.1805,
    "outPrice": 11.0055,
    "context": 1048576,
    "description": "This model always redirects to the latest model in the Kimi family."
@@ -3152,8 +3152,8 @@
    "created": 1775578025,
    "firstSeen": "2026-10-24",
    "major": true,
-   "inPrice": 1.4,
-   "outPrice": 4.4,
+   "inPrice": 1.19,
+   "outPrice": 3.74,
    "context": 204800,
    "description": "GLM-5.1 delivers a major leap in coding capability, with particularly significant gains in handling long-horizon tasks. Unlike previous models built around minute-level interactions, GLM-5.1 can work independently and continuously on..."
   },
@@ -3404,8 +3404,8 @@
    "created": 1773152396,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.142,
-   "outPrice": 0.21,
+   "inPrice": 0.17,
+   "outPrice": 0.25,
    "context": 262144,
    "description": "Qwen3.5-9B is a multimodal foundation model from the Qwen3.5 family, designed to deliver strong reasoning, coding, and visual understanding in an efficient 9B-parameter architecture. It uses a unified vision-language design..."
   },
@@ -3512,8 +3512,8 @@
    "created": 1772053810,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.3,
-   "outPrice": 2.4,
+   "inPrice": 0.195,
+   "outPrice": 1.56,
    "context": 262144,
    "description": "The Qwen3.5 27B native vision-language Dense model incorporates a linear attention mechanism, delivering fast response times while balancing inference speed and performance. Its overall capabilities are comparable to those of..."
   },
@@ -5145,7 +5145,7 @@
    "firstSeen": "2026-10-24",
    "major": false,
    "inPrice": 0.08,
-   "outPrice": 0.45,
+   "outPrice": 0.16,
    "context": 131072,
    "description": "Gemma 3 introduces multimodality, supporting vision-language input and text outputs. It handles context windows up to 128k tokens, understands over 140 languages, and offers improved math, reasoning, and chat capabilities,..."
   },
