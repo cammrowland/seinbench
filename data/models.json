@@ -1,6 +1,30 @@
 {
- "updated": "2026-11-20",
+ "updated": "2026-11-21",
  "models": [
+  {
+   "id": "thinkingmachines/inkling-2-mini",
+   "name": "Thinking Machines: Inkling 2 Mini",
+   "lab": "thinkingmachines",
+   "created": 1795227585,
+   "firstSeen": "2026-11-21",
+   "major": false,
+   "inPrice": 0.075,
+   "outPrice": 0.3,
+   "context": 1048576,
+   "description": "Inkling 2 Mini is an open-weight multimodal looped transformer from Thinking Machines Lab, with 3.4B active parameters out of 26.4B total (MoE). Its middle layers run three times with shared..."
+  },
+  {
+   "id": "radixark/daisyrose-27b",
+   "name": "RadixArk: DaisyRose 27B",
+   "lab": "radixark",
+   "created": 1795222188,
+   "firstSeen": "2026-11-21",
+   "major": false,
+   "inPrice": 0.15,
+   "outPrice": 1.875,
+   "context": 262144,
+   "description": "DaisyRose 27B is an open-weight multimodal reasoning model from RadixArk, trained from [Qwen3.8 27B](https://openrouter.ai/qwen/qwen3.8-27b) using reinforcement learning only on long-horizon agent tasks, with no supervised fine-tuning or distillation. It is..."
+  },
   {
    "id": "mistralai/pixtral-large-2502",
    "name": "Mistral: Pixtral Large 2502",
@@ -560,8 +584,8 @@
    "created": 1792225624,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.036,
-   "outPrice": 0.5,
+   "inPrice": 0.15,
+   "outPrice": 0.6,
    "context": 1048576,
    "description": "DeepSeek V4.1 Flash 1017 is the October 17, 2026 snapshot of DeepSeek V4.1 Flash, served by DeepSeek under the `deepseek-flash` API model name. V4.1 Flash is a sparse mixture-of-experts model..."
   },
@@ -657,7 +681,7 @@
    "firstSeen": "2026-10-24",
    "major": false,
    "inPrice": 0.15,
-   "outPrice": 0.5,
+   "outPrice": 0.47,
    "context": 1048576,
    "description": "NVIDIA Nemotron 3.5 Super VL is an open multimodal mixture-of-experts model from NVIDIA, with 12B active parameters out of 120B total. It takes text, images, documents, GUI screenshots, and video..."
   },
@@ -1412,8 +1436,8 @@
    "created": 1789021285,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.3,
-   "outPrice": 1.2,
+   "inPrice": 0.0498,
+   "outPrice": 0.1992,
    "context": 1048576,
    "description": "DeepSeek V4.1 Flash is a sparse mixture-of-experts model from DeepSeek, and the first built on the company's Causal Encoder-Decoder (CED) architecture. It activates 8B parameters on input and 16B on..."
   },
@@ -1790,18 +1814,6 @@
    "description": "Qwen3.8 27B is an open-weight dense vision-language model from Qwen. It is suited for coding, professional workflows, research, multimodal interaction, and long-running agent tasks, with flexible thinking that can be..."
   },
   {
-   "id": "dots-studio/dots-3-note-preview:free",
-   "name": "Dots Studio: Dots3-Note Preview (free)",
-   "lab": "dots-studio",
-   "created": 1786680361,
-   "firstSeen": "2026-10-24",
-   "major": false,
-   "inPrice": 0.0,
-   "outPrice": 0.0,
-   "context": 512000,
-   "description": "Dots3-Note Preview is an open-weight mixture-of-experts model from Dots Studio, with 16B active parameters out of 280B total. It is the lightest model in the Dots 3 family and is..."
-  },
-  {
    "id": "google/gemini-3.7-flash",
    "name": "Google: Gemini 3.7 Flash",
    "lab": "Google",
@@ -2136,18 +2148,6 @@
    "outPrice": 1.25,
    "context": 1048576,
    "description": "Gemini 3.5 Flash Lite is a high-efficiency model from Google with upgraded agentic capabilities. It is suited for subagents that execute focused tasks within complex, multi-agent workflows."
-  },
-  {
-   "id": "meituan/longcat-2.0",
-   "name": "Meituan: LongCat 2.0",
-   "lab": "meituan",
-   "created": 1784554658,
-   "firstSeen": "2026-10-24",
-   "major": false,
-   "inPrice": 0.3,
-   "outPrice": 1.2,
-   "context": 1048756,
-   "description": "LongCat 2.0 is a sparse mixture-of-experts language model from Meituan, with 48B active parameters out of 1.6T total. It is suited for coding, repository-level changes, long-horizon problem solving, and agentic..."
   },
   {
    "id": "thinkingmachines/inkling",
@@ -2876,7 +2876,7 @@
    "created": 1777318428,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.1805,
+   "inPrice": 0.1824,
    "outPrice": 11.0055,
    "context": 1048576,
    "description": "This model always redirects to the latest model in the Kimi family."
@@ -3632,8 +3632,8 @@
    "created": 1770908502,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.295,
-   "outPrice": 1.2,
+   "inPrice": 0.27,
+   "outPrice": 0.95,
    "context": 198000,
    "description": "MiniMax-M2.5 is a SOTA large language model designed for real-world productivity. Trained in a diverse range of complex real-world digital working environments, M2.5 builds upon the coding expertise of M2.1..."
   },
@@ -4604,8 +4604,8 @@
    "created": 1753972379,
    "firstSeen": "2026-10-24",
    "major": true,
-   "inPrice": 0.15,
-   "outPrice": 0.6,
+   "inPrice": 0.07,
+   "outPrice": 0.28,
    "context": 262144,
    "description": "Qwen3-Coder-30B-A3B-Instruct is a 30.5B parameter Mixture-of-Experts (MoE) model with 128 experts (8 active per forward pass), designed for advanced code generation, repository-scale understanding, and agentic tool use. Built on the..."
   },
