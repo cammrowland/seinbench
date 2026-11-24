@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-22",
+ "updated": "2026-11-24",
  "models": [
   {
    "id": "thinkingmachines/inkling-2-mini",
@@ -584,8 +584,8 @@
    "created": 1792225624,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.15,
-   "outPrice": 0.6,
+   "inPrice": 0.03,
+   "outPrice": 0.2,
    "context": 1048576,
    "description": "DeepSeek V4.1 Flash 1017 is the October 17, 2026 snapshot of DeepSeek V4.1 Flash, served by DeepSeek under the `deepseek-flash` API model name. V4.1 Flash is a sparse mixture-of-experts model..."
   },
@@ -874,7 +874,7 @@
    "major": false,
    "inPrice": 0.06,
    "outPrice": 0.18,
-   "context": 1000000,
+   "context": 1048576,
    "description": "Ling 3.1 Flash is a hybrid reasoning mixture-of-experts model from inclusionAI, with 25B active parameters out of 560B total."
   },
   {
@@ -1305,7 +1305,7 @@
    "firstSeen": "2026-10-24",
    "major": false,
    "inPrice": 0.0999,
-   "outPrice": 8.0,
+   "outPrice": 5.0,
    "context": 1048576,
    "description": "This model always redirects to the latest model in the DeepSeek Pro family."
   },
@@ -1316,8 +1316,8 @@
    "created": 1789399150,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.036,
-   "outPrice": 0.5,
+   "inPrice": 0.03,
+   "outPrice": 0.2,
    "context": 1048576,
    "description": "This model always redirects to the latest model in the DeepSeek Flash family."
   },
@@ -1640,8 +1640,8 @@
    "created": 1787897375,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.7506,
-   "outPrice": 2.2509,
+   "inPrice": 0.834,
+   "outPrice": 2.501,
    "context": 1048576,
    "description": "Tencent: Hy4 preview is a mixture-of-experts model from Tencent, with 49B active parameters out of 770B total. It is designed for coding agents, complex tool-use workflows, and productivity tasks that..."
   },
@@ -1652,8 +1652,8 @@
    "created": 1787817633,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.0399,
-   "outPrice": 0.0784,
+   "inPrice": 0.0356,
+   "outPrice": 0.0815,
    "context": 1048576,
    "description": "This model always redirects to the latest model in the GLM Flash family."
   },
@@ -1676,8 +1676,8 @@
    "created": 1787752741,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.0399,
-   "outPrice": 0.0784,
+   "inPrice": 0.0356,
+   "outPrice": 0.0815,
    "context": 1048576,
    "description": "GLM-5.3-Flash is a native multimodal model from Z.ai. It is suited for efficient coding and long-horizon agent tasks. Its hybrid sparse and linear attention architecture maintains accurate long-context behavior while..."
   },
@@ -1814,6 +1814,18 @@
    "description": "Qwen3.8 27B is an open-weight dense vision-language model from Qwen. It is suited for coding, professional workflows, research, multimodal interaction, and long-running agent tasks, with flexible thinking that can be..."
   },
   {
+   "id": "dots-studio/dots-3-note-preview:free",
+   "name": "Dots Studio: Dots3-Note Preview (free)",
+   "lab": "dots-studio",
+   "created": 1786680361,
+   "firstSeen": "2026-11-24",
+   "major": false,
+   "inPrice": 0.0,
+   "outPrice": 0.0,
+   "context": 512000,
+   "description": "Dots3-Note Preview is an open-weight mixture-of-experts model from Dots Studio, with 16B active parameters out of 280B total. It is the lightest model in the Dots 3 family and is..."
+  },
+  {
    "id": "google/gemini-3.7-flash",
    "name": "Google: Gemini 3.7 Flash",
    "lab": "Google",
@@ -1868,8 +1880,8 @@
    "created": 1786549364,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 1.32,
-   "outPrice": 3.96,
+   "inPrice": 0.111,
+   "outPrice": 4.44,
    "context": 1048576,
    "description": "DeepSeek V4 Pro 0813 is a large-scale mixture-of-experts model from DeepSeek. This is the GA release of DeepSeek V4 Pro."
   },
@@ -1904,7 +1916,7 @@
    "created": 1786452751,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.07,
+   "inPrice": 0.05,
    "outPrice": 0.2,
    "context": 1048576,
    "description": "NVIDIA Nemotron 3.5 Lightning is an open mixture-of-experts model from NVIDIA, with 3B active parameters out of 30B total. It is suited for high-throughput agentic workloads and specialized tasks that..."
@@ -2000,8 +2012,8 @@
    "created": 1785606009,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.044,
-   "outPrice": 0.132,
+   "inPrice": 0.0434,
+   "outPrice": 0.3,
    "context": 1048576,
    "description": "This model always redirects to the latest model in the DeepSeek V4 Flash family."
   },
@@ -2012,7 +2024,7 @@
    "created": 1785478908,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.0443,
+   "inPrice": 0.0434,
    "outPrice": 0.3,
    "context": 1048576,
    "description": "DeepSeek V4 Flash 0731 is a sparse mixture-of-experts model from DeepSeek, with 13B active parameters out of 284B total. This re-post-trained revision is suited for coding, reasoning, and agent workflows...."
@@ -2158,7 +2170,7 @@
    "major": false,
    "inPrice": 1.0,
    "outPrice": 4.05,
-   "context": 524288,
+   "context": 1048576,
    "description": "Inkling is an open-weight multimodal mixture-of-experts model from Thinking Machines Lab, with 41B active parameters out of 975B total. It is designed for general-purpose reasoning, coding, agentic and tool-use systems,..."
   },
   {
@@ -2936,8 +2948,8 @@
    "created": 1777260255,
    "firstSeen": "2026-10-24",
    "major": true,
-   "inPrice": 0.1,
-   "outPrice": 0.9,
+   "inPrice": 0.05,
+   "outPrice": 0.7,
    "context": 262144,
    "description": "Qwen3.6-35B-A3B is an open-weight multimodal model from Alibaba Cloud with 35 billion total parameters and 3 billion active parameters per token. It uses a hybrid sparse mixture-of-experts architecture combining Gated..."
   },
@@ -3024,18 +3036,6 @@
    "outPrice": 0.18,
    "context": 1048576,
    "description": "DeepSeek V4 Flash is an efficiency-optimized Mixture-of-Experts model from DeepSeek with 284B total parameters and 13B activated parameters, supporting a 1M-token context window. It is designed for fast inference and..."
-  },
-  {
-   "id": "xiaomi/mimo-v2.5-pro",
-   "name": "Xiaomi: MiMo-V2.5-Pro",
-   "lab": "xiaomi",
-   "created": 1776874273,
-   "firstSeen": "2026-10-24",
-   "major": false,
-   "inPrice": 0.48,
-   "outPrice": 1.8,
-   "context": 262144,
-   "description": "MiMo-V2.5-Pro is Xiaomi\u2019s flagship model, delivering strong performance in general agentic capabilities, complex software engineering, and long-horizon tasks, with top rankings on benchmarks such as ClawEval, GDPVal, and SWE-bench Pro...."
   },
   {
    "id": "xiaomi/mimo-v2.5",
@@ -3140,8 +3140,8 @@
    "created": 1775227989,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.0675,
-   "outPrice": 0.225,
+   "inPrice": 0.0765,
+   "outPrice": 0.255,
    "context": 262144,
    "description": "Gemma 4 26B A4B IT is an instruction-tuned Mixture-of-Experts (MoE) model from Google DeepMind. Despite 25.2B total parameters, only 3.8B activate per token during inference \u2014 delivering near-31B quality at..."
   },
@@ -4520,8 +4520,8 @@
    "created": 1754414231,
    "firstSeen": "2026-10-24",
    "major": true,
-   "inPrice": 0.09,
-   "outPrice": 0.36,
+   "inPrice": 0.05,
+   "outPrice": 0.25,
    "context": 131072,
    "description": "gpt-oss-120b is an open-weight, 117B-parameter Mixture-of-Experts (MoE) language model from OpenAI designed for high-reasoning, agentic, and general-purpose production use cases. It activates 5.1B parameters per forward pass and is optimized..."
   },
@@ -5121,7 +5121,7 @@
    "firstSeen": "2026-10-24",
    "major": false,
    "inPrice": 0.08,
-   "outPrice": 0.45,
+   "outPrice": 0.16,
    "context": 131072,
    "description": "Gemma 3 introduces multimodality, supporting vision-language input and text outputs. It handles context windows up to 128k tokens, understands over 140 languages, and offers improved math, reasoning, and chat capabilities,..."
   },
@@ -5504,8 +5504,8 @@
    "created": 1721692800,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.02,
-   "outPrice": 0.04,
+   "inPrice": 0.05,
+   "outPrice": 0.08,
    "context": 131072,
    "description": "Meta's latest class of model (Llama 3.1) launched with a variety of sizes & flavors. This 8B instruct-tuned version is fast and efficient. It has demonstrated strong performance compared to..."
   },
