@@ -2,6 +2,18 @@
  "updated": "2026-11-24",
  "models": [
   {
+   "id": "xiaomi/mimo-v2.6-flash-mopd",
+   "name": "Xiaomi: MiMo-V2.6-Flash-MOPD",
+   "lab": "xiaomi",
+   "created": 1795456634,
+   "firstSeen": "2026-11-24",
+   "major": false,
+   "inPrice": 0.15,
+   "outPrice": 0.42,
+   "context": 1048576,
+   "description": "MiMo-V2.6-Flash-MOPD is an updated checkpoint of Xiaomi's MiMo-V2.6-Flash, a Mixture-of-Experts model with 309B total and 15B active parameters, a 1M-token context window, and native multimodal input. It adds a multi-teacher..."
+  },
+  {
    "id": "thinkingmachines/inkling-2-mini",
    "name": "Thinking Machines: Inkling 2 Mini",
    "lab": "thinkingmachines",
@@ -872,8 +884,8 @@
    "created": 1790950024,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.06,
-   "outPrice": 0.18,
+   "inPrice": 0.075,
+   "outPrice": 0.225,
    "context": 1048576,
    "description": "Ling 3.1 Flash is a hybrid reasoning mixture-of-experts model from inclusionAI, with 25B active parameters out of 560B total."
   },
@@ -1436,8 +1448,8 @@
    "created": 1789021285,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.0498,
-   "outPrice": 0.1992,
+   "inPrice": 0.0507,
+   "outPrice": 0.2028,
    "context": 1048576,
    "description": "DeepSeek V4.1 Flash is a sparse mixture-of-experts model from DeepSeek, and the first built on the company's Causal Encoder-Decoder (CED) architecture. It activates 8B parameters on input and 16B on..."
   },
@@ -1640,8 +1652,8 @@
    "created": 1787897375,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.834,
-   "outPrice": 2.501,
+   "inPrice": 0.7506,
+   "outPrice": 2.2509,
    "context": 1048576,
    "description": "Tencent: Hy4 preview is a mixture-of-experts model from Tencent, with 49B active parameters out of 770B total. It is designed for coding agents, complex tool-use workflows, and productivity tasks that..."
   },
@@ -1676,8 +1688,8 @@
    "created": 1787752741,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.0356,
-   "outPrice": 0.0815,
+   "inPrice": 0.15,
+   "outPrice": 0.5,
    "context": 1048576,
    "description": "GLM-5.3-Flash is a native multimodal model from Z.ai. It is suited for efficient coding and long-horizon agent tasks. Its hybrid sparse and linear attention architecture maintains accurate long-context behavior while..."
   },
@@ -1712,8 +1724,8 @@
    "created": 1787311563,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.2156,
-   "outPrice": 0.6468,
+   "inPrice": 0.44,
+   "outPrice": 1.32,
    "context": 1048576,
    "description": "DeepSeek V4 Flash Vision Exp is an experimental vision-enabled version of [DeepSeek V4 Flash 0731](https://openrouter.ai/deepseek/deepseek-v4-flash-0731) from DeepSeek, adding image understanding while matching the base model on text capabilities including agents,..."
   },
@@ -1796,8 +1808,8 @@
    "created": 1786722910,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.035,
-   "outPrice": 1.5,
+   "inPrice": 0.06,
+   "outPrice": 1.96,
    "context": 1024000,
    "description": "Qwen3.8 27B is an open-weight dense vision-language model from Qwen. It is suited for coding, professional workflows, research, multimodal interaction, and long-running agent tasks, with flexible thinking that can be..."
   },
@@ -1812,18 +1824,6 @@
    "outPrice": 2.0,
    "context": 262144,
    "description": "Qwen3.8 27B is an open-weight dense vision-language model from Qwen. It is suited for coding, professional workflows, research, multimodal interaction, and long-running agent tasks, with flexible thinking that can be..."
-  },
-  {
-   "id": "dots-studio/dots-3-note-preview:free",
-   "name": "Dots Studio: Dots3-Note Preview (free)",
-   "lab": "dots-studio",
-   "created": 1786680361,
-   "firstSeen": "2026-11-24",
-   "major": false,
-   "inPrice": 0.0,
-   "outPrice": 0.0,
-   "context": 512000,
-   "description": "Dots3-Note Preview is an open-weight mixture-of-experts model from Dots Studio, with 16B active parameters out of 280B total. It is the lightest model in the Dots 3 family and is..."
   },
   {
    "id": "google/gemini-3.7-flash",
@@ -2012,8 +2012,8 @@
    "created": 1785606009,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.0434,
-   "outPrice": 0.3,
+   "inPrice": 0.0453,
+   "outPrice": 0.136,
    "context": 1048576,
    "description": "This model always redirects to the latest model in the DeepSeek V4 Flash family."
   },
@@ -2024,7 +2024,7 @@
    "created": 1785478908,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.0434,
+   "inPrice": 0.0456,
    "outPrice": 0.3,
    "context": 1048576,
    "description": "DeepSeek V4 Flash 0731 is a sparse mixture-of-experts model from DeepSeek, with 13B active parameters out of 284B total. This re-post-trained revision is suited for coding, reasoning, and agent workflows...."
@@ -2420,8 +2420,8 @@
    "created": 1783344048,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.14,
-   "outPrice": 0.58,
+   "inPrice": 0.0825,
+   "outPrice": 0.33,
    "context": 262144,
    "description": "Hy3 is a 295B-parameter Mixture-of-Experts model from Tencent (21B active, 192 experts with top-8 routing) built for reasoning, agentic workflows, and real-world production use. It supports a configurable reasoning effort:..."
   },
@@ -2674,7 +2674,7 @@
    "major": false,
    "inPrice": 0.2,
    "outPrice": 1.15,
-   "context": 262144,
+   "context": 256000,
    "description": "Step 3.7 Flash is StepFun's latest high-efficiency multimodal Mixture-of-Experts model. It pairs a 196B-parameter language backbone with a vision encoder for native image and video understanding, activating roughly 11B parameters..."
   },
   {
@@ -2948,8 +2948,8 @@
    "created": 1777260255,
    "firstSeen": "2026-10-24",
    "major": true,
-   "inPrice": 0.05,
-   "outPrice": 0.7,
+   "inPrice": 0.1,
+   "outPrice": 0.89,
    "context": 262144,
    "description": "Qwen3.6-35B-A3B is an open-weight multimodal model from Alibaba Cloud with 35 billion total parameters and 3 billion active parameters per token. It uses a hybrid sparse mixture-of-experts architecture combining Gated..."
   },
@@ -3020,8 +3020,8 @@
    "created": 1777000679,
    "firstSeen": "2026-10-24",
    "major": true,
-   "inPrice": 0.9,
-   "outPrice": 1.5,
+   "inPrice": 1.28,
+   "outPrice": 2.56,
    "context": 1048576,
    "description": "DeepSeek V4 Pro is a large-scale Mixture-of-Experts model from DeepSeek with 1.6T total parameters and 49B activated parameters, supporting a 1M-token context window. It is designed for advanced reasoning, coding,..."
   },
@@ -3036,18 +3036,6 @@
    "outPrice": 0.18,
    "context": 1048576,
    "description": "DeepSeek V4 Flash is an efficiency-optimized Mixture-of-Experts model from DeepSeek with 284B total parameters and 13B activated parameters, supporting a 1M-token context window. It is designed for fast inference and..."
-  },
-  {
-   "id": "xiaomi/mimo-v2.5",
-   "name": "Xiaomi: MiMo-V2.5",
-   "lab": "xiaomi",
-   "created": 1776874269,
-   "firstSeen": "2026-10-24",
-   "major": false,
-   "inPrice": 0.4,
-   "outPrice": 2.0,
-   "context": 1000000,
-   "description": "MiMo-V2.5 is a native omnimodal model by Xiaomi. It delivers Pro-level agentic performance at roughly half the inference cost, while surpassing MiMo-V2-Omni in multimodal perception across image and video understanding..."
   },
   {
    "id": "openai/gpt-5.4-image-2",
@@ -3632,9 +3620,9 @@
    "created": 1770908502,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.27,
-   "outPrice": 0.95,
-   "context": 198000,
+   "inPrice": 0.3,
+   "outPrice": 1.2,
+   "context": 65536,
    "description": "MiniMax-M2.5 is a SOTA large language model designed for real-world productivity. Trained in a diverse range of complex real-world digital working environments, M2.5 builds upon the coding expertise of M2.1..."
   },
   {
@@ -4094,18 +4082,6 @@
    "description": "GPT-5.1-Codex-Mini is a smaller and faster version of GPT-5.1-Codex"
   },
   {
-   "id": "moonshotai/kimi-k2-thinking",
-   "name": "MoonshotAI: Kimi K2 Thinking",
-   "lab": "Moonshot",
-   "created": 1762440622,
-   "firstSeen": "2026-10-24",
-   "major": true,
-   "inPrice": 0.6,
-   "outPrice": 2.5,
-   "context": 262144,
-   "description": "Kimi K2 Thinking is Moonshot AI\u2019s most advanced open reasoning model to date, extending the K2 series into agentic, long-horizon reasoning. Built on the trillion-parameter Mixture-of-Experts (MoE) architecture introduced in..."
-  },
-  {
    "id": "amazon/nova-premier-v1",
    "name": "Amazon: Nova Premier 1.0",
    "lab": "amazon",
@@ -4382,18 +4358,6 @@
    "description": "Qwen3-Next-80B-A3B-Instruct is an instruction-tuned chat model in the Qwen3-Next series optimized for fast, stable responses without \u201cthinking\u201d traces. It targets complex tasks across reasoning, code generation, knowledge QA, and multilingual..."
   },
   {
-   "id": "moonshotai/kimi-k2-0905",
-   "name": "MoonshotAI: Kimi K2 0905",
-   "lab": "Moonshot",
-   "created": 1757021147,
-   "firstSeen": "2026-10-24",
-   "major": false,
-   "inPrice": 0.6,
-   "outPrice": 2.5,
-   "context": 262144,
-   "description": "Kimi K2 0905 is the September update of [Kimi K2 0711](moonshotai/kimi-k2). It is a large-scale Mixture-of-Experts (MoE) language model developed by Moonshot AI, featuring 1 trillion total parameters with 32..."
-  },
-  {
    "id": "nousresearch/hermes-4-405b",
    "name": "Nous: Hermes 4 405B",
    "lab": "nousresearch",
@@ -4416,18 +4380,6 @@
    "outPrice": 0.95,
    "context": 163840,
    "description": "DeepSeek-V3.1 is a large hybrid reasoning model (671B parameters, 37B active) that supports both thinking and non-thinking modes via prompt templates. It extends the DeepSeek-V3 base with a two-phase long-context..."
-  },
-  {
-   "id": "mistralai/mistral-medium-3.1",
-   "name": "Mistral: Mistral Medium 3.1",
-   "lab": "Mistral",
-   "created": 1755095639,
-   "firstSeen": "2026-10-24",
-   "major": true,
-   "inPrice": 0.44,
-   "outPrice": 2.2,
-   "context": 131072,
-   "description": "Mistral Medium 3.1 is an updated version of Mistral Medium 3, which is a high-performance enterprise-grade language model designed to deliver frontier-level capabilities at significantly reduced operational cost. It balances..."
   },
   {
    "id": "z-ai/glm-4.5v",
@@ -4706,18 +4658,6 @@
    "description": "Qwen3-235B-A22B-Instruct-2507 is a multilingual, instruction-tuned mixture-of-experts language model based on the Qwen3-235B architecture, with 22B active parameters per forward pass. It is optimized for general-purpose text generation, including instruction following,..."
   },
   {
-   "id": "moonshotai/kimi-k2",
-   "name": "MoonshotAI: Kimi K2 0711",
-   "lab": "Moonshot",
-   "created": 1752263252,
-   "firstSeen": "2026-10-24",
-   "major": true,
-   "inPrice": 0.57,
-   "outPrice": 2.3,
-   "context": 131072,
-   "description": "Kimi K2 Instruct is a large-scale Mixture-of-Experts (MoE) language model developed by Moonshot AI, featuring 1 trillion total parameters with 32 billion active per forward pass. It is optimized for..."
-  },
-  {
    "id": "cognitivecomputations/dolphin-mistral-24b-venice-edition",
    "name": "Venice: Uncensored",
    "lab": "cognitivecomputations",
@@ -4848,18 +4788,6 @@
    "outPrice": 2.286,
    "context": 163840,
    "description": "May 28th update to the [original DeepSeek R1](/deepseek/deepseek-r1) Performance on par with [OpenAI o1](/openai/o1), but open-sourced and with fully open reasoning tokens. It's 671B parameters in size, with 37B active..."
-  },
-  {
-   "id": "mistralai/mistral-medium-3",
-   "name": "Mistral: Mistral Medium 3",
-   "lab": "Mistral",
-   "created": 1746627341,
-   "firstSeen": "2026-10-24",
-   "major": true,
-   "inPrice": 0.44,
-   "outPrice": 2.2,
-   "context": 131072,
-   "description": "Mistral Medium 3 is a high-performance enterprise-grade language model designed to deliver frontier-level capabilities at significantly reduced operational cost. It balances state-of-the-art reasoning and multimodal performance with 8\u00d7 lower cost..."
   },
   {
    "id": "meta-llama/llama-guard-4-12b",
