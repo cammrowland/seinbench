@@ -1,6 +1,30 @@
 {
- "updated": "2026-11-24",
+ "updated": "2026-11-25",
  "models": [
+  {
+   "id": "upstage/solar-mini-4-5",
+   "name": "Upstage: Solar Mini 4.5 (Preview)",
+   "lab": "upstage",
+   "created": 1795562304,
+   "firstSeen": "2026-11-25",
+   "major": false,
+   "inPrice": 0.01,
+   "outPrice": 0.04,
+   "context": 524288,
+   "description": "Solar Mini 4.5 is Upstage's compact language model, built on a proprietary mixture-of-experts architecture with 35B total and 3B active parameters and a 524K context window. It is a step..."
+  },
+  {
+   "id": "upstage/solar-pro-4-contributor",
+   "name": "Upstage: Solar Pro 4 Contributor",
+   "lab": "upstage",
+   "created": 1795562304,
+   "firstSeen": "2026-11-25",
+   "major": false,
+   "inPrice": 0.09,
+   "outPrice": 0.36,
+   "context": 524288,
+   "description": "Solar Pro 4 Contributor is the same Solar Pro 4 model from Upstage, offered at a lower rate in exchange for allowing Upstage to use interaction data to improve its..."
+  },
   {
    "id": "xiaomi/mimo-v2.6-flash-mopd",
    "name": "Xiaomi: MiMo-V2.6-Flash-MOPD",
@@ -8,8 +32,8 @@
    "created": 1795456634,
    "firstSeen": "2026-11-24",
    "major": false,
-   "inPrice": 0.15,
-   "outPrice": 0.42,
+   "inPrice": 0.5,
+   "outPrice": 1.0,
    "context": 1048576,
    "description": "MiMo-V2.6-Flash-MOPD is an updated checkpoint of Xiaomi's MiMo-V2.6-Flash, a Mixture-of-Experts model with 309B total and 15B active parameters, a 1M-token context window, and native multimodal input. It adds a multi-teacher..."
   },
@@ -596,8 +620,8 @@
    "created": 1792225624,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.03,
-   "outPrice": 0.2,
+   "inPrice": 0.15,
+   "outPrice": 0.6,
    "context": 1048576,
    "description": "DeepSeek V4.1 Flash 1017 is the October 17, 2026 snapshot of DeepSeek V4.1 Flash, served by DeepSeek under the `deepseek-flash` API model name. V4.1 Flash is a sparse mixture-of-experts model..."
   },
@@ -710,40 +734,16 @@
    "description": "NVIDIA Nemotron 3.5 Super VL is an open multimodal mixture-of-experts model from NVIDIA, with 12B active parameters out of 120B total. It takes text, images, documents, GUI screenshots, and video..."
   },
   {
-   "id": "unbiased/pareto-26.10",
-   "name": "Pareto 26.10",
-   "lab": "unbiased",
-   "created": 1792073620,
-   "firstSeen": "2026-10-24",
-   "major": false,
-   "inPrice": 0.8,
-   "outPrice": 3.2,
-   "context": 1048576,
-   "description": "Pareto is a multimodal composite model built for research, coding, and agentic workflows, while delivering frontier-level performance across a broad range of general-purpose tasks."
-  },
-  {
    "id": "~unbiased/pareto-latest",
    "name": "Pareto Latest",
    "lab": "~unbiased",
    "created": 1791933050,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.8,
-   "outPrice": 3.2,
-   "context": 1048576,
-   "description": "This model always redirects to the latest model in the Pareto family."
-  },
-  {
-   "id": "unbiased/pareto-26.9",
-   "name": "Pareto 26.9",
-   "lab": "unbiased",
-   "created": 1791930537,
-   "firstSeen": "2026-10-24",
-   "major": false,
-   "inPrice": 2.5,
-   "outPrice": 7.5,
+   "inPrice": -1000000.0,
+   "outPrice": -1000000.0,
    "context": 262144,
-   "description": "Pareto is a multimodal composite model built for research, coding, and agentic workflows, while delivering frontier-level performance across a broad range of general-purpose tasks."
+   "description": "This model always redirects to the latest model in the Pareto family."
   },
   {
    "id": "liquid/lfm-2.5-24b-a2b",
@@ -888,18 +888,6 @@
    "outPrice": 0.225,
    "context": 1048576,
    "description": "Ling 3.1 Flash is a hybrid reasoning mixture-of-experts model from inclusionAI, with 25B active parameters out of 560B total."
-  },
-  {
-   "id": "unbiased/pareto-26.10-preview",
-   "name": "Pareto 26.10 Preview",
-   "lab": "unbiased",
-   "created": 1790863623,
-   "firstSeen": "2026-11-12",
-   "major": false,
-   "inPrice": 0.8,
-   "outPrice": 3.2,
-   "context": 1048576,
-   "description": "Pareto is a multimodal composite model built for research, coding, and agentic workflows, while delivering frontier-level performance across a broad range of general-purpose tasks. This is a preview of the..."
   },
   {
    "id": "openai/gpt-6.1-sol-pro",
@@ -1328,8 +1316,8 @@
    "created": 1789399150,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.03,
-   "outPrice": 0.2,
+   "inPrice": 0.036,
+   "outPrice": 0.5,
    "context": 1048576,
    "description": "This model always redirects to the latest model in the DeepSeek Flash family."
   },
@@ -1688,8 +1676,8 @@
    "created": 1787752741,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.15,
-   "outPrice": 0.5,
+   "inPrice": 0.12,
+   "outPrice": 0.38,
    "context": 1048576,
    "description": "GLM-5.3-Flash is a native multimodal model from Z.ai. It is suited for efficient coding and long-horizon agent tasks. Its hybrid sparse and linear attention architecture maintains accurate long-context behavior while..."
   },
@@ -1808,8 +1796,8 @@
    "created": 1786722910,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.06,
-   "outPrice": 1.96,
+   "inPrice": 0.035,
+   "outPrice": 1.5,
    "context": 1024000,
    "description": "Qwen3.8 27B is an open-weight dense vision-language model from Qwen. It is suited for coding, professional workflows, research, multimodal interaction, and long-running agent tasks, with flexible thinking that can be..."
   },
@@ -1916,7 +1904,7 @@
    "created": 1786452751,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.05,
+   "inPrice": 0.07,
    "outPrice": 0.2,
    "context": 1048576,
    "description": "NVIDIA Nemotron 3.5 Lightning is an open mixture-of-experts model from NVIDIA, with 3B active parameters out of 30B total. It is suited for high-throughput agentic workloads and specialized tasks that..."
@@ -2024,8 +2012,8 @@
    "created": 1785478908,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.0456,
-   "outPrice": 0.3,
+   "inPrice": 0.06,
+   "outPrice": 0.18,
    "context": 1048576,
    "description": "DeepSeek V4 Flash 0731 is a sparse mixture-of-experts model from DeepSeek, with 13B active parameters out of 284B total. This re-post-trained revision is suited for coding, reasoning, and agent workflows...."
   },
@@ -3020,8 +3008,8 @@
    "created": 1777000679,
    "firstSeen": "2026-10-24",
    "major": true,
-   "inPrice": 1.28,
-   "outPrice": 2.56,
+   "inPrice": 0.6018,
+   "outPrice": 1.5027,
    "context": 1048576,
    "description": "DeepSeek V4 Pro is a large-scale Mixture-of-Experts model from DeepSeek with 1.6T total parameters and 49B activated parameters, supporting a 1M-token context window. It is designed for advanced reasoning, coding,..."
   },
@@ -3322,6 +3310,18 @@
    "major": false,
    "inPrice": 0.15,
    "outPrice": 0.6,
+   "context": 262144,
+   "description": "Mistral Small 4 is the next major release in the Mistral Small family, unifying the capabilities of several flagship Mistral models into a single system. It combines strong reasoning from..."
+  },
+  {
+   "id": "mistralai/mistral-small-2603:batch",
+   "name": "Mistral: Mistral Small 4 (batch)",
+   "lab": "Mistral",
+   "created": 1773695685,
+   "firstSeen": "2026-11-25",
+   "major": false,
+   "inPrice": 0.075,
+   "outPrice": 0.3,
    "context": 262144,
    "description": "Mistral Small 4 is the next major release in the Mistral Small family, unifying the capabilities of several flagship Mistral models into a single system. It combines strong reasoning from..."
   },
@@ -3742,7 +3742,7 @@
    "major": false,
    "inPrice": 0.0605,
    "outPrice": 0.4,
-   "context": 200000,
+   "context": 131072,
    "description": "As a 30B-class SOTA model, GLM-4.7-Flash offers a new option that balances performance and efficiency. It is further optimized for agentic coding use cases, strengthening coding capabilities, long-horizon task planning,..."
   },
   {
@@ -3962,6 +3962,18 @@
    "description": "A balanced model in the Ministral 3 family, Ministral 3 8B is a powerful, efficient tiny language model with vision capabilities."
   },
   {
+   "id": "mistralai/ministral-8b-2512:batch",
+   "name": "Mistral: Ministral 3 8B 2512 (batch)",
+   "lab": "Mistral",
+   "created": 1764681654,
+   "firstSeen": "2026-11-25",
+   "major": false,
+   "inPrice": 0.075,
+   "outPrice": 0.075,
+   "context": 262144,
+   "description": "A balanced model in the Ministral 3 family, Ministral 3 8B is a powerful, efficient tiny language model with vision capabilities."
+  },
+  {
    "id": "mistralai/ministral-3b-2512",
    "name": "Mistral: Ministral 3 3B 2512",
    "lab": "Mistral",
@@ -3982,6 +3994,18 @@
    "major": false,
    "inPrice": 0.5,
    "outPrice": 1.5,
+   "context": 262144,
+   "description": "Mistral Large 3 2512 is Mistral\u2019s most capable model to date, featuring a sparse mixture-of-experts architecture with 41B active parameters (675B total), and released under the Apache 2.0 license."
+  },
+  {
+   "id": "mistralai/mistral-large-2512:batch",
+   "name": "Mistral: Mistral Large 3 2512 (batch)",
+   "lab": "Mistral",
+   "created": 1764624472,
+   "firstSeen": "2026-11-25",
+   "major": false,
+   "inPrice": 0.25,
+   "outPrice": 0.75,
    "context": 262144,
    "description": "Mistral Large 3 2512 is Mistral\u2019s most capable model to date, featuring a sparse mixture-of-experts architecture with 41B active parameters (675B total), and released under the Apache 2.0 license."
   },
@@ -4550,6 +4574,18 @@
    "description": "Mistral's cutting-edge language model for coding released end of July 2025. Codestral specializes in low-latency, high-frequency tasks such as fill-in-the-middle (FIM), code correction and test generation.\n\n[Blog Post](https://mistral.ai/news/codestral-25-08)"
   },
   {
+   "id": "mistralai/codestral-2508:batch",
+   "name": "Mistral: Codestral 2508 (batch)",
+   "lab": "Mistral",
+   "created": 1754079630,
+   "firstSeen": "2026-11-25",
+   "major": false,
+   "inPrice": 0.15,
+   "outPrice": 0.45,
+   "context": 256000,
+   "description": "Mistral's cutting-edge language model for coding released end of July 2025. Codestral specializes in low-latency, high-frequency tasks such as fill-in-the-middle (FIM), code correction and test generation.\n\n[Blog Post](https://mistral.ai/news/codestral-25-08)"
+  },
+  {
    "id": "qwen/qwen3-coder-30b-a3b-instruct",
    "name": "Qwen: Qwen3 Coder 30B A3B Instruct",
    "lab": "Qwen",
@@ -4592,8 +4628,8 @@
    "created": 1753471258,
    "firstSeen": "2026-10-24",
    "major": true,
-   "inPrice": 0.13,
-   "outPrice": 0.85,
+   "inPrice": 0.2,
+   "outPrice": 1.1,
    "context": 131072,
    "description": "GLM-4.5-Air is the lightweight variant of our latest flagship model family, also purpose-built for agent-centric applications. Like GLM-4.5, it adopts the Mixture-of-Experts (MoE) architecture but with a more compact parameter..."
   },
@@ -4668,6 +4704,18 @@
    "outPrice": 0.9,
    "context": 128000,
    "description": "Venice Uncensored Dolphin Mistral 24B Venice Edition is a fine-tuned variant of Mistral-Small-24B-Instruct-2501, developed by dphn.ai in collaboration with Venice.ai. This model is designed as an \u201cuncensored\u201d instruct-tuned LLM, preserving..."
+  },
+  {
+   "id": "tngtech/deepseek-r1t2-chimera",
+   "name": "TNG: DeepSeek R1T2 Chimera",
+   "lab": "tngtech",
+   "created": 1751986985,
+   "firstSeen": "2026-11-25",
+   "major": false,
+   "inPrice": 1.0,
+   "outPrice": 2.625,
+   "context": 131072,
+   "description": "DeepSeek-TNG-R1T2-Chimera is the second-generation Chimera model from TNG Tech. It is a 671 B-parameter mixture-of-experts text-generation model assembled from DeepSeek-AI\u2019s R1-0528, R1, and V3-0324 checkpoints with an Assembly-of-Experts merge. The..."
   },
   {
    "id": "morph/morph-v3-large",
