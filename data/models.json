@@ -1,6 +1,18 @@
 {
- "updated": "2026-11-25",
+ "updated": "2026-11-26",
  "models": [
+  {
+   "id": "inclusionai/lingsante-3.1-air-vl",
+   "name": "inclusionAI: LingSante 3.1 Air VL",
+   "lab": "inclusionai",
+   "created": 1795705284,
+   "firstSeen": "2026-11-26",
+   "major": false,
+   "inPrice": 0.06,
+   "outPrice": 0.18,
+   "context": 131072,
+   "description": "LingSante 3.1 Air VL is inclusionAI's medical vision-language model, a 124B total / 5.5B active MoE. It takes text and up to 16 images (scans, skin and meal photos, lab..."
+  },
   {
    "id": "upstage/solar-mini-4-5",
    "name": "Upstage: Solar Mini 4.5 (Preview)",
@@ -656,7 +668,7 @@
    "created": 1792160499,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.25,
+   "inPrice": 0.3,
    "outPrice": 1.0,
    "context": 1048576,
    "description": "Beam 1.0 is Reflection's open-weight reasoning model for coding and long-horizon agentic workflows. It uses a sparse mixture-of-experts architecture with 501B total and 23B active parameters per token, and a..."
@@ -1304,8 +1316,8 @@
    "created": 1789399174,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.0999,
-   "outPrice": 5.0,
+   "inPrice": 0.111,
+   "outPrice": 4.44,
    "context": 1048576,
    "description": "This model always redirects to the latest model in the DeepSeek Pro family."
   },
@@ -1676,8 +1688,8 @@
    "created": 1787752741,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.12,
-   "outPrice": 0.38,
+   "inPrice": 0.15,
+   "outPrice": 0.5,
    "context": 1048576,
    "description": "GLM-5.3-Flash is a native multimodal model from Z.ai. It is suited for efficient coding and long-horizon agent tasks. Its hybrid sparse and linear attention architecture maintains accurate long-context behavior while..."
   },
@@ -1796,8 +1808,8 @@
    "created": 1786722910,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.035,
-   "outPrice": 1.5,
+   "inPrice": 0.06,
+   "outPrice": 1.96,
    "context": 1024000,
    "description": "Qwen3.8 27B is an open-weight dense vision-language model from Qwen. It is suited for coding, professional workflows, research, multimodal interaction, and long-running agent tasks, with flexible thinking that can be..."
   },
@@ -2012,8 +2024,8 @@
    "created": 1785478908,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.06,
-   "outPrice": 0.18,
+   "inPrice": 0.0456,
+   "outPrice": 0.3,
    "context": 1048576,
    "description": "DeepSeek V4 Flash 0731 is a sparse mixture-of-experts model from DeepSeek, with 13B active parameters out of 284B total. This re-post-trained revision is suited for coding, reasoning, and agent workflows...."
   },
@@ -3008,8 +3020,8 @@
    "created": 1777000679,
    "firstSeen": "2026-10-24",
    "major": true,
-   "inPrice": 0.6018,
-   "outPrice": 1.5027,
+   "inPrice": 0.6423,
+   "outPrice": 1.5663,
    "context": 1048576,
    "description": "DeepSeek V4 Pro is a large-scale Mixture-of-Experts model from DeepSeek with 1.6T total parameters and 49B activated parameters, supporting a 1M-token context window. It is designed for advanced reasoning, coding,..."
   },
@@ -3368,7 +3380,7 @@
    "created": 1773152396,
    "firstSeen": "2026-10-24",
    "major": false,
-   "inPrice": 0.17,
+   "inPrice": 0.1,
    "outPrice": 0.25,
    "context": 262144,
    "description": "Qwen3.5-9B is a multimodal foundation model from the Qwen3.5 family, designed to deliver strong reasoning, coding, and visual understanding in an efficient 9B-parameter architecture. It uses a unified vision-language design..."
@@ -3608,8 +3620,8 @@
    "created": 1771223018,
    "firstSeen": "2026-10-24",
    "major": true,
-   "inPrice": 0.45,
-   "outPrice": 3.0,
+   "inPrice": 0.5,
+   "outPrice": 3.6,
    "context": 262144,
    "description": "The Qwen3.5 series 397B-A17B native vision-language model is built on a hybrid architecture that integrates a linear attention mechanism with a sparse mixture-of-experts model, achieving higher inference efficiency. It delivers..."
   },
@@ -4270,7 +4282,7 @@
    "major": true,
    "inPrice": 0.5,
    "outPrice": 2.0,
-   "context": 204800,
+   "context": 202752,
    "description": "Compared with GLM-4.5, this generation brings several key improvements: Longer context window: The context window has been expanded from 128K to 200K tokens, enabling the model to handle more complex..."
   },
   {
@@ -4380,6 +4392,18 @@
    "outPrice": 1.1,
    "context": 262144,
    "description": "Qwen3-Next-80B-A3B-Instruct is an instruction-tuned chat model in the Qwen3-Next series optimized for fast, stable responses without \u201cthinking\u201d traces. It targets complex tasks across reasoning, code generation, knowledge QA, and multilingual..."
+  },
+  {
+   "id": "moonshotai/kimi-k2-0905",
+   "name": "MoonshotAI: Kimi K2 0905",
+   "lab": "Moonshot",
+   "created": 1757021147,
+   "firstSeen": "2026-11-26",
+   "major": false,
+   "inPrice": 0.6,
+   "outPrice": 2.5,
+   "context": 262144,
+   "description": "Kimi K2 0905 is the September update of [Kimi K2 0711](moonshotai/kimi-k2). It is a large-scale Mixture-of-Experts (MoE) language model developed by Moonshot AI, featuring 1 trillion total parameters with 32..."
   },
   {
    "id": "nousresearch/hermes-4-405b",
@@ -4692,6 +4716,18 @@
    "outPrice": 0.8,
    "context": 262144,
    "description": "Qwen3-235B-A22B-Instruct-2507 is a multilingual, instruction-tuned mixture-of-experts language model based on the Qwen3-235B architecture, with 22B active parameters per forward pass. It is optimized for general-purpose text generation, including instruction following,..."
+  },
+  {
+   "id": "moonshotai/kimi-k2",
+   "name": "MoonshotAI: Kimi K2 0711",
+   "lab": "Moonshot",
+   "created": 1752263252,
+   "firstSeen": "2026-11-26",
+   "major": true,
+   "inPrice": 0.57,
+   "outPrice": 2.3,
+   "context": 131072,
+   "description": "Kimi K2 Instruct is a large-scale Mixture-of-Experts (MoE) language model developed by Moonshot AI, featuring 1 trillion total parameters with 32 billion active per forward pass. It is optimized for..."
   },
   {
    "id": "cognitivecomputations/dolphin-mistral-24b-venice-edition",
@@ -5097,7 +5133,7 @@
    "firstSeen": "2026-10-24",
    "major": false,
    "inPrice": 0.08,
-   "outPrice": 0.16,
+   "outPrice": 0.45,
    "context": 131072,
    "description": "Gemma 3 introduces multimodality, supporting vision-language input and text outputs. It handles context windows up to 128k tokens, understands over 140 languages, and offers improved math, reasoning, and chat capabilities,..."
   },
